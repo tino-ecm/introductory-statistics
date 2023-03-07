@@ -117,7 +117,7 @@
 
 \title{初級統計学}
 \author{TI}
-\date{2023-03-07}
+\date{2023-03-08}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -148,147 +148,6 @@
 \addcontentsline{toc}{chapter}{編集用}
 
 \url{https://bookdown.org/yihui/rmarkdown-cookbook/}
-
-\hypertarget{ux7d71ux8a08ux3068ux4ebaux9593ux751fux6d3b}{%
-\chapter{統計と人間生活}\label{ux7d71ux8a08ux3068ux4ebaux9593ux751fux6d3b}}
-
-日常生活では\textbf{統計的な考え方}がさまざまな場面で利用されている
-
-\begin{quote}
-例1：統計がないとスポーツ観戦がつまらなくなる
-野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような\textbf{統計}が利用される
-
-\[
-\text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad
-\text{防御率}=\frac{\text{自責点}}{\text{投球回}} \times 9
-\]
-\end{quote}
-
-これらの\textbf{統計}が存在しなければ：
-* 登場した打者にどれくらいの安打が期待できるのかわからない
-* 投手にどれくらいの健闘が期待できるのかわからない
-
-\begin{quote}
-例2：統計がないと今日の天気を比べられない
-天気予報で気象予報士が「きょうは4月中旬にしては異常に暖かかった」あるいは「きょうは6月上旬の陽気であった」と表現することがある。
-\end{quote}
-
-\begin{itemize}
-\tightlist
-\item
-  「異常」な状態を定義するには，「平常」な状態の定義が必要
-\item
-  ではどのように「平常」な状態を定義できるだろうか？
-\item
-  「平常」な気温は，過去何十年にもわたって観測した4月中旬の気温を平均してもとめた¥underline\{平均気温\}という統計数字
-\item
-  「異常」な暖かさとは「平常」な気温の値があってはじめて判断できる
-\item
-  疑問：平均気温よりもどれくらい離れていると「異常」と言えるだろうか？
-\end{itemize}
-
-\begin{quote}
-例3：統計がなければ「当選確実」かどうかはすぐにわからない
-選挙速報で，数パーセントしか開票していないのに「当選確実」と報道できるのはなぜか？
-¥end\{exampleblock\}
-\end{quote}
-
-\%¥pause
-
-¥begin\{itemize\}
-¥item 選挙前の支持者，投票意向などの統計的調査などから得た情報をもとに\texttt{推定\textquotesingle{}\textquotesingle{}\ ¥item\ ¥underline\{一部分の開票結果\}から¥underline\{全体の傾向\}を推しはかる}統計的推論'\,'とよばれる分析の応用例
-¥end\{itemize\}
-
-\begin{quote}
-例4：企業経営に統計は不可欠
-多くの製造業者は，注文を受けてから製品を製造する\texttt{受注生産\textquotesingle{}\textquotesingle{}ではなく，どれくらい売れそうかという見込みをたてて製品を製造する}見込生産'\,'を行っている
-¥end\{exampleblock\}
-\end{quote}
-
-\%¥pause
-
-¥begin\{itemize\}
-¥item 生産量が多すぎれば``在庫'\,'を抱えてしまうし，少なすぎたりすると社会的に混乱を生じさせてしまう
-¥begin\{itemize\}
-¥item 例：食品メーカーのある炭酸飲料が「予想を上回る注文があったため販売2日目で当面出荷停止」
-\%サントリーのオランジーナ 2015/4/2
-¥end\{itemize\}
-
-¥item 人口総数，男女別構成・年齢別構成等の統計をもとに需要予測を行い，生産量の計画をたてる
-¥item 消費者の消費習慣や購買習慣を，企業みずから，あるいは専門の調査機関に依頼して``市場調査'\,'する
-¥end\{itemize\}
-
-\begin{quote}
-例5：経済政策の決定にも統計は不可欠
-政府は所得税を減税することで消費を増加させ，公共投資を増やすことによって景気を刺激しようとする。政策を決定する際には，各種の経済統計(家計調査，設備投資計画調査など)が示す経済状態に細心の注意を払うと同時に，各種税率，公共投資額，金利，マネーストック等の経済政策にかかわる変数と経済の状態を示す各種変数との関係が利用されている
-¥end\{exampleblock\}
-\end{quote}
-
-\%¥pause
-
-¥begin\{itemize\}
-¥item GDP，物価指数，金利，株価，失業率，為替レートなどのマクロ経済データを使って作成した計量経済学的モデルは，政府の経済政策の決定に不可欠なツールのひとつ
-
-¥begin\{alertblock\}\{内閣府の経済社会総合研究所の分析(2015)\}
-¥begin\{itemize\}
-¥item 消費税率1¥\%引上げで1年後の実質GDPは0.24¥\%減少
-¥item 短期金利1¥\%引上げで1年後の実質GDPは0.32¥\%減少
-\%¥item 内閣府経済社会総合研究所「短期日本経済マクロ計量モデル(2015年版)の構造と乗数分析」
-\%(\url{http://www.esri.go.jp/jp/archive/e¥_dis/e¥_dis314/e¥_dis314.pdf})
-¥end\{itemize\}
-¥end\{alertblock\}
-\%¥begin\{itemize\}
-\%¥item 内閣府の経済社会総合研究所の分析によれば：
-\%¥item 消費税率1¥\%\(¥uparrow\)で1年目の実質GDPは0.24¥\%\(¥downarrow\)
-\%¥item 短期金利1¥\%\(¥uparrow\)で1年目の実質GDPは0.32¥\%\(¥downarrow\)
-\%\%¥item 内閣府経済社会総合研究所「短期日本経済マクロ計量モデル(2015年版)の構造と乗数分析」
-\%\%(\url{http://www.esri.go.jp/jp/archive/e¥_dis/e¥_dis314/e¥_dis314.pdf})
-\%¥end\{itemize\}
-¥end\{itemize\}
-
-\begin{quote}
-例6：アパート・マンションを選ぶときにも統計が使える
-この物件を借りるべきか？
-\end{quote}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec01/fig_kichi_1room_example.png}
-\caption{image of histogram}
-\end{figure}
-
-\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%
-¥begin\{frame\}¥frametitle\{統計とは\}
-¥begin\{block\}\{統計とは\}
-統計とは，ある特定の集団について，それを構成するものの特定の性質に注目して観察し，その集団全体の特徴を数量的に表現しようとするもの
-¥end\{block\}
-
-¥begin\{enumerate\}
-¥item ¥textcolor\{red\}\{記述\}統計：複数の者，あるいは複数の時点で示した数字を集約整理し，その集団全体の¥textcolor\{red\}\{特徴を示そうとする\}もの
-
-\%¥pause
-¥vspace\{5mm\}
-
-¥item ¥textcolor\{red\}\{推測\}統計：一部から全体の¥textcolor\{red\}\{特徴を推測・予測する\}こと
-¥end\{enumerate\}
-
-\begin{quote}
-質問
-先述の例を分類してみましょう
-
-\begin{longtable}[]{@{}ccc@{}}
-\toprule()
-& テーマ & 種類 \\
-\midrule()
-\endhead
-例1 & スポーツ観戦 & データの要約(平均的傾向)，記述 \\
-例2 & 異常な天気 & データの要約(ちらばり具合) \\
-例3 & 選挙速報 & 予測，推定 \\
-例4 & 見込み生産 & 予測，推定 \\
-例5 & 経済政策 & 記述，推定 \\
-\bottomrule()
-\end{longtable}
-\end{quote}
 
 Qiita マークダウン記法 一覧表・チートシート
 \url{https://qiita.com/kamorits/items/6f342da395ad57468ae3}
@@ -337,6 +196,160 @@ As you work, you may start a local server to live preview this HTML book. This p
 \NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{serve\_book}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{part-ux7b2cuxff11ux90e8}{%
+\chapter{(PART*) 第１部}\label{part-ux7b2cuxff11ux90e8}}
+
+\hypertarget{ux7d71ux8a08ux3068ux4ebaux9593ux751fux6d3b}{%
+\chapter{統計と人間生活}\label{ux7d71ux8a08ux3068ux4ebaux9593ux751fux6d3b}}
+
+日常生活では\textbf{統計的な考え方}がさまざまな場面で利用されている
+
+\begin{quote}
+例1：統計がないとスポーツ観戦がつまらなくなる
+野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような\textbf{統計}が利用される
+
+\[
+\text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad
+\text{防御率}=\frac{\text{自責点}}{\text{投球回}} \times 9
+\]
+\end{quote}
+
+これらの\textbf{統計}が存在しなければ：
+
+\begin{itemize}
+\tightlist
+\item
+  登場した打者にどれくらいの安打が期待できるのかわからない
+\item
+  投手にどれくらいの健闘が期待できるのかわからない
+\end{itemize}
+
+\begin{quote}
+例2：統計がないと今日の天気を比べられない
+天気予報で気象予報士が「きょうは4月中旬にしては異常に暖かかった」あるいは「きょうは6月上旬の陽気であった」と表現することがある。
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  「異常」な状態を定義するには，「平常」な状態の定義が必要
+\item
+  ではどのように「平常」な状態を定義できるだろうか？
+\item
+  「平常」な気温は，過去何十年にもわたって観測した4月中旬の気温を平均してもとめた\underline{平均気温}という統計数字
+\item
+  「異常」な暖かさとは「平常」な気温の値があってはじめて判断できる
+\item
+  疑問：平均気温よりもどれくらい離れていると「異常」と言えるだろうか？
+\end{itemize}
+
+\begin{quote}
+例3：統計がなければ「当選確実」かどうかはすぐにわからない
+選挙速報で，数パーセントしか開票していないのに「当選確実」と報道できるのはなぜか？
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  選挙前の支持者，投票意向などの統計的調査などから得た情報をもとに``推定'\,'
+\item
+  \textbf{一部分の開票結果}から\textbf{全体の傾向}を推しはかる``統計的推論'\,'とよばれる分析の応用例
+\end{itemize}
+
+\begin{quote}
+例4：企業経営に統計は不可欠
+多くの製造業者は，注文を受けてから製品を製造する\textbf{受注生産}ではなく，どれくらい売れそうかという見込みをたてて製品を製造する\textbf{見込生産}を行っている
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  生産量が多すぎれば\textbf{在庫}を抱えてしまうし，少なすぎたりすると社会的に混乱を生じさせてしまう
+
+  \begin{itemize}
+  \tightlist
+  \item
+    例：食品メーカーのある炭酸飲料が「予想を上回る注文があったため販売2日目で当面出荷停止」
+  \item
+    サントリーのオランジーナ 2015/4/2
+  \end{itemize}
+\item
+  人口総数，男女別構成・年齢別構成等の統計をもとに需要予測を行い，生産量の計画をたてる
+\item
+  消費者の消費習慣や購買習慣を，企業みずから，あるいは専門の調査機関に依頼して\textbf{市場調査}する
+\end{itemize}
+
+\begin{quote}
+例5：経済政策の決定にも統計は不可欠
+政府は所得税を減税することで消費を増加させ，公共投資を増やすことによって景気を刺激しようとする。政策を決定する際には，各種の経済統計(家計調査，設備投資計画調査など)が示す経済状態に細心の注意を払うと同時に，各種税率，公共投資額，金利，マネーストック等の経済政策にかかわる変数と経済の状態を示す各種変数との関係が利用されている
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  GDP，物価指数，金利，株価，失業率，為替レートなどのマクロ経済データを使って作成した計量経済学的モデルは，政府の経済政策の決定に不可欠なツールのひとつ
+\end{itemize}
+
+\begin{quote}
+内閣府の経済社会総合研究所の分析(2015)
+
+\begin{itemize}
+\tightlist
+\item
+  消費税率1\%引上げで1年後の実質GDPは0.24\%減少
+\item
+  短期金利1\%引上げで1年後の実質GDPは0.32\%減少
+\item
+  内閣府経済社会総合研究所「短期日本経済マクロ計量モデル(2015年版)の構造と乗数分析」
+  \%(\url{http://www.esri.go.jp/jp/archive/e/_dis/e/_dis314/e/_dis314.pdf})
+\end{itemize}
+\end{quote}
+
+\begin{quote}
+例6：アパート・マンションを選ぶときにも統計が使える
+この部屋の家賃は平均よりも高いのか、それとも安いのか？
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec01/fig_kichi_1room_example.png}
+\caption{image of histogram}
+\end{figure}
+
+\hypertarget{ux7d71ux8a08ux3068ux306f}{%
+\section{統計とは}\label{ux7d71ux8a08ux3068ux306f}}
+
+\begin{quote}
+統計とは
+統計とは，ある特定の集団について，それを構成するものの特定の性質に注目して観察し，その集団全体の特徴を数量的に表現しようとするもの
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{記述統計}：複数の者，あるいは複数の時点で示した数字を集約整理し，その集団全体の\textbf{特徴を示そうとする}もの
+\item
+  \textbf{推測統計}：一部から全体の\textbf{特徴を推測・予測する}こと
+\end{itemize}
+
+\begin{quote}
+質問
+先述の例を分類してみましょう
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule()
+& テーマ & 種類 \\
+\midrule()
+\endhead
+例1 & スポーツ観戦 & データの要約(平均的傾向)，記述 \\
+例2 & 異常な天気 & データの要約(ちらばり具合) \\
+例3 & 選挙速報 & 予測，推定 \\
+例4 & 見込み生産 & 予測，推定 \\
+例5 & 経済政策 & 記述，推定 \\
+\bottomrule()
+\end{longtable}
+\end{quote}
 
 \hypertarget{ux30c7ux30fcux30bfux306eux5c3aux5ea6ux306aux3069}{%
 \chapter{データの尺度など}\label{ux30c7ux30fcux30bfux306eux5c3aux5ea6ux306aux3069}}
@@ -706,6 +719,276 @@ As you work, you may start a local server to live preview this HTML book. This p
 \bottomrule()
 \end{longtable}
 
+\hypertarget{ux30edux30fcux30ecux30f3ux30c4ux66f2ux7dda}{%
+\chapter{ローレンツ曲線}\label{ux30edux30fcux30ecux30f3ux30c4ux66f2ux7dda}}
+
+\begin{quote}
+定義：(所得の)5分位階級
+全ての世帯を所得の低い方から順番に並べ，それを世帯数で五等分して五つのグループを作った場合の各グループのことで，収入の低い方から順次第1，第2，第3，第4，第5分位階級とよぶ（参考：総務省，家計調査\textasciitilde 用語の解説 \url{http://www.stat.go.jp/data/kakei/kaisetsu.htm}）
+\end{quote}
+
+\begin{quote}
+問題：アメリカの1966年時点の所得の分布
+次はアメリカの1966年時点の5分位階級別の所得の割合(\%)を示したデータです。コメントして下さい。
+\end{quote}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule()
+所得階級 & 第1分位 & 第2分位 & 第3分位 & 第4分位 & 第5分位 \\
+\midrule()
+\endhead
+1966年 & 5.6 & 12.4 & 17.7 & 23.8 & 40.5 \\
+\bottomrule()
+\end{longtable}
+
+出所：US Department of Commerce, Statistical Abstract of the United States
+
+\begin{quote}
+定義：円グラフ(パイチャート)
+360度の円を，100分比に応じて中心点から扇状に区切ったグラフ表現のこと。構成比を表すのに適したグラフ
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec03/fig_us_income_dist1966.png}
+\caption{image of histogram}
+\end{figure}
+
+\begin{quote}
+問題：アメリカの1966年時点の所得の分布
+世帯数と所得の累積比率を計算し，コメントして下さい
+\end{quote}
+
+\textbf{解答}
+
+~~~~~~~~~\textbar{} 所得分配 \textbar{} 累積比率 \textbar{} 累積比率 \textbar{}\\
+所得階級 \textbar{} 1966年 \textbar{} 世帯数 \textbar{} 所得 \textbar{}\\
+--- \textbar{} --- \textbar{} --- \textbar{} --- \textbar{}\\
+第1分位 \textbar{} 0.056 \textbar{} 0.200 \textbar{} 0.056 \textbar{}\\
+第2分位 \textbar{} 0.124 \textbar{} 0.400 \textbar{} 0.180 \textbar{}\\
+第3分位 \textbar{} 0.177 \textbar{} 0.600 \textbar{} 0.357 \textbar{}\\
+第4分位 \textbar{} 0.238 \textbar{} 0.800 \textbar{} 0.595 \textbar{}\\
+第5分位 \textbar{} 0.405 \textbar{} 1.000 \textbar{} 1.000 \textbar{}
+
+\begin{itemize}
+\tightlist
+\item
+  第1分位は所得全体の5.6\%
+\item
+  所得が低い方から6割の世帯(第3分位までの世帯)の所得は，全体の4割未満(35.7\%)
+\item
+  所得が多い上位20\%の世帯が，全所得の4割程度を獲得している
+\end{itemize}
+
+\begin{quote}
+問題：アメリカの1966年時点の所得の分布
+1966年時点のアメリカの所得分配は不平等のように思えます。では逆に，完全に平等な場合の，(1)円グラフ，(2)累積比率はどうなりますか
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec03/fig_income_dist_perfectly_equal.png}
+\caption{image of histogram}
+\end{figure}
+
+\begin{quote}
+問題：アメリカの1966年時点の所得の分布
+所得分配の不平等度を的確に表す方法は？
+\end{quote}
+
+\begin{quote}
+定義：ローレンツ曲線
+ローレンツ曲線(Lorenz curve)は，所得分布や資産分布などの格差，不平等度，集中度を明らかにするための代表的な方法で，1905年にアメリカの統計学者ローレンツ(M.O.Lorenz)によって考案されました
+\end{quote}
+
+\begin{quote}
+累積世帯比率と累積所得比率
+\end{quote}
+
+\hypertarget{ux30edux30fcux30ecux30f3ux30c4ux66f2ux7ddaux3068ux30b8ux30cbux4fc2ux6570}{%
+\subsection{ローレンツ曲線とジニ係数}\label{ux30edux30fcux30ecux30f3ux30c4ux66f2ux7ddaux3068ux30b8ux30cbux4fc2ux6570}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec03/fig_us_lorenz1966.png}
+\caption{image of histogram}
+\end{figure}
+
+\begin{quote}
+ポイント
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  青線が1966年のデータから計算した\textbf{ローレンツ曲線}です
+\item
+  オレンジ線を\textbf{完全平等線}とよびます
+\item
+  \textbf{所得分配が平等化}してくるとローレンツ曲線は完全平等線に\textbf{接近}します
+\item
+  オレンジと青の線の間の\textbf{領域が広いほど不平等度が高く}なります
+\item
+  2本の線に挟まれた\textbf{領域の面積の2倍の値をジニ係数}とよびます
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+確認問題：2005年のアメリカの所得分布
+2005年の数値を使ってローレンツ曲線を描き，結果についてコメントして下さい
+\end{quote}
+
+所得階級 \& 第1分位 \& 第2分位 \& 第3分位 \& 第4分位 \& 第5分位 \textbackslash{}
+2005年 \& 4.0 \& 9.6 \& 15.3 \& 23.0 \& 48.1 \textbackslash{}
+出所：US Department of Commerce, Statistical Abstract of the United States
+
+\textbf{解答}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec03/fig_us_lorenz2005.png}
+\caption{image of histogram}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  1969年から2005年にかけて，ローレンツ曲線は完全平等線からさらに離れている
+\item
+  このことから，1966年から2005年にかけて所得分布の不平等化が進んでいることがうかがわれる
+\end{itemize}
+
+\hypertarget{ux30b8ux30cbux4fc2ux6570}{%
+\section{ジニ係数}\label{ux30b8ux30cbux4fc2ux6570}}
+
+\begin{quote}
+定義：ジニ係数
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ジニ係数(Gini coefficient)はローレンツ曲線のかたちを計測可能な指数にしたもので，(所得分配などの)分布の不平等度，集中度を示す指標です。
+\item
+  ジニ係数は\textbf{0から1のあいだの値}をとり，0に近いほど平等に近く，1に近いほど不平等度が大きいことを意味します
+\end{enumerate}
+\end{quote}
+
+\begin{quote}
+ジニ係数の計算方法
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  完全平等線より右下の領域(領域A)の面積は0.5
+\item
+  ローレンツ曲線よりも右下の領域Bの面積を求める
+\end{enumerate}
+\end{quote}
+
+\begin{align*}
+\text{ジニ係数}
+=(\text{領域Aの面積}-\text{領域Bの面積})\times 2
+=1-\text{領域Bの面積}\times 2 
+\end{align*}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ローレンツ曲線よりも右下の領域の面積の計算方法
+\end{enumerate}
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec03/fig_us_lorenz1966.png}
+\caption{image of histogram}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  領域を5分割し，三角形と台形の面積を求め，合計します
+\end{itemize}
+
+\begin{align*} 
+&\tfrac{1}{2} \times \mathop{0.056}_{\substack{\uparrow \\ \text{底辺}}} \times \mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \\
+&+\tfrac{1}{2} \times (0.056+0.180) \times 0.2 \\
+&+\tfrac{1}{2} \times (0.180+0.357) \times 0.2 \\
+&+\tfrac{1}{2} \times (0.357+0.595) \times 0.2 \\
+&+\tfrac{1}{2} \times (
+\mathop{0.595}_{\substack{\uparrow \\ \text{上底}}}
++
+\mathop{1.000}_{\substack{\uparrow \\ \text{下底}}}
+) \times 
+\mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \\
+&=0.3376
+\end{align*}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  よって1969年のジニ係数は
+  \begin{align*}
+  \text{ジニ係数}=1-0.3376\times 2=0.3248
+  \end{align*}
+\item
+  領域Bの計算のコツ
+\end{enumerate}
+
+\begin{itemize}
+\item
+  今回の例では，5分位の世帯比率を使っているため，累積世帯比率は20\%ずつ等間隔で増加します。そのため面積を計算するときの``高さ'\,'はすべて0.2です
+\item
+  さらに，三角形と台形の公式では\(\tfrac{1}{2}\)が共通です
+\item
+  これらの共通項を括り出せば
+  \begin{align*} 
+  &\tfrac{1}{2} \times \mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \times 
+  \{ 0.056+ (0.056+0.180)+ (0.180+0.357) \\
+  &\qquad\qquad+(0.357+0.595)+(0.595+1.000) \} \\
+  &=0.3376
+  \end{align*}
+\end{itemize}
+
+\begin{quote}
+確認問題：2005年のアメリカの所得分布
+2005年の数値を使ってジニ係数を計算して下さい
+\end{quote}
+
+\textbf{解答}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  領域Bの面積は
+  \begin{align*}
+  \text{領域Bの面積}
+  &=\tfrac{1}{2} \times \mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \times 
+  \{ 0.040+ (0.040+0.136) \\
+  &\qquad\qquad+(0.136+0.289)+(0.289+0.519) \\
+  &\qquad\qquad+(0.519+1.000) \} \\
+  &=0.2968
+  \end{align*}
+\item
+  したがって2005年のジニ係数は
+  \begin{align*}
+  \text{ジニ係数}
+  =1-2 \times 0.2968
+  =0.4064
+  \end{align*}
+\item
+  解釈：ジニ係数の値は0.3248(1969年)から0.4064(2005年)へ上昇しており，所得分配の不平等化がすすんだ
+\end{enumerate}
+
+\hypertarget{part-ux7b2cuxff12ux90e8}{%
+\chapter{(PART*) 第２部}\label{part-ux7b2cuxff12ux90e8}}
+
 \hypertarget{hello-bookdown}{%
 \chapter{Hello bookdown}\label{hello-bookdown}}
 
@@ -721,9 +1004,6 @@ All chapter sections start with a second-level (\texttt{\#\#}) or higher heading
 \addcontentsline{toc}{subsection}{An unnumbered section}
 
 Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
-
-\hypertarget{part-ux7b2cuxff12ux90e8}{%
-\chapter{(PART*) 第２部}\label{part-ux7b2cuxff12ux90e8}}
 
 \hypertarget{hello-bookdown-1}{%
 \chapter{Hello bookdown}\label{hello-bookdown-1}}
@@ -929,22 +1209,6 @@ All chapter sections start with a second-level (\texttt{\#\#}) or higher heading
 
 \hypertarget{an-unnumbered-section-13}{%
 \subsection*{An unnumbered section}\label{an-unnumbered-section-13}}
-\addcontentsline{toc}{subsection}{An unnumbered section}
-
-Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
-
-\hypertarget{hello-bookdown-14}{%
-\chapter{Hello bookdown}\label{hello-bookdown-14}}
-
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (\texttt{\#}) per .Rmd file.
-
-\hypertarget{a-section-14}{%
-\section{A section}\label{a-section-14}}
-
-All chapter sections start with a second-level (\texttt{\#\#}) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
-
-\hypertarget{an-unnumbered-section-14}{%
-\subsection*{An unnumbered section}\label{an-unnumbered-section-14}}
 \addcontentsline{toc}{subsection}{An unnumbered section}
 
 Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.

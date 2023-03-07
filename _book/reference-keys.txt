@@ -1,10 +1,12 @@
 fig:nice-fig
 tab:nice-tab
 eq:binom
-統計と人間生活
 usage
 render-book
 preview-book
+part-第１部
+統計と人間生活
+統計とは
 データの尺度など
 データの尺度
 データの表記方法
@@ -12,9 +14,12 @@ preview-book
 度数分布表
 ヒストグラム
 度数分布表からわかること
+ローレンツ曲線
+ローレンツ曲線とジニ係数
+ジニ係数
+part-第２部
 hello-bookdown
 a-section
-part-第２部
 hello-bookdown-1
 a-section-1
 hello-bookdown-2
@@ -41,8 +46,6 @@ hello-bookdown-12
 a-section-12
 hello-bookdown-13
 a-section-13
-hello-bookdown-14
-a-section-14
 cross
 chapters-and-sub-chapters
 captioned-figures-and-tables
@@ -58,5 +61,3 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
-url-your-book-url-like-httpsbookdown.orgyihuibookdown
-統計とは

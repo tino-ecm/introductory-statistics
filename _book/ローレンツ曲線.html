@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 ローレンツ曲線 | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="定義：(所得の)5分位階級 全ての世帯を所得の低い方から順番に並べ，それを世帯数で五等分して五つのグループを作った場合の各グループのことで，収入の低い方から順次第1，第2，第3，第4，第5分位階級とよぶ（参考：総務省，家計調査~用語の解説 http://www.stat.go.jp/data/kakei/kaisetsu.htm）  問題：アメリカの1966年時点の所得の分布...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 4 ローレンツ曲線 | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="定義：(所得の)5分位階級 全ての世帯を所得の低い方から順番に並べ，それを世帯数で五等分して五つのグループを作った場合の各グループのことで，収入の低い方から順次第1，第2，第3，第4，第5分位階級とよぶ（参考：総務省，家計調査~用語の解説 http://www.stat.go.jp/data/kakei/kaisetsu.htm）  問題：アメリカの1966年時点の所得の分布...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 ローレンツ曲線 | 初級統計学">
+<meta name="twitter:description" content="定義：(所得の)5分位階級 全ての世帯を所得の低い方から順番に並べ，それを世帯数で五等分して五つのグループを作った場合の各グループのことで，収入の低い方から順次第1，第2，第3，第4，第5分位階級とよぶ（参考：総務省，家計調査~用語の解説 http://www.stat.go.jp/data/kakei/kaisetsu.htm）  問題：アメリカの1966年時点の所得の分布...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">編集用</a></li>
+<li class="book-part">第１部</li>
+<li><a class="" href="%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB.html"><span class="header-section-number">2</span> 統計と人間生活</a></li>
+<li><a class="" href="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9.html"><span class="header-section-number">3</span> データの尺度など</a></li>
+<li><a class="active" href="%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A.html"><span class="header-section-number">4</span> ローレンツ曲線</a></li>
+<li class="book-part">第２部</li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">6</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-1.html"><span class="header-section-number">7</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-2.html"><span class="header-section-number">8</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-3.html"><span class="header-section-number">9</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-4.html"><span class="header-section-number">10</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-5.html"><span class="header-section-number">11</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-6.html"><span class="header-section-number">12</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-7.html"><span class="header-section-number">13</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-8.html"><span class="header-section-number">14</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-9.html"><span class="header-section-number">15</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-10.html"><span class="header-section-number">16</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-11.html"><span class="header-section-number">17</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-12.html"><span class="header-section-number">18</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-13.html"><span class="header-section-number">19</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">20</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">21</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">22</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">23</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">24</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ローレンツ曲線" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> ローレンツ曲線<a class="anchor" aria-label="anchor" href="#%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>定義：(所得の)5分位階級<br>
+全ての世帯を所得の低い方から順番に並べ，それを世帯数で五等分して五つのグループを作った場合の各グループのことで，収入の低い方から順次第1，第2，第3，第4，第5分位階級とよぶ（参考：総務省，家計調査~用語の解説 <a href="http://www.stat.go.jp/data/kakei/kaisetsu.htm" class="uri">http://www.stat.go.jp/data/kakei/kaisetsu.htm</a>）</p>
+</blockquote>
+<blockquote>
+<p>問題：アメリカの1966年時点の所得の分布<br>
+次はアメリカの1966年時点の5分位階級別の所得の割合(%)を示したデータです。コメントして下さい。</p>
+</blockquote>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>所得階級</th>
+<th>第1分位</th>
+<th>第2分位</th>
+<th>第3分位</th>
+<th>第4分位</th>
+<th>第5分位</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>1966年</td>
+<td>5.6</td>
+<td>12.4</td>
+<td>17.7</td>
+<td>23.8</td>
+<td>40.5</td>
+</tr></tbody>
+</table></div>
+<p>出所：US Department of Commerce, Statistical Abstract of the United States</p>
+<blockquote>
+<p>定義：円グラフ(パイチャート)<br>
+360度の円を，100分比に応じて中心点から扇状に区切ったグラフ表現のこと。構成比を表すのに適したグラフ</p>
+</blockquote>
+<div class="figure">
+<img src="images/lec03/fig_us_income_dist1966.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<blockquote>
+<p>問題：アメリカの1966年時点の所得の分布<br>
+世帯数と所得の累積比率を計算し，コメントして下さい</p>
+</blockquote>
+<p><strong>解答</strong></p>
+<div class="line-block">         | 所得分配 | 累積比率 | 累積比率 |<br>
+所得階級 | 1966年 | 世帯数 | 所得 |<br>
+— | — | — | — |<br>
+第1分位 | 0.056 | 0.200 | 0.056 |<br>
+第2分位 | 0.124 | 0.400 | 0.180 |<br>
+第3分位 | 0.177 | 0.600 | 0.357 |<br>
+第4分位 | 0.238 | 0.800 | 0.595 |<br>
+第5分位 | 0.405 | 1.000 | 1.000 |</div>
+<ul>
+<li>第1分位は所得全体の5.6%</li>
+<li>所得が低い方から6割の世帯(第3分位までの世帯)の所得は，全体の4割未満(35.7%)</li>
+<li>所得が多い上位20%の世帯が，全所得の4割程度を獲得している</li>
+</ul>
+<blockquote>
+<p>問題：アメリカの1966年時点の所得の分布<br>
+1966年時点のアメリカの所得分配は不平等のように思えます。では逆に，完全に平等な場合の，(1)円グラフ，(2)累積比率はどうなりますか</p>
+</blockquote>
+<div class="figure">
+<img src="images/lec03/fig_income_dist_perfectly_equal.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<!--  & & \multicolumn{2}{c}{累積比率} \\ -->
+<!-- 所得階級 & 所得分配 & 世帯数 & 所得 \\ -->
+<!-- \hline -->
+<!-- 第1分位 & 0.200 & 0.200 & 0.200 \\ -->
+<!-- 第2分位 & 0.200 & 0.400 & 0.400 \\ -->
+<!-- 第3分位 & 0.200 & 0.600 & 0.600 \\ -->
+<!-- 第4分位 & 0.200 & 0.800 & 0.800 \\ -->
+<!-- 第5分位 & 0.200 & 1.000 & 1.000 \\ -->
+<blockquote>
+<p>問題：アメリカの1966年時点の所得の分布<br>
+所得分配の不平等度を的確に表す方法は？</p>
+</blockquote>
+<blockquote>
+<p>定義：ローレンツ曲線<br>
+ローレンツ曲線(Lorenz curve)は，所得分布や資産分布などの格差，不平等度，集中度を明らかにするための代表的な方法で，1905年にアメリカの統計学者ローレンツ(M.O.Lorenz)によって考案されました</p>
+</blockquote>
+<blockquote>
+<p>累積世帯比率と累積所得比率</p>
+</blockquote>
+<!--  & 累積世帯比率 & 累積所得比率 \\ -->
+<!-- 所得階級 &  & 1966年実績 & 完全平等の場合 \\ -->
+<!-- 第1分位 & 0.200 & 0.056 & 0.200 \\ -->
+<!-- 第2分位 & 0.400 & 0.180 & 0.400 \\ -->
+<!-- 第3分位 & 0.600 & 0.357 & 0.600 \\ -->
+<!-- 第4分位 & 0.800 & 0.595 & 0.800 \\ -->
+<!-- 第5分位 & 1.000 & 1.000 & 1.000 \\ -->
+<div id="ローレンツ曲線とジニ係数" class="section level3" number="4.0.1">
+<h3>
+<span class="header-section-number">4.0.1</span> ローレンツ曲線とジニ係数<a class="anchor" aria-label="anchor" href="#%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A%E3%81%A8%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0"><i class="fas fa-link"></i></a>
+</h3>
+<div class="figure">
+<img src="images/lec03/fig_us_lorenz1966.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<blockquote>
+<p>ポイント<br></p>
+<ol style="list-style-type: decimal">
+<li>青線が1966年のデータから計算した<strong>ローレンツ曲線</strong>です</li>
+<li>オレンジ線を<strong>完全平等線</strong>とよびます</li>
+<li>
+<strong>所得分配が平等化</strong>してくるとローレンツ曲線は完全平等線に<strong>接近</strong>します</li>
+<li>オレンジと青の線の間の<strong>領域が広いほど不平等度が高く</strong>なります</li>
+<li>2本の線に挟まれた<strong>領域の面積の2倍の値をジニ係数</strong>とよびます</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>確認問題：2005年のアメリカの所得分布<br>
+2005年の数値を使ってローレンツ曲線を描き，結果についてコメントして下さい</p>
+</blockquote>
+<p>所得階級 &amp; 第1分位 &amp; 第2分位 &amp; 第3分位 &amp; 第4分位 &amp; 第5分位 \
+2005年 &amp; 4.0 &amp; 9.6 &amp; 15.3 &amp; 23.0 &amp; 48.1 \
+出所：US Department of Commerce, Statistical Abstract of the United States</p>
+<p><strong>解答</strong></p>
+<!-- 所得階級 & 累積世帯比率 & 累積所得比率 \\ -->
+<!-- \hline -->
+<!-- 第1分位 & 0.200 & 0.040 \\ -->
+<!-- 第2分位 & 0.400 & 0.136 \\ -->
+<!-- 第3分位 & 0.600 & 0.289 \\ -->
+<!-- 第4分位 & 0.800 & 0.519 \\ -->
+<!-- 第5分位 & 1.000 & 1.000 \\ -->
+<div class="figure">
+<img src="images/lec03/fig_us_lorenz2005.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<ul>
+<li>1969年から2005年にかけて，ローレンツ曲線は完全平等線からさらに離れている</li>
+<li>このことから，1966年から2005年にかけて所得分布の不平等化が進んでいることがうかがわれる</li>
+</ul>
+</div>
+<div id="ジニ係数" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> ジニ係数<a class="anchor" aria-label="anchor" href="#%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：ジニ係数</p>
+<ol style="list-style-type: decimal">
+<li>ジニ係数(Gini coefficient)はローレンツ曲線のかたちを計測可能な指数にしたもので，(所得分配などの)分布の不平等度，集中度を示す指標です。</li>
+<li>ジニ係数は<strong>0から1のあいだの値</strong>をとり，0に近いほど平等に近く，1に近いほど不平等度が大きいことを意味します</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>ジニ係数の計算方法</p>
+<ol style="list-style-type: decimal">
+<li>完全平等線より右下の領域(領域A)の面積は0.5</li>
+<li>ローレンツ曲線よりも右下の領域Bの面積を求める</li>
+</ol>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\text{ジニ係数}
+=(\text{領域Aの面積}-\text{領域Bの面積})\times 2
+=1-\text{領域Bの面積}\times 2
+\end{align*}\]</span></p>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>ローレンツ曲線よりも右下の領域の面積の計算方法</li>
+</ol>
+</blockquote>
+<div class="figure">
+<img src="images/lec03/fig_us_lorenz1966.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<ul>
+<li>領域を5分割し，三角形と台形の面積を求め，合計します</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+&amp;\tfrac{1}{2} \times \mathop{0.056}_{\substack{\uparrow \\ \text{底辺}}} \times \mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \\
+&amp;+\tfrac{1}{2} \times (0.056+0.180) \times 0.2 \\
+&amp;+\tfrac{1}{2} \times (0.180+0.357) \times 0.2 \\
+&amp;+\tfrac{1}{2} \times (0.357+0.595) \times 0.2 \\
+&amp;+\tfrac{1}{2} \times (
+\mathop{0.595}_{\substack{\uparrow \\ \text{上底}}}
++
+\mathop{1.000}_{\substack{\uparrow \\ \text{下底}}}
+) \times
+\mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \\
+&amp;=0.3376
+\end{align*}\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>よって1969年のジニ係数は
+<span class="math display">\[\begin{align*}
+\text{ジニ係数}=1-0.3376\times 2=0.3248
+\end{align*}\]</span></p></li>
+<li><p>領域Bの計算のコツ</p></li>
+</ol>
+<ul>
+<li><p>今回の例では，5分位の世帯比率を使っているため，累積世帯比率は20%ずつ等間隔で増加します。そのため面積を計算するときの``高さ’’はすべて0.2です</p></li>
+<li><p>さらに，三角形と台形の公式では<span class="math inline">\(\tfrac{1}{2}\)</span>が共通です</p></li>
+<li><p>これらの共通項を括り出せば
+<span class="math display">\[\begin{align*}
+&amp;\tfrac{1}{2} \times \mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \times
+\{ 0.056+ (0.056+0.180)+ (0.180+0.357) \\
+&amp;\qquad\qquad+(0.357+0.595)+(0.595+1.000) \} \\
+&amp;=0.3376
+\end{align*}\]</span></p></li>
+</ul>
+<blockquote>
+<p>確認問題：2005年のアメリカの所得分布<br>
+2005年の数値を使ってジニ係数を計算して下さい</p>
+</blockquote>
+<p><strong>解答</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>領域Bの面積は
+<span class="math display">\[\begin{align*}
+\text{領域Bの面積}
+&amp;=\tfrac{1}{2} \times \mathop{0.2}_{\substack{\uparrow \\ \text{高さ}}} \times
+\{ 0.040+ (0.040+0.136) \\
+&amp;\qquad\qquad+(0.136+0.289)+(0.289+0.519) \\
+&amp;\qquad\qquad+(0.519+1.000) \} \\
+&amp;=0.2968
+\end{align*}\]</span></p></li>
+<li><p>したがって2005年のジニ係数は
+<span class="math display">\[\begin{align*}
+\text{ジニ係数}
+=1-2 \times 0.2968
+=0.4064
+\end{align*}\]</span></p></li>
+<li><p>解釈：ジニ係数の値は0.3248(1969年)から0.4064(2005年)へ上昇しており，所得分配の不平等化がすすんだ</p></li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9.html"><span class="header-section-number">3</span> データの尺度など</a></div>
+<div class="next"><a href="hello-bookdown.html"><span class="header-section-number">6</span> Hello bookdown</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A"><span class="header-section-number">4</span> ローレンツ曲線</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A%E3%81%A8%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0"><span class="header-section-number">4.0.1</span> ローレンツ曲線とジニ係数</a></li></ul>
+</li>
+<li><a class="nav-link" href="#%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0"><span class="header-section-number">4.1</span> ジニ係数</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/03-lec03.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/03-lec03.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
