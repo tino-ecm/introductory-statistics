@@ -143,6 +143,12 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\hypertarget{ux7de8ux96c6ux7528}{%
+\chapter*{編集用}\label{ux7de8ux96c6ux7528}}
+\addcontentsline{toc}{chapter}{編集用}
+
+\url{https://bookdown.org/yihui/rmarkdown-cookbook/}
+
 \hypertarget{ux7d71ux8a08ux3068ux4ebaux9593ux751fux6d3b}{%
 \chapter{統計と人間生活}\label{ux7d71ux8a08ux3068ux4ebaux9593ux751fux6d3b}}
 
@@ -181,9 +187,11 @@
   疑問：平均気温よりもどれくらい離れていると「異常」と言えるだろうか？
 \end{itemize}
 
-¥begin\{exampleblock\}\{例3：統計がなければ「当選確実」かどうかはすぐにわからない\}
+\begin{quote}
+例3：統計がなければ「当選確実」かどうかはすぐにわからない
 選挙速報で，数パーセントしか開票していないのに「当選確実」と報道できるのはなぜか？
 ¥end\{exampleblock\}
+\end{quote}
 
 \%¥pause
 
@@ -191,9 +199,11 @@
 ¥item 選挙前の支持者，投票意向などの統計的調査などから得た情報をもとに\texttt{推定\textquotesingle{}\textquotesingle{}\ ¥item\ ¥underline\{一部分の開票結果\}から¥underline\{全体の傾向\}を推しはかる}統計的推論'\,'とよばれる分析の応用例
 ¥end\{itemize\}
 
-¥begin\{exampleblock\}\{例4：企業経営に統計は不可欠\}
+\begin{quote}
+例4：企業経営に統計は不可欠
 多くの製造業者は，注文を受けてから製品を製造する\texttt{受注生産\textquotesingle{}\textquotesingle{}ではなく，どれくらい売れそうかという見込みをたてて製品を製造する}見込生産'\,'を行っている
 ¥end\{exampleblock\}
+\end{quote}
 
 \%¥pause
 
@@ -208,9 +218,11 @@
 ¥item 消費者の消費習慣や購買習慣を，企業みずから，あるいは専門の調査機関に依頼して``市場調査'\,'する
 ¥end\{itemize\}
 
-¥begin\{exampleblock\}\{例5：経済政策の決定にも統計は不可欠\}
+\begin{quote}
+例5：経済政策の決定にも統計は不可欠
 政府は所得税を減税することで消費を増加させ，公共投資を増やすことによって景気を刺激しようとする。政策を決定する際には，各種の経済統計(家計調査，設備投資計画調査など)が示す経済状態に細心の注意を払うと同時に，各種税率，公共投資額，金利，マネーストック等の経済政策にかかわる変数と経済の状態を示す各種変数との関係が利用されている
 ¥end\{exampleblock\}
+\end{quote}
 
 \%¥pause
 
@@ -234,17 +246,16 @@
 \%¥end\{itemize\}
 ¥end\{itemize\}
 
-\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%
-¥begin\{frame\}¥frametitle\{\}
-¥begin\{exampleblock\}\{例6：アパート・マンションを選ぶときにも統計が使える\}
+\begin{quote}
+例6：アパート・マンションを選ぶときにも統計が使える
 この物件を借りるべきか？
-¥begin\{figure\}{[}htb{]}
-¥centering
-¥includegraphics{[}width=7cm,clip{]}\{fig\_kichi\_1room\_example.png\}
-¥end\{figure\}
+\end{quote}
 
-¥end\{exampleblock\}
-¥end\{frame\}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec01/fig_kichi_1room_example.png}
+\caption{image of histogram}
+\end{figure}
 
 \%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%\%
 ¥begin\{frame\}¥frametitle\{統計とは\}
@@ -260,8 +271,6 @@
 
 ¥item ¥textcolor\{red\}\{推測\}統計：一部から全体の¥textcolor\{red\}\{特徴を推測・予測する\}こと
 ¥end\{enumerate\}
-
-\%¥pause
 
 \begin{quote}
 質問
@@ -329,8 +338,373 @@ As you work, you may start a local server to live preview this HTML book. This p
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{part-ux7b2cuxff11ux90e8}{%
-\chapter{(PART*) 第１部}\label{part-ux7b2cuxff11ux90e8}}
+\hypertarget{ux30c7ux30fcux30bfux306eux5c3aux5ea6ux306aux3069}{%
+\chapter{データの尺度など}\label{ux30c7ux30fcux30bfux306eux5c3aux5ea6ux306aux3069}}
+
+\hypertarget{ux30c7ux30fcux30bfux306eux5c3aux5ea6}{%
+\section{データの尺度}\label{ux30c7ux30fcux30bfux306eux5c3aux5ea6}}
+
+\begin{itemize}
+\tightlist
+\item
+  データを作りあげている値にはさまざまな種類がある
+\end{itemize}
+
+\begin{quote}
+例：ある大学の学生の成績・個人情報にかかわるデータ
+\end{quote}
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule()
+学生ID & 学年 & 英語 & ミクロ & \(\cdots\) & GPA & 通学時間(分) \\
+\midrule()
+\endhead
+155001 & 3 & S & A & \(\cdots\) & 3.67 & 45 \\
+155002 & 3 & C & B & \(\cdots\) & 1.73 & 90 \\
+: & : & : & : & & : & : \\
+名義 & 順序 & 順序 & 順序 & & 間隔 & 比例 \\
+\bottomrule()
+\end{longtable}
+
+\[
+\text{変数}
+\begin{cases}
+\text{質的変数}
+\begin{cases}
+\text{名義尺度} & \text{同じ値かどうかを区別} \\
+\text{順序尺度} & \text{値の大小関係のみ} \\
+\end{cases} \\
+\text{量的変数}
+\begin{cases}
+\text{間隔尺度} & \text{数値の間隔のみに意味がある} \\
+\text{比例尺度} & \text{数値の間隔と比率に意味がある} \\
+\end{cases}
+\end{cases}
+\]
+
+\hypertarget{ux30c7ux30fcux30bfux306eux8868ux8a18ux65b9ux6cd5}{%
+\section{データの表記方法}\label{ux30c7ux30fcux30bfux306eux8868ux8a18ux65b9ux6cd5}}
+
+\hypertarget{ux5e79ux8449ux56f3stem-and-leaf}{%
+\section{幹葉図(Stem-and-Leaf)}\label{ux5e79ux8449ux56f3stem-and-leaf}}
+
+\begin{quote}
+問題：学生の成績データ(幹葉図)
+次の学生50人の成績データ(点数)で\textbf{幹葉図}を作成して下さい
+\end{quote}
+
+\textbar---\textbar---\textbar---\textbar---\textbar---\textbar---\textbar---\textbar---\textbar---\textbar---\textbar{}
+\textbar{} 5 \textbar{} 9 \textbar{} 15 \textbar{} 15 \textbar{} 17 \textbar{} 24 \textbar{} 25 \textbar{} 25 \textbar{} 27 \textbar{} 29 \textbar{}
+\textbar29 \textbar{} 29 \textbar{} 32 \textbar{} 32 \textbar{} 34 \textbar{} 34 \textbar{} 35 \textbar{} 36 \textbar{} 36 \textbar{} 38 \textbar{}
+\textbar38 \textbar{} 39 \textbar{} 39 \textbar{} 39 \textbar{} 39 \textbar{} 43 \textbar{} 44 \textbar{} 44 \textbar{} 44 \textbar{} 45 \textbar{}
+\textbar45 \textbar{} 47 \textbar{} 47 \textbar{} 47 \textbar{} 52 \textbar{} 54 \textbar{} 54 \textbar{} 56 \textbar{} 58 \textbar{} 59 \textbar{}
+\textbar59 \textbar{} 67 \textbar{} 73 \textbar{} 75 \textbar{} 79 \textbar{} 82 \textbar{} 84 \textbar{} 84 \textbar{} 89 \textbar{} 99 \textbar{}
+
+\begin{quote}
+定義：幹葉図(みきはず)
+
+\begin{itemize}
+\tightlist
+\item
+  データの値をいくつかのグループ(\textbf{幹})に分け，各グループ内での値を\textbf{葉}のように幹の横に並べることで，データの分布状況を表現する方法。
+\item
+  データの分布だけでなく，データの値も表記するので，情報の損失がないことがこの方法の利点
+\end{itemize}
+\end{quote}
+
+\[
+\mathop{2}_{\substack{\uparrow \\ \text{幹}}}
+\mathop{9}_{\substack{\uparrow \\ \text{葉}}}
+\]
+
+しがたって幹葉図は次のようになります
+
+\begin{longtable}[]{@{}rl@{}}
+\toprule()
+10の位 & 1の位 \\
+\midrule()
+\endhead
+0 & 59 \\
+1 & 557 \\
+2 & 4557999 \\
+3 & 2244566889999 \\
+4 & 344455777 \\
+5 & 2446899 \\
+6 & 7 \\
+7 & 359 \\
+8 & 2449 \\
+9 & 9 \\
+\bottomrule()
+\end{longtable}
+
+幹葉図からわかること
+
+\begin{quote}
+問題：学生の成績データ(中位数)
+学生は全員で50人でした。
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  点数の低い方から数えて25番目の学生の点数は何点ですか？
+\item
+  点数の高い方から数えて25番目の学生の点数は何点ですか？
+\item
+  全体のちょうど真ん中の点数は何点になりますか？
+\end{itemize}
+
+\begin{quote}
+定義：中位数(メディアン, median)
+データを大きさの順に並べたとき,ちょうど中央に位置するデータの値のこと
+\end{quote}
+
+\hypertarget{ux5ea6ux6570ux5206ux5e03ux8868}{%
+\section{度数分布表}\label{ux5ea6ux6570ux5206ux5e03ux8868}}
+
+\begin{quote}
+問題：学生の成績データ(度数分布表)
+学生50人の成績データ(点数)で\textcolor{red}{度数分布表}を作成して下さい。幹葉図との違いは何ですか？
+\end{quote}
+
+\textbf{解答}
+
+\begin{longtable}[]{@{}cc@{}}
+\toprule()
+階級 & 度数 \\
+\midrule()
+\endhead
+0-9 & 2 \\
+10-19 & 3 \\
+20-29 & 7 \\
+30-39 & 13 \\
+40-49 & 9 \\
+50-59 & 7 \\
+60-69 & 1 \\
+70-79 & 3 \\
+80-89 & 4 \\
+90-99 & 1 \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+定義：度数分布
+度数分布（frequency distribution）は，データを大きさによっていくつかの組（これを\textbf{級}または\textbf{クラス}〔class〕という）に分け，各級に入るデータの数（これを\textbf{度数}〔frequency〕という）を明らかにしたもの
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  利点：大量のデータの値の分布状況をみることができる
+
+  \begin{itemize}
+  \tightlist
+  \item
+    10点以下に2人，90点代が1人，30点代に集中，という具合
+  \end{itemize}
+\item
+  欠点：級分けによってデータをまとめて表示しようとするので，細部の情報が失われてしまう
+
+  \begin{itemize}
+  \tightlist
+  \item
+    情報の喪失は，データの要約の程度，つまり級の大きさによって異なるので，適切な級間隔の選択が重要
+  \item
+    100点満点の試験の結果なので、階級の幅（級間隔）を10点間隔にしているが，5点間隔でもよいかもしれない\(\Rightarrow\)適切な``幅'\,'を決める方法はあるのか？
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux30d2ux30b9ux30c8ux30b0ux30e9ux30e0}{%
+\section{ヒストグラム}\label{ux30d2ux30b9ux30c8ux30b0ux30e9ux30e0}}
+
+\begin{quote}
+問題：学生の成績データ(ヒストグラムの作成)
+学生50人の成績データの度数分布を，視覚的にわかりやすく示すためにヒストグラム(histogram，度数柱状図)を作成して下さい
+\end{quote}
+
+問題：学生の成績データ(ヒストグラムの作成) \\
+学生50人の成績データの度数分布を，視覚的にわかりやすく示すためにヒストグラム(histogram，度数柱状図)を作成して下さい
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{images/lec02/pic_hist_scores.png}
+\caption{image of histogram}
+\end{figure}
+
+\begin{quote}
+定義：スタージス(Sturges)の公式による階級の幅の決め方
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  階級の数\(m\)を決定する：データ数が\(n\)のとき，適切な階級数\(m\)は
+  \[
+  m \approx 1+\frac{\log_{10} n}{\log_{10} 2} \approx 1+3.32 \log_{10} n
+  \]
+  なお，\(\approx\)は\textbf{ほぼ等しい}の意味。(参考：\(\log_{10} 2 \approx 0.301\))
+\item
+  階級の幅\(c\)を決定する：適切な級間隔\(c\)は
+  \[
+  c \approx \frac{x_{\max}-x_{\min}}{1+3.32 \log_{10} n}=\frac{\text{データの範囲}}{\text{階級数}}
+  \]
+\end{enumerate}
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  データの値の中で最も大きな値を\texttt{最大値(maximum)\textquotesingle{}\textquotesingle{}，逆に最も小さな値を}最小値(minimum)'\,'とよびます
+\item
+  最大値と最小値の間隔を``データの範囲(range)'\,'とよびます
+\end{itemize}
+
+\begin{quote}
+問題：学生の成績データ(スタージスの公式)
+学生50人の成績データ(単位：点数)では最低点は5点，最高点は99点でした。スタージスの公式を使って，適切な階級数\(m\)と階級の幅\(c\)を求めて下さい
+\end{quote}
+
+\textbf{解答}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  スタージスの公式に必要な情報は次の通り
+\end{enumerate}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+名称 & 記号 & 数値 \\
+\midrule()
+\endhead
+データ数 & \(n\) & 50 \\
+最大値 & \(x_{max}\) & 99 \\
+最小値 & \(x_{min}\) & 5 \\
+\bottomrule()
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  適切な階級の数\(m\)は
+  \[
+  m 
+  \approx 1+3.32 \times \log_{10} \mathop{50}_{\substack{\uparrow \\ n}}
+  \approx 1+3.32 \times 1.699
+  \approx 1+5.64 = 6.64
+  \]
+\item
+  適切な級間隔\(c\)は
+  \[
+  c 
+  \approx \frac{\text{データの範囲}}{\text{階級数}}
+  \approx \frac{99-5}{7} 
+  \approx 13
+  \]
+\end{enumerate}
+
+\begin{quote}
+階級の数の決め方の注意点
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  階級の「数」と「幅」は反比例の関係にある
+\end{enumerate}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule()
+階級の数 & 階級の幅 & ヒストグラム & 問題点 \\
+\midrule()
+\endhead
+少なくする & 広くなる & 大雑把になる & 情報の喪失が大 \\
+多くする & 狭くなる & 細かくなる & 情報を集約できない \\
+\bottomrule()
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  適切な階級の数と幅を決定するときにスタージスの公式を参考にするといい
+\item
+  次のような幅を設定することがポイント
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    データ全体の傾向は損なわず、整理しやすい手頃な幅
+  \item
+    級間隔が直感的に分かりやすい幅
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{ux5ea6ux6570ux5206ux5e03ux8868ux304bux3089ux308fux304bux308bux3053ux3068}{%
+\subsection{度数分布表からわかること}\label{ux5ea6ux6570ux5206ux5e03ux8868ux304bux3089ux308fux304bux308bux3053ux3068}}
+
+\begin{quote}
+問題：学生の成績データ(度数分布表の解釈)
+先ほど作成した学生の成績データの\textbf{度数分布表}を参照しながら以下の値を求めて下さい
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  点数が30点台の学生は何人いますか？
+\item
+  点数が30点台の学生は全体の何パーセントですか？
+\item
+  50点未満の学生は何人いますか？
+\item
+  50点未満の学生は何パーセントですか？
+\end{enumerate}
+\end{quote}
+
+\textbf{解答}
+1. 13人
+2. 26パーセント
+3. 34人
+4. 68パーセント
+
+\begin{quote}
+問題：学生の成績データ(相対度数)
+点数が31点から40点の学生は全体の何パーセントですか？
+\end{quote}
+
+\[
+\text{30点台の階級の相対度数}
+=\frac{\text{30点台の階級の度数}}{\text{全度数}}
+=\frac{13}{50}=0.26
+\]
+
+\begin{quote}
+定義：相対度数分布
+\textbf{相対度数}の分布を表示したもの
+\end{quote}
+
+\begin{longtable}[]{@{}rrcl@{}}
+\toprule()
+階級(点) & 度数(人) & 相対度数 & \\
+\midrule()
+\endhead
+0-9 & 2 & 0.04 & \(\leftarrow 2/50\) \\
+10-19 & 3 & 0.06 & \(\leftarrow 3/50\) \\
+20-29 & 7 & 0.14 & \\
+30-39 & 13 & 0.26 & \(\leftarrow 13/50\) \\
+40-49 & 9 & 0.18 & \\
+50-59 & 7 & 0.14 & \\
+60-69 & 1 & 0.02 & \\
+70-79 & 3 & 0.06 & \\
+80-89 & 4 & 0.08 & \\
+90-99 & 1 & 0.02 & \\
+合計 & 50 & 1.00 & \\
+\bottomrule()
+\end{longtable}
 
 \hypertarget{hello-bookdown}{%
 \chapter{Hello bookdown}\label{hello-bookdown}}
@@ -347,6 +721,9 @@ All chapter sections start with a second-level (\texttt{\#\#}) or higher heading
 \addcontentsline{toc}{subsection}{An unnumbered section}
 
 Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
+
+\hypertarget{part-ux7b2cuxff12ux90e8}{%
+\chapter{(PART*) 第２部}\label{part-ux7b2cuxff12ux90e8}}
 
 \hypertarget{hello-bookdown-1}{%
 \chapter{Hello bookdown}\label{hello-bookdown-1}}
@@ -379,9 +756,6 @@ All chapter sections start with a second-level (\texttt{\#\#}) or higher heading
 \addcontentsline{toc}{subsection}{An unnumbered section}
 
 Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
-
-\hypertarget{part-ux7b2cuxff12ux90e8}{%
-\chapter{(PART*) 第２部}\label{part-ux7b2cuxff12ux90e8}}
 
 \hypertarget{hello-bookdown-3}{%
 \chapter{Hello bookdown}\label{hello-bookdown-3}}
@@ -571,38 +945,6 @@ All chapter sections start with a second-level (\texttt{\#\#}) or higher heading
 
 \hypertarget{an-unnumbered-section-14}{%
 \subsection*{An unnumbered section}\label{an-unnumbered-section-14}}
-\addcontentsline{toc}{subsection}{An unnumbered section}
-
-Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
-
-\hypertarget{hello-bookdown-15}{%
-\chapter{Hello bookdown}\label{hello-bookdown-15}}
-
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (\texttt{\#}) per .Rmd file.
-
-\hypertarget{a-section-15}{%
-\section{A section}\label{a-section-15}}
-
-All chapter sections start with a second-level (\texttt{\#\#}) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
-
-\hypertarget{an-unnumbered-section-15}{%
-\subsection*{An unnumbered section}\label{an-unnumbered-section-15}}
-\addcontentsline{toc}{subsection}{An unnumbered section}
-
-Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
-
-\hypertarget{hello-bookdown-16}{%
-\chapter{Hello bookdown}\label{hello-bookdown-16}}
-
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (\texttt{\#}) per .Rmd file.
-
-\hypertarget{a-section-16}{%
-\section{A section}\label{a-section-16}}
-
-All chapter sections start with a second-level (\texttt{\#\#}) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
-
-\hypertarget{an-unnumbered-section-16}{%
-\subsection*{An unnumbered section}\label{an-unnumbered-section-16}}
 \addcontentsline{toc}{subsection}{An unnumbered section}
 
 Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.

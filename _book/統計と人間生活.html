@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 統計と人間生活 | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="日常生活では統計的な考え方がさまざまな場面で利用されている 例1：統計がないとスポーツ観戦がつまらなくなる 野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような統計が利用される \[ \text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 2 統計と人間生活 | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="日常生活では統計的な考え方がさまざまな場面で利用されている 例1：統計がないとスポーツ観戦がつまらなくなる 野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような統計が利用される \[ \text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 統計と人間生活 | 初級統計学">
+<meta name="twitter:description" content="日常生活では統計的な考え方がさまざまな場面で利用されている 例1：統計がないとスポーツ観戦がつまらなくなる 野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような統計が利用される \[ \text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 2</span> 統計と人間生活</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="統計と人間生活" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> 統計と人間生活<a class="anchor" aria-label="anchor" href="#%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB"><i class="fas fa-link"></i></a>
+</h1>
+<p>日常生活では<strong>統計的な考え方</strong>がさまざまな場面で利用されている</p>
+<blockquote>
+<p>例1：統計がないとスポーツ観戦がつまらなくなる<br>
+野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような<strong>統計</strong>が利用される</p>
+<p><span class="math display">\[
+\text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad
+\text{防御率}=\frac{\text{自責点}}{\text{投球回}} \times 9
+\]</span></p>
+</blockquote>
+<p>これらの<strong>統計</strong>が存在しなければ：<br></p>
+<ul>
+<li>登場した打者にどれくらいの安打が期待できるのかわからない</li>
+<li>投手にどれくらいの健闘が期待できるのかわからない</li>
+</ul>
+<blockquote>
+<p>例2：統計がないと今日の天気を比べられない<br>
+天気予報で気象予報士が「きょうは4月中旬にしては異常に暖かかった」あるいは「きょうは6月上旬の陽気であった」と表現することがある。</p>
+</blockquote>
+<ul>
+<li>「異常」な状態を定義するには，「平常」な状態の定義が必要</li>
+<li>ではどのように「平常」な状態を定義できるだろうか？</li>
+<li>「平常」な気温は，過去何十年にもわたって観測した4月中旬の気温を平均してもとめたという統計数字</li>
+<li>「異常」な暖かさとは「平常」な気温の値があってはじめて判断できる</li>
+<li>疑問：平均気温よりもどれくらい離れていると「異常」と言えるだろうか？</li>
+</ul>
+<blockquote>
+<p>例3：統計がなければ「当選確実」かどうかはすぐにわからない<br>
+選挙速報で，数パーセントしか開票していないのに「当選確実」と報道できるのはなぜか？</p>
+</blockquote>
+<ul>
+<li>選挙前の支持者，投票意向などの統計的調査などから得た情報をもとに``推定’’</li>
+<li>
+<strong>一部分の開票結果</strong>から<strong>全体の傾向</strong>を推しはかる``統計的推論’’とよばれる分析の応用例</li>
+</ul>
+<blockquote>
+<p>例4：企業経営に統計は不可欠 <br>
+多くの製造業者は，注文を受けてから製品を製造する<strong>受注生産</strong>ではなく，どれくらい売れそうかという見込みをたてて製品を製造する<strong>見込生産</strong>を行っている</p>
+</blockquote>
+<ul>
+<li>生産量が多すぎれば<strong>在庫</strong>を抱えてしまうし，少なすぎたりすると社会的に混乱を生じさせてしまう
+<ul>
+<li>例：食品メーカーのある炭酸飲料が「予想を上回る注文があったため販売2日目で当面出荷停止」</li>
+<li>サントリーのオランジーナ 2015/4/2</li>
+</ul>
+</li>
+<li>人口総数，男女別構成・年齢別構成等の統計をもとに需要予測を行い，生産量の計画をたてる</li>
+<li>消費者の消費習慣や購買習慣を，企業みずから，あるいは専門の調査機関に依頼して<strong>市場調査</strong>する</li>
+</ul>
+<blockquote>
+<p>例5：経済政策の決定にも統計は不可欠 <br>
+政府は所得税を減税することで消費を増加させ，公共投資を増やすことによって景気を刺激しようとする。政策を決定する際には，各種の経済統計(家計調査，設備投資計画調査など)が示す経済状態に細心の注意を払うと同時に，各種税率，公共投資額，金利，マネーストック等の経済政策にかかわる変数と経済の状態を示す各種変数との関係が利用されている</p>
+</blockquote>
+<ul>
+<li>GDP，物価指数，金利，株価，失業率，為替レートなどのマクロ経済データを使って作成した計量経済学的モデルは，政府の経済政策の決定に不可欠なツールのひとつ</li>
+</ul>
+<blockquote>
+<p>内閣府の経済社会総合研究所の分析(2015)</p>
+<ul>
+<li>消費税率1%引上げで1年後の実質GDPは0.24%減少</li>
+<li>短期金利1%引上げで1年後の実質GDPは0.32%減少</li>
+<li>内閣府経済社会総合研究所「短期日本経済マクロ計量モデル(2015年版)の構造と乗数分析」
+%(<a href="http://www.esri.go.jp/jp/archive/e%5C_dis/e%5C_dis314/e%5C_dis314.pdf" class="uri">http://www.esri.go.jp/jp/archive/e\_dis/e\_dis314/e\_dis314.pdf</a>)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>例6：アパート・マンションを選ぶときにも統計が使える <br>
+この物件を借りるべきか？</p>
+</blockquote>
+<div class="figure">
+<img src="images/lec01/fig_kichi_1room_example.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<div id="統計とは" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> 統計とは<a class="anchor" aria-label="anchor" href="#%E7%B5%B1%E8%A8%88%E3%81%A8%E3%81%AF"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>統計とは<br>
+統計とは，ある特定の集団について，それを構成するものの特定の性質に注目して観察し，その集団全体の特徴を数量的に表現しようとするもの</p>
+</blockquote>
+<ul>
+<li>
+<strong>記述統計</strong>：複数の者，あるいは複数の時点で示した数字を集約整理し，その集団全体の<strong>特徴を示そうとする</strong>もの</li>
+<li>
+<strong>推測統計</strong>：一部から全体の<strong>特徴を推測・予測する</strong>こと</li>
+</ul>
+<blockquote>
+<p>質問<br>
+先述の例を分類してみましょう</p>
+<table class="table table-sm">
+<thead><tr class="header">
+<th align="center"></th>
+<th align="center">テーマ</th>
+<th align="center">種類</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">例1</td>
+<td align="center">スポーツ観戦</td>
+<td align="center">データの要約(平均的傾向)，記述</td>
+</tr>
+<tr class="even">
+<td align="center">例2</td>
+<td align="center">異常な天気</td>
+<td align="center">データの要約(ちらばり具合)</td>
+</tr>
+<tr class="odd">
+<td align="center">例3</td>
+<td align="center">選挙速報</td>
+<td align="center">予測，推定</td>
+</tr>
+<tr class="even">
+<td align="center">例4</td>
+<td align="center">見込み生産</td>
+<td align="center">予測，推定</td>
+</tr>
+<tr class="odd">
+<td align="center">例5</td>
+<td align="center">経済政策</td>
+<td align="center">記述，推定</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

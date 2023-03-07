@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 データの尺度など | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="2.1 データの尺度 データを作りあげている値にはさまざまな種類がある 例：ある大学の学生の成績・個人情報にかかわるデータ 学生ID 学年 英語 ミクロ \(\cdots\) GPA 通学時間(分) 155001 3 S A \(\cdots\) 3.67 45 155002 3 C B \(\cdots\) 1.73 90 : : : : : : 名義 順序 順序 順序 間隔 比例 \[...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 2 データの尺度など | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="2.1 データの尺度 データを作りあげている値にはさまざまな種類がある 例：ある大学の学生の成績・個人情報にかかわるデータ 学生ID 学年 英語 ミクロ \(\cdots\) GPA 通学時間(分) 155001 3 S A \(\cdots\) 3.67 45 155002 3 C B \(\cdots\) 1.73 90 : : : : : : 名義 順序 順序 順序 間隔 比例 \[...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 データの尺度など | 初級統計学">
+<meta name="twitter:description" content="2.1 データの尺度 データを作りあげている値にはさまざまな種類がある 例：ある大学の学生の成績・個人情報にかかわるデータ 学生ID 学年 英語 ミクロ \(\cdots\) GPA 通学時間(分) 155001 3 S A \(\cdots\) 3.67 45 155002 3 C B \(\cdots\) 1.73 90 : : : : : : 名義 順序 順序 順序 間隔 比例 \[...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">編集用</a></li>
+<li><a class="" href="%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB.html"><span class="header-section-number">1</span> 統計と人間生活</a></li>
+<li><a class="active" href="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9.html"><span class="header-section-number">2</span> データの尺度など</a></li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">3</span> Hello bookdown</a></li>
+<li class="book-part">第２部</li>
+<li><a class="" href="hello-bookdown-1.html"><span class="header-section-number">5</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-2.html"><span class="header-section-number">6</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-3.html"><span class="header-section-number">7</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-4.html"><span class="header-section-number">8</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-5.html"><span class="header-section-number">9</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-6.html"><span class="header-section-number">10</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-7.html"><span class="header-section-number">11</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-8.html"><span class="header-section-number">12</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-9.html"><span class="header-section-number">13</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-10.html"><span class="header-section-number">14</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-11.html"><span class="header-section-number">15</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-12.html"><span class="header-section-number">16</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-13.html"><span class="header-section-number">17</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-14.html"><span class="header-section-number">18</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">19</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">20</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">21</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">22</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">23</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="データの尺度など" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> データの尺度など<a class="anchor" aria-label="anchor" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9"><i class="fas fa-link"></i></a>
+</h1>
+<div id="データの尺度" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> データの尺度<a class="anchor" aria-label="anchor" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>データを作りあげている値にはさまざまな種類がある</li>
+</ul>
+<blockquote>
+<p>例：ある大学の学生の成績・個人情報にかかわるデータ</p>
+</blockquote>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>学生ID</th>
+<th>学年</th>
+<th>英語</th>
+<th>ミクロ</th>
+<th><span class="math inline">\(\cdots\)</span></th>
+<th>GPA</th>
+<th>通学時間(分)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>155001</td>
+<td>3</td>
+<td>S</td>
+<td>A</td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td>3.67</td>
+<td>45</td>
+</tr>
+<tr class="even">
+<td>155002</td>
+<td>3</td>
+<td>C</td>
+<td>B</td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td>1.73</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>:</td>
+<td>:</td>
+<td>:</td>
+<td>:</td>
+<td></td>
+<td>:</td>
+<td>:</td>
+</tr>
+<tr class="even">
+<td>名義</td>
+<td>順序</td>
+<td>順序</td>
+<td>順序</td>
+<td></td>
+<td>間隔</td>
+<td>比例</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="math display">\[
+\text{変数}
+\begin{cases}
+\text{質的変数}
+\begin{cases}
+\text{名義尺度} &amp; \text{同じ値かどうかを区別} \\
+\text{順序尺度} &amp; \text{値の大小関係のみ} \\
+\end{cases} \\
+\text{量的変数}
+\begin{cases}
+\text{間隔尺度} &amp; \text{数値の間隔のみに意味がある} \\
+\text{比例尺度} &amp; \text{数値の間隔と比率に意味がある} \\
+\end{cases}
+\end{cases}
+\]</span></p>
+</div>
+<div id="データの表記方法" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> データの表記方法<a class="anchor" aria-label="anchor" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%A1%A8%E8%A8%98%E6%96%B9%E6%B3%95"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="幹葉図stem-and-leaf" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> 幹葉図(Stem-and-Leaf)<a class="anchor" aria-label="anchor" href="#%E5%B9%B9%E8%91%89%E5%9B%B3stem-and-leaf"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>問題：学生の成績データ(幹葉図) <br>
+次の学生50人の成績データ(点数)で<strong>幹葉図</strong>を作成して下さい</p>
+</blockquote>
+<p>|—|—|—|—|—|—|—|—|—|—|
+| 5 | 9 | 15 | 15 | 17 | 24 | 25 | 25 | 27 | 29 |
+|29 | 29 | 32 | 32 | 34 | 34 | 35 | 36 | 36 | 38 |
+|38 | 39 | 39 | 39 | 39 | 43 | 44 | 44 | 44 | 45 |
+|45 | 47 | 47 | 47 | 52 | 54 | 54 | 56 | 58 | 59 |
+|59 | 67 | 73 | 75 | 79 | 82 | 84 | 84 | 89 | 99 |</p>
+<blockquote>
+<p>定義：幹葉図(みきはず)<br></p>
+<ul>
+<li>データの値をいくつかのグループ(<strong>幹</strong>)に分け，各グループ内での値を<strong>葉</strong>のように幹の横に並べることで，データの分布状況を表現する方法。</li>
+<li>データの分布だけでなく，データの値も表記するので，情報の損失がないことがこの方法の利点</li>
+</ul>
+</blockquote>
+<p><span class="math display">\[
+\mathop{2}_{\substack{\uparrow \\ \text{幹}}}
+\mathop{9}_{\substack{\uparrow \\ \text{葉}}}
+\]</span></p>
+<p>しがたって幹葉図は次のようになります</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">10の位</th>
+<th align="left">1の位</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="left">59</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">557</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="left">4557999</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="left">2244566889999</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="left">344455777</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="left">2446899</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="left">7</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="left">359</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="left">2449</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="left">9</td>
+</tr>
+</tbody>
+</table></div>
+<p>幹葉図からわかること</p>
+<blockquote>
+<p>問題：学生の成績データ(中位数) <br>
+学生は全員で50人でした。</p>
+</blockquote>
+<ul>
+<li>点数の低い方から数えて25番目の学生の点数は何点ですか？</li>
+<li>点数の高い方から数えて25番目の学生の点数は何点ですか？</li>
+<li>全体のちょうど真ん中の点数は何点になりますか？</li>
+</ul>
+<blockquote>
+<p>定義：中位数(メディアン, median)<br>
+データを大きさの順に並べたとき,ちょうど中央に位置するデータの値のこと</p>
+</blockquote>
+</div>
+<div id="度数分布表" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> 度数分布表<a class="anchor" aria-label="anchor" href="#%E5%BA%A6%E6%95%B0%E5%88%86%E5%B8%83%E8%A1%A8"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>問題：学生の成績データ(度数分布表) <br>
+学生50人の成績データ(点数)でを作成して下さい。幹葉図との違いは何ですか？</p>
+</blockquote>
+<p><strong>解答</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">階級</th>
+<th align="center">度数</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">0-9</td>
+<td align="center">2</td>
+</tr>
+<tr class="even">
+<td align="center">10-19</td>
+<td align="center">3</td>
+</tr>
+<tr class="odd">
+<td align="center">20-29</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td align="center">30-39</td>
+<td align="center">13</td>
+</tr>
+<tr class="odd">
+<td align="center">40-49</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="center">50-59</td>
+<td align="center">7</td>
+</tr>
+<tr class="odd">
+<td align="center">60-69</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">70-79</td>
+<td align="center">3</td>
+</tr>
+<tr class="odd">
+<td align="center">80-89</td>
+<td align="center">4</td>
+</tr>
+<tr class="even">
+<td align="center">90-99</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>定義：度数分布<br>
+度数分布（frequency distribution）は，データを大きさによっていくつかの組（これを<strong>級</strong>または<strong>クラス</strong>〔class〕という）に分け，各級に入るデータの数（これを<strong>度数</strong>〔frequency〕という）を明らかにしたもの</p>
+</blockquote>
+<ul>
+<li>利点：大量のデータの値の分布状況をみることができる
+<ul>
+<li>10点以下に2人，90点代が1人，30点代に集中，という具合</li>
+</ul>
+</li>
+<li>欠点：級分けによってデータをまとめて表示しようとするので，細部の情報が失われてしまう
+<ul>
+<li>情報の喪失は，データの要約の程度，つまり級の大きさによって異なるので，適切な級間隔の選択が重要</li>
+<li>100点満点の試験の結果なので、階級の幅（級間隔）を10点間隔にしているが，5点間隔でもよいかもしれない<span class="math inline">\(\Rightarrow\)</span>適切な``幅’’を決める方法はあるのか？</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="ヒストグラム" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> ヒストグラム<a class="anchor" aria-label="anchor" href="#%E3%83%92%E3%82%B9%E3%83%88%E3%82%B0%E3%83%A9%E3%83%A0"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>問題：学生の成績データ(ヒストグラムの作成) <br>
+学生50人の成績データの度数分布を，視覚的にわかりやすく示すためにヒストグラム(histogram，度数柱状図)を作成して下さい</p>
+</blockquote>
+<div class="line-block">問題：学生の成績データ(ヒストグラムの作成) <br><br>
+学生50人の成績データの度数分布を，視覚的にわかりやすく示すためにヒストグラム(histogram，度数柱状図)を作成して下さい</div>
+<div class="figure">
+<img src="images/lec02/pic_hist_scores.png" style="width:50.0%" alt=""><p class="caption">image of histogram</p>
+</div>
+<blockquote>
+<p>定義：スタージス(Sturges)の公式による階級の幅の決め方<br></p>
+<ol style="list-style-type: decimal">
+<li>階級の数<span class="math inline">\(m\)</span>を決定する：データ数が<span class="math inline">\(n\)</span>のとき，適切な階級数<span class="math inline">\(m\)</span>は
+<span class="math display">\[
+m \approx 1+\frac{\log_{10} n}{\log_{10} 2} \approx 1+3.32 \log_{10} n
+\]</span>
+なお，<span class="math inline">\(\approx\)</span>は<strong>ほぼ等しい</strong>の意味。(参考：<span class="math inline">\(\log_{10} 2 \approx 0.301\)</span>)</li>
+<li>階級の幅<span class="math inline">\(c\)</span>を決定する：適切な級間隔<span class="math inline">\(c\)</span>は
+<span class="math display">\[
+c \approx \frac{x_{\max}-x_{\min}}{1+3.32 \log_{10} n}=\frac{\text{データの範囲}}{\text{階級数}}
+\]</span>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li>データの値の中で最も大きな値を<code>最大値(maximum)''，逆に最も小さな値を</code>最小値(minimum)’’とよびます</li>
+<li>最大値と最小値の間隔を``データの範囲(range)’’とよびます</li>
+</ul>
+<blockquote>
+<p>問題：学生の成績データ(スタージスの公式)<br>
+学生50人の成績データ(単位：点数)では最低点は5点，最高点は99点でした。スタージスの公式を使って，適切な階級数<span class="math inline">\(m\)</span>と階級の幅<span class="math inline">\(c\)</span>を求めて下さい</p>
+</blockquote>
+<p><strong>解答</strong></p>
+<ol style="list-style-type: decimal">
+<li>スタージスの公式に必要な情報は次の通り</li>
+</ol>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>名称</th>
+<th>記号</th>
+<th>数値</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>データ数</td>
+<td><span class="math inline">\(n\)</span></td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>最大値</td>
+<td><span class="math inline">\(x_{max}\)</span></td>
+<td>99</td>
+</tr>
+<tr class="odd">
+<td>最小値</td>
+<td><span class="math inline">\(x_{min}\)</span></td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>適切な階級の数<span class="math inline">\(m\)</span>は
+<span class="math display">\[
+m
+\approx 1+3.32 \times \log_{10} \mathop{50}_{\substack{\uparrow \\ n}}
+\approx 1+3.32 \times 1.699
+\approx 1+5.64 = 6.64
+\]</span></p></li>
+<li><p>適切な級間隔<span class="math inline">\(c\)</span>は
+<span class="math display">\[
+c
+\approx \frac{\text{データの範囲}}{\text{階級数}}
+\approx \frac{99-5}{7}
+\approx 13
+\]</span></p></li>
+</ol>
+<blockquote>
+<p>階級の数の決め方の注意点</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>階級の「数」と「幅」は反比例の関係にある</li>
+</ol>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>階級の数</th>
+<th>階級の幅</th>
+<th>ヒストグラム</th>
+<th>問題点</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>少なくする</td>
+<td>広くなる</td>
+<td>大雑把になる</td>
+<td>情報の喪失が大</td>
+</tr>
+<tr class="even">
+<td>多くする</td>
+<td>狭くなる</td>
+<td>細かくなる</td>
+<td>情報を集約できない</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>適切な階級の数と幅を決定するときにスタージスの公式を参考にするといい</p></li>
+<li>
+<p>次のような幅を設定することがポイント</p>
+<ol style="list-style-type: decimal">
+<li>データ全体の傾向は損なわず、整理しやすい手頃な幅</li>
+<li>級間隔が直感的に分かりやすい幅</li>
+</ol>
+</li>
+</ol>
+<div id="度数分布表からわかること" class="section level3" number="2.5.1">
+<h3>
+<span class="header-section-number">2.5.1</span> 度数分布表からわかること<a class="anchor" aria-label="anchor" href="#%E5%BA%A6%E6%95%B0%E5%88%86%E5%B8%83%E8%A1%A8%E3%81%8B%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%E3%81%93%E3%81%A8"><i class="fas fa-link"></i></a>
+</h3>
+<blockquote>
+<p>問題：学生の成績データ(度数分布表の解釈)<br>
+先ほど作成した学生の成績データの<strong>度数分布表</strong>を参照しながら以下の値を求めて下さい</p>
+<ol style="list-style-type: decimal">
+<li>点数が30点台の学生は何人いますか？</li>
+<li>点数が30点台の学生は全体の何パーセントですか？</li>
+<li>50点未満の学生は何人いますか？</li>
+<li>50点未満の学生は何パーセントですか？</li>
+</ol>
+</blockquote>
+<p><strong>解答</strong>
+1. 13人
+2. 26パーセント
+3. 34人
+4. 68パーセント</p>
+<blockquote>
+<p>問題：学生の成績データ(相対度数)<br>
+点数が31点から40点の学生は全体の何パーセントですか？</p>
+</blockquote>
+<p><span class="math display">\[
+\text{30点台の階級の相対度数}
+=\frac{\text{30点台の階級の度数}}{\text{全度数}}
+=\frac{13}{50}=0.26
+\]</span></p>
+<blockquote>
+<p>定義：相対度数分布<br><strong>相対度数</strong>の分布を表示したもの</p>
+</blockquote>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">階級(点)</th>
+<th align="right">度数(人)</th>
+<th align="center">相対度数</th>
+<th align="left"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">0-9</td>
+<td align="right">2</td>
+<td align="center">0.04</td>
+<td align="left"><span class="math inline">\(\leftarrow 2/50\)</span></td>
+</tr>
+<tr class="even">
+<td align="right">10-19</td>
+<td align="right">3</td>
+<td align="center">0.06</td>
+<td align="left"><span class="math inline">\(\leftarrow 3/50\)</span></td>
+</tr>
+<tr class="odd">
+<td align="right">20-29</td>
+<td align="right">7</td>
+<td align="center">0.14</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">30-39</td>
+<td align="right">13</td>
+<td align="center">0.26</td>
+<td align="left"><span class="math inline">\(\leftarrow 13/50\)</span></td>
+</tr>
+<tr class="odd">
+<td align="right">40-49</td>
+<td align="right">9</td>
+<td align="center">0.18</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">50-59</td>
+<td align="right">7</td>
+<td align="center">0.14</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">60-69</td>
+<td align="right">1</td>
+<td align="center">0.02</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">70-79</td>
+<td align="right">3</td>
+<td align="center">0.06</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">80-89</td>
+<td align="right">4</td>
+<td align="center">0.08</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">90-99</td>
+<td align="right">1</td>
+<td align="center">0.02</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">合計</td>
+<td align="right">50</td>
+<td align="center">1.00</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB.html"><span class="header-section-number">1</span> 統計と人間生活</a></div>
+<div class="next"><a href="hello-bookdown.html"><span class="header-section-number">3</span> Hello bookdown</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9"><span class="header-section-number">2</span> データの尺度など</a></li>
+<li><a class="nav-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6"><span class="header-section-number">2.1</span> データの尺度</a></li>
+<li><a class="nav-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%A1%A8%E8%A8%98%E6%96%B9%E6%B3%95"><span class="header-section-number">2.2</span> データの表記方法</a></li>
+<li><a class="nav-link" href="#%E5%B9%B9%E8%91%89%E5%9B%B3stem-and-leaf"><span class="header-section-number">2.3</span> 幹葉図(Stem-and-Leaf)</a></li>
+<li><a class="nav-link" href="#%E5%BA%A6%E6%95%B0%E5%88%86%E5%B8%83%E8%A1%A8"><span class="header-section-number">2.4</span> 度数分布表</a></li>
+<li>
+<a class="nav-link" href="#%E3%83%92%E3%82%B9%E3%83%88%E3%82%B0%E3%83%A9%E3%83%A0"><span class="header-section-number">2.5</span> ヒストグラム</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%E5%BA%A6%E6%95%B0%E5%88%86%E5%B8%83%E8%A1%A8%E3%81%8B%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%E3%81%93%E3%81%A8"><span class="header-section-number">2.5.1</span> 度数分布表からわかること</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-lec02.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-lec02.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
