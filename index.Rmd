@@ -1,5 +1,5 @@
 --- 
-title: "初級統計学 I (2023年度前期)"
+title: "初級統計学"
 author: "TI"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
