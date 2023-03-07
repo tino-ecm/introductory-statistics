@@ -1,7 +1,7 @@
 fig:nice-fig
 tab:nice-tab
 eq:binom
-about
+統計と人間生活
 usage
 render-book
 preview-book

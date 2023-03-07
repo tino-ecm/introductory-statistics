@@ -4,19 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 1 About | 初級統計学</title>
+<title>Chapter 1 統計と人間生活 | 初級統計学</title>
 <meta name="author" content="TI">
 <meta name="description" content="&lt;p&gt;This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::bs4_book,
 set in the _output.yml file.&lt;/p&gt;">
 <meta name="generator" content="bookdown 0.32.2 with bs4_book()">
-<meta property="og:title" content="Chapter 1 About | 初級統計学">
+<meta property="og:title" content="Chapter 1 統計と人間生活 | 初級統計学">
 <meta property="og:type" content="book">
 <meta property="og:description" content="&lt;p&gt;This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::bs4_book,
 set in the _output.yml file.&lt;/p&gt;">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 1 About | 初級統計学">
+<meta name="twitter:title" content="Chapter 1 統計と人間生活 | 初級統計学">
 <meta name="twitter:description" content="&lt;p&gt;This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::bs4_book,
 set in the _output.yml file.&lt;/p&gt;">
@@ -71,7 +71,7 @@ set in the _output.yml file.&lt;/p&gt;">
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="active" href="index.html"><span class="header-section-number">1</span> 統計と人間生活</a></li>
 <li class="book-part">第１部</li>
 <li><a class="" href="hello-bookdown.html"><span class="header-section-number">3</span> Hello bookdown</a></li>
 <li><a class="" href="hello-bookdown-1.html"><span class="header-section-number">4</span> Hello bookdown</a></li>
@@ -104,10 +104,137 @@ set in the _output.yml file.&lt;/p&gt;">
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="about" class="section level1" number="1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="統計と人間生活" class="section level1" number="1">
 <h1>
-<span class="header-section-number">1</span> About<a class="anchor" aria-label="anchor" href="#about"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1</span> 統計と人間生活<a class="anchor" aria-label="anchor" href="#%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB"><i class="fas fa-link"></i></a>
 </h1>
+<p>日常生活では<strong>統計的な考え方</strong>がさまざまな場面で利用されている</p>
+<blockquote>
+<p>例1：統計がないとスポーツ観戦がつまらなくなる<br>
+野球では，過去の対戦成績(○勝△敗)，打撃成績（○割○分○厘），投手成績（防御率）のような<strong>統計</strong>が利用される</p>
+<p><span class="math display">\[
+\text{打率}=\frac{\text{安打}}{\text{打数}} \qquad\qquad
+\text{防御率}=\frac{\text{自責点}}{\text{投球回}} \times 9
+\]</span></p>
+</blockquote>
+<p>これらの<strong>統計</strong>が存在しなければ：<br>
+* 登場した打者にどれくらいの安打が期待できるのかわからない
+* 投手にどれくらいの健闘が期待できるのかわからない</p>
+<blockquote>
+<p>例2：統計がないと今日の天気を比べられない<br>
+天気予報で気象予報士が「きょうは4月中旬にしては異常に暖かかった」あるいは「きょうは6月上旬の陽気であった」と表現することがある。</p>
+</blockquote>
+<ul>
+<li>「異常」な状態を定義するには，「平常」な状態の定義が必要</li>
+<li>ではどのように「平常」な状態を定義できるだろうか？</li>
+<li>「平常」な気温は，過去何十年にもわたって観測した4月中旬の気温を平均してもとめた¥underline{平均気温}という統計数字</li>
+<li>「異常」な暖かさとは「平常」な気温の値があってはじめて判断できる</li>
+<li>疑問：平均気温よりもどれくらい離れていると「異常」と言えるだろうか？</li>
+</ul>
+<p>¥begin{exampleblock}{例3：統計がなければ「当選確実」かどうかはすぐにわからない}
+選挙速報で，数パーセントしか開票していないのに「当選確実」と報道できるのはなぜか？
+¥end{exampleblock}</p>
+<p>%¥pause</p>
+<p>¥begin{itemize}
+¥item 選挙前の支持者，投票意向などの統計的調査などから得た情報をもとに<code>推定'' ¥item ¥underline{一部分の開票結果}から¥underline{全体の傾向}を推しはかる</code>統計的推論’’とよばれる分析の応用例
+¥end{itemize}</p>
+<p>¥begin{exampleblock}{例4：企業経営に統計は不可欠}
+多くの製造業者は，注文を受けてから製品を製造する<code>受注生産''ではなく，どれくらい売れそうかという見込みをたてて製品を製造する</code>見込生産’’を行っている
+¥end{exampleblock}</p>
+<p>%¥pause</p>
+<p>¥begin{itemize}
+¥item 生産量が多すぎれば``在庫’’を抱えてしまうし，少なすぎたりすると社会的に混乱を生じさせてしまう
+¥begin{itemize}
+¥item 例：食品メーカーのある炭酸飲料が「予想を上回る注文があったため販売2日目で当面出荷停止」
+%サントリーのオランジーナ 2015/4/2
+¥end{itemize}</p>
+<p>¥item 人口総数，男女別構成・年齢別構成等の統計をもとに需要予測を行い，生産量の計画をたてる
+¥item 消費者の消費習慣や購買習慣を，企業みずから，あるいは専門の調査機関に依頼して``市場調査’’する
+¥end{itemize}</p>
+<p>¥begin{exampleblock}{例5：経済政策の決定にも統計は不可欠}
+政府は所得税を減税することで消費を増加させ，公共投資を増やすことによって景気を刺激しようとする。政策を決定する際には，各種の経済統計(家計調査，設備投資計画調査など)が示す経済状態に細心の注意を払うと同時に，各種税率，公共投資額，金利，マネーストック等の経済政策にかかわる変数と経済の状態を示す各種変数との関係が利用されている
+¥end{exampleblock}</p>
+<p>%¥pause</p>
+<p>¥begin{itemize}
+¥item GDP，物価指数，金利，株価，失業率，為替レートなどのマクロ経済データを使って作成した計量経済学的モデルは，政府の経済政策の決定に不可欠なツールのひとつ</p>
+<p>¥begin{alertblock}{内閣府の経済社会総合研究所の分析(2015)}
+¥begin{itemize}
+¥item 消費税率1¥%引上げで1年後の実質GDPは0.24¥%減少
+¥item 短期金利1¥%引上げで1年後の実質GDPは0.32¥%減少
+%¥item 内閣府経済社会総合研究所「短期日本経済マクロ計量モデル(2015年版)の構造と乗数分析」
+%(<a href="http://www.esri.go.jp/jp/archive/e%C2%A5_dis/e%C2%A5_dis314/e%C2%A5_dis314.pdf" class="uri">http://www.esri.go.jp/jp/archive/e¥_dis/e¥_dis314/e¥_dis314.pdf</a>)
+¥end{itemize}
+¥end{alertblock}
+%¥begin{itemize}
+%¥item 内閣府の経済社会総合研究所の分析によれば：
+%¥item 消費税率1¥%<span class="math inline">\(¥uparrow\)</span>で1年目の実質GDPは0.24¥%<span class="math inline">\(¥downarrow\)</span>
+%¥item 短期金利1¥%<span class="math inline">\(¥uparrow\)</span>で1年目の実質GDPは0.32¥%<span class="math inline">\(¥downarrow\)</span>
+%%¥item 内閣府経済社会総合研究所「短期日本経済マクロ計量モデル(2015年版)の構造と乗数分析」
+%%(<a href="http://www.esri.go.jp/jp/archive/e%C2%A5_dis/e%C2%A5_dis314/e%C2%A5_dis314.pdf" class="uri">http://www.esri.go.jp/jp/archive/e¥_dis/e¥_dis314/e¥_dis314.pdf</a>)
+%¥end{itemize}
+¥end{itemize}</p>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+¥begin{frame}¥frametitle{}
+¥begin{exampleblock}{例6：アパート・マンションを選ぶときにも統計が使える}
+この物件を借りるべきか？
+¥begin{figure}[htb]
+¥centering
+¥includegraphics[width=7cm,clip]{fig_kichi_1room_example.png}
+¥end{figure}</p>
+<p>¥end{exampleblock}
+¥end{frame}</p>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+¥begin{frame}¥frametitle{統計とは}
+¥begin{block}{統計とは}
+統計とは，ある特定の集団について，それを構成するものの特定の性質に注目して観察し，その集団全体の特徴を数量的に表現しようとするもの
+¥end{block}</p>
+<p>¥begin{enumerate}
+¥item ¥textcolor{red}{記述}統計：複数の者，あるいは複数の時点で示した数字を集約整理し，その集団全体の¥textcolor{red}{特徴を示そうとする}もの</p>
+<p>%¥pause
+¥vspace{5mm}</p>
+<p>¥item ¥textcolor{red}{推測}統計：一部から全体の¥textcolor{red}{特徴を推測・予測する}こと
+¥end{enumerate}</p>
+<p>%¥pause</p>
+<blockquote>
+<p>質問<br>
+先述の例を分類してみましょう</p>
+<table class="table table-sm">
+<thead><tr class="header">
+<th align="center"></th>
+<th align="center">テーマ</th>
+<th align="center">種類</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">例1</td>
+<td align="center">スポーツ観戦</td>
+<td align="center">データの要約(平均的傾向)，記述</td>
+</tr>
+<tr class="even">
+<td align="center">例2</td>
+<td align="center">異常な天気</td>
+<td align="center">データの要約(ちらばり具合)</td>
+</tr>
+<tr class="odd">
+<td align="center">例3</td>
+<td align="center">選挙速報</td>
+<td align="center">予測，推定</td>
+</tr>
+<tr class="even">
+<td align="center">例4</td>
+<td align="center">見込み生産</td>
+<td align="center">予測，推定</td>
+</tr>
+<tr class="odd">
+<td align="center">例5</td>
+<td align="center">経済政策</td>
+<td align="center">記述，推定</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Qiita マークダウン記法 一覧表・チートシート
+<a href="https://qiita.com/kamorits/items/6f342da395ad57468ae3" class="uri">https://qiita.com/kamorits/items/6f342da395ad57468ae3</a></p>
 <p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports; for example, a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
 <div id="usage" class="section level2" number="1.1">
 <h2>
@@ -147,7 +274,7 @@ set in the _output.yml file.&lt;/p&gt;">
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#about"><span class="header-section-number">1</span> About</a></li>
+<li><a class="nav-link" href="#%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB"><span class="header-section-number">1</span> 統計と人間生活</a></li>
 <li><a class="nav-link" href="#usage"><span class="header-section-number">1.1</span> Usage</a></li>
 <li><a class="nav-link" href="#render-book"><span class="header-section-number">1.2</span> Render book</a></li>
 <li><a class="nav-link" href="#preview-book"><span class="header-section-number">1.3</span> Preview book</a></li>
