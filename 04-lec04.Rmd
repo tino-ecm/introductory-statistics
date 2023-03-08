@@ -1,8 +1,28 @@
-# (PART\*) 第２部
+# ジニ係数の別の応用例
 
-# Hello bookdown 
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
+![image of histogram](images/lec04/tab_textile_steel1.pdf){width=100%}
+
+*  事業所数と従業員数の累積相対比率を計算すると次表のようになります
+
+![image of histogram](images/lec04/tab_textile_steel2.pdf){width=100%}
+
+
+*  ローレンツ曲線は次のようになります
+
+![image of histogram](images/lec04/fig_textile_steel.png){width=100%}
+
+> 問題<br>
+>
+*  繊維工業はどちらでしょうか？
+*  どちらの方が集中度が高いでしょうか？また直感とあっていますか？ 
+>
+(解答：ジニ係数は繊維が0.5448，鉄鋼業が0.7003)
+
+
+*  ヨコ軸の増加幅が等間隔でないため``高さ''の値がバラバラです
+*  しかし必要な領域の面積は(若干面倒ですが)以前の例と同じ考え方で計算できます
+
 
 ## A section
 
