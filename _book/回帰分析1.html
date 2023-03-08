@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 12 # 回帰分析(1) | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="12.1 因果関係のモデル  相関関係と因果関係  例：身長と体重の因果関係 身長と体重のあいだには何らかの関係があり，ある人の身長を聞くと，その人の体重を想像することができる。 つまり「身長\(\rightarrow\)体重」という因果関係を考えることができる。 数理モデルの例 ここで身長を\(x\)，体重を\(y\)とすると，その関係は数式で表すことができる。これを数理モデルとよぶ。...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 12 # 回帰分析(1) | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="12.1 因果関係のモデル  相関関係と因果関係  例：身長と体重の因果関係 身長と体重のあいだには何らかの関係があり，ある人の身長を聞くと，その人の体重を想像することができる。 つまり「身長\(\rightarrow\)体重」という因果関係を考えることができる。 数理モデルの例 ここで身長を\(x\)，体重を\(y\)とすると，その関係は数式で表すことができる。これを数理モデルとよぶ。...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 12 # 回帰分析(1) | 初級統計学">
+<meta name="twitter:description" content="12.1 因果関係のモデル  相関関係と因果関係  例：身長と体重の因果関係 身長と体重のあいだには何らかの関係があり，ある人の身長を聞くと，その人の体重を想像することができる。 つまり「身長\(\rightarrow\)体重」という因果関係を考えることができる。 数理モデルの例 ここで身長を\(x\)，体重を\(y\)とすると，その関係は数式で表すことができる。これを数理モデルとよぶ。...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">編集用</a></li>
+<li class="book-part">第１部</li>
+<li><a class="" href="%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB.html"><span class="header-section-number">2</span> 統計と人間生活</a></li>
+<li><a class="" href="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9.html"><span class="header-section-number">3</span> データの尺度など</a></li>
+<li><a class="" href="%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A.html"><span class="header-section-number">4</span> ローレンツ曲線</a></li>
+<li><a class="" href="%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0%E3%81%AE%E5%88%A5%E3%81%AE%E5%BF%9C%E7%94%A8%E4%BE%8B.html"><span class="header-section-number">5</span> ジニ係数の別の応用例</a></li>
+<li><a class="" href="%E5%88%86%E5%B8%83%E3%81%AE%E4%BB%A3%E8%A1%A8%E5%80%A4.html"><span class="header-section-number">6</span> 分布の代表値</a></li>
+<li><a class="" href="%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E7%B5%B1%E8%A8%88%E9%87%8F.html"><span class="header-section-number">7</span> その他の統計量</a></li>
+<li><a class="" href="%E5%88%86%E5%B8%83%E3%81%AE%E4%BB%A3%E8%A1%A8%E5%80%A4-1.html"><span class="header-section-number">8</span> 分布の代表値</a></li>
+<li><a class="" href="hello-bookdown.html"><span class="header-section-number">9</span> Hello bookdown</a></li>
+<li><a class="" href="%E7%AE%B1%E3%81%B2%E3%81%92%E5%9B%B3.html"><span class="header-section-number">10</span> 箱ひげ図</a></li>
+<li><a class="" href="%E7%9B%B8%E9%96%A2%E4%BF%82%E6%95%B0.html"><span class="header-section-number">11</span> 相関係数</a></li>
+<li><a class="active" href="%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%901.html"><span class="header-section-number">12</span> # 回帰分析(1)</a></li>
+<li><a class="" href="hello-bookdown-1.html"><span class="header-section-number">13</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-2.html"><span class="header-section-number">14</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-3.html"><span class="header-section-number">15</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-4.html"><span class="header-section-number">16</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-5.html"><span class="header-section-number">17</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-6.html"><span class="header-section-number">18</span> Hello bookdown</a></li>
+<li><a class="" href="hello-bookdown-7.html"><span class="header-section-number">19</span> Hello bookdown</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">20</span> Cross-references</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">21</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">22</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">23</span> Blocks</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">24</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="回帰分析1" class="section level1" number="12">
+<h1>
+<span class="header-section-number">12</span> # 回帰分析(1)<a class="anchor" aria-label="anchor" href="#%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%901"><i class="fas fa-link"></i></a>
+</h1>
+<div id="因果関係のモデル" class="section level2" number="12.1">
+<h2>
+<span class="header-section-number">12.1</span> 因果関係のモデル<a class="anchor" aria-label="anchor" href="#%E5%9B%A0%E6%9E%9C%E9%96%A2%E4%BF%82%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>相関関係と因果関係</p>
+</blockquote>
+<blockquote>
+<p>例：身長と体重の因果関係</p>
+</blockquote>
+<ul>
+<li>身長と体重のあいだには何らかの関係があり，ある人の身長を聞くと，その人の体重を想像することができる。</li>
+<li>つまり「身長<span class="math inline">\(\rightarrow\)</span>体重」という因果関係を考えることができる。</li>
+</ul>
+<!-- \includegraphics[width=0.45\textwidth]{fig_scatter_height-weight.png} --><blockquote>
+<p>数理モデルの例</p>
+</blockquote>
+<p>ここで身長を<span class="math inline">\(x\)</span>，体重を<span class="math inline">\(y\)</span>とすると，その関係は数式で表すことができる。これを数理モデルとよぶ。</p>
+<p>(a)直線のモデル
+<!-- \includegraphics[width=0.9\textwidth]{fig_height-weight-linear.png} --></p>
+<p><span class="math display">\[\begin{align*}
+y=\beta_0+\beta_1 x
+\end{align*}\]</span></p>
+<p>(b)2次曲線のモデル
+<!-- \includegraphics[width=0.9\textwidth]{fig_height-weight-quadratic.png} --></p>
+<p><span class="math display">\[\begin{align*}
+y=\beta_0+\beta_1 x+\beta_2 x^2
+\end{align*}\]</span></p>
+<p>(b)3次曲線のモデル
+<!-- \includegraphics[width=0.9\textwidth]{fig_height-weight-cubic.png} --></p>
+<p><span class="math display">\[\begin{align*}
+y&amp;=\beta_0+\beta_1 x \\
+&amp;+\beta_2 x^2+\beta_3 x^3
+\end{align*}\]</span></p>
+</div>
+<div id="回帰分析と回帰モデル" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> 回帰分析と回帰モデル<a class="anchor" aria-label="anchor" href="#%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%90%E3%81%A8%E5%9B%9E%E5%B8%B0%E3%83%A2%E3%83%87%E3%83%AB"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：単純回帰モデル(単回帰モデル,simple regression)</p>
+<p>いま，2つのデータ<span class="math inline">\(x\)</span>と<span class="math inline">\(y\)</span>の関係を1次式で表します</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+y_i=\beta_0+\beta_1 x_i+u_i, \qquad i=1,2,\dots,n
+\end{align*}\]</span></p>
+<!-- $x$ & \textcolor{red}{原因(cause)}となる変数 & 説明変数(explanatory variable) \\  -->
+<!--  & & 独立変数(independent variable) \\ -->
+<!-- \hline -->
+<!-- $y$ & \textcolor{red}{結果(result)}となる変数 & 被説明変数(explained variable) \\  -->
+<!--  & & 従属変数(dependent variable) \\ -->
+<!-- \hline -->
+<!-- $u$ & モデルで説明できない部分 & 誤差項(error term) \\  -->
+<!--  & & 撹乱項(disturbance term) \\ -->
+<blockquote>
+<p>誤差(=観測データが回帰モデルから乖離する)がある理由</p>
+<ul>
+<li>データの測定に誤差がある(データ値がまちがっている)</li>
+<li>数理モデルがまちがっている</li>
+</ul>
+</blockquote>
+<p>など</p>
+</div>
+<div id="最小2乗基準にもとづく係数の計算数値例" class="section level2" number="12.3">
+<h2>
+<span class="header-section-number">12.3</span> 最小2乗基準にもとづく係数の計算(数値例)<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E5%9F%BA%E6%BA%96%E3%81%AB%E3%82%82%E3%81%A8%E3%81%A5%E3%81%8F%E4%BF%82%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%95%B0%E5%80%A4%E4%BE%8B"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>最小2乗法</p>
+</blockquote>
+<ul>
+<li>回帰分析の目的のひとつは<span class="math inline">\(\beta_0,\beta_1\)</span>を計算(推定)すること</li>
+<li>このときもっともよく利用される方法が最小2乗法(Ordinary Least Square method: OLS)です</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\mathop{\min}_{\{\beta_0,\beta_1\}}
+\mathop{S(\beta_0,\beta_1)}_{\substack{\uparrow \\ \text{関数}S\text{の値は} \\ \beta_0,\beta_1\text{の値} \\ \text{次第で変化}}}
+&amp;=\sum_{i=1}^n \{
+\underbrace{
+\mathop{y_i}_{\substack{\uparrow \\ \text{実際の} \\ y}}
+-(\mathop{\beta_0+\beta_1 x_i}_{\substack{\uparrow \\ x\text{と関連付け} \\ \text{が可能な部分}}})
+}_{i\text{番目の誤差}}
+\}^2
+\end{align*}\]</span></p>
+<ul>
+<li>最小2乗法とは<span class="math inline">\(y_i\)</span>の観測値と当てはめ値の差の2乗の和を最小にするという基準(最小2乗基準)にもとづいてパラメータを推定する方法です</li>
+</ul>
+<blockquote>
+<p>Excelシートの構造</p>
+</blockquote>
+<!-- \includegraphics[width=6cm,clip]{fig_regression.png} -->
+<ol style="list-style-type: decimal">
+<li><p>列Bと列Cは実際のデータ</p></li>
+<li><p>セルC11とC12が回帰係数</p></li>
+<li><p>列Dは回帰モデルの理論値
+<!-- \begin{verbatim} -->
+<!-- セルD5は $C$11+$C$12*B5 -->
+<!-- \end{verbatim} --></p></li>
+<li><p>列Eは誤差
+<!-- \begin{verbatim} -->
+<!-- セルE5は C5-D5 -->
+<!-- \end{verbatim} --></p></li>
+<li><p>列Fは誤差の2乗で，セルF9はその合計値</p></li>
+</ol>
+</div>
+<div id="最小2乗基準にもとづく係数の計算解析的な方法" class="section level2" number="12.4">
+<h2>
+<span class="header-section-number">12.4</span> 最小2乗基準にもとづく係数の計算(解析的な方法)<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E5%9F%BA%E6%BA%96%E3%81%AB%E3%82%82%E3%81%A8%E3%81%A5%E3%81%8F%E4%BF%82%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E8%A7%A3%E6%9E%90%E7%9A%84%E3%81%AA%E6%96%B9%E6%B3%95"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>誤差2乗和を最小化する<span class="math inline">\(\beta_0\)</span>と<span class="math inline">\(\beta_1\)</span>の数学的な求め方</p>
+</blockquote>
+<ul>
+<li>誤差2乗和</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\mathop{\min}_{\{\beta_0,\beta_1\}}
+\mathop{S(\beta_0,\beta_1)}_{\substack{\uparrow \\ \text{関数}S\text{の値は} \\ \beta_0,\beta_1\text{の値} \\ \text{次第で変化}}}
+&amp;=\sum_{i=1}^n \{
+\underbrace{
+\mathop{y_i}_{\substack{\uparrow \\ \text{実際の} \\ y}}
+-(\mathop{\beta_0+\beta_1 x_i}_{\substack{\uparrow \\ x\text{と関連付け} \\ \text{が可能な部分}}})
+}_{i\text{番目の誤差}}
+\}^2
+\end{align*}\]</span></p>
+<ul>
+<li>
+<span class="math inline">\(S(\beta_0,\beta_1)\)</span>を最小にする<span class="math inline">\(\beta_0,\beta_1\)</span>は次の条件(最小化の1階条件)で求めることができます<span class="math inline">\(\Rightarrow\)</span>未知数2つに対して条件式が2つ</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\frac{\partial S(\beta_0,\beta_1)}{\partial \beta_0}&amp;
+=-2 \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i)=0
+~~~~~\Rightarrow
+\sum_{i=1}^n u_i=0
+\\
+\frac{\partial S(\beta_0,\beta_1)}{\partial \beta_1}&amp;
+=-2 \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i) x_i=0
+~~\Rightarrow
+\sum_{i=1}^n u_i x_i=0
+\end{align*}\]</span></p>
+<p>この連立方程式を解くと<span class="math inline">\(\beta_0,\beta_1\)</span>のが導出できます</p>
+<blockquote>
+<p>補足：OLS推定量の導出</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(i\)</span>番目の<span class="math inline">\(\{ y_i-\beta_0-\beta_1 x_i \}^2\)</span>を<span class="math inline">\(\beta_0\)</span>について微分をとれば
+<span class="math display">\[\begin{align*}
+2 \{ y_i-\beta_0-\beta_1 x_i \} \times (-1)
+\end{align*}\]</span></p></li>
+<li><p>1から<span class="math inline">\(n\)</span>までの合計を<span class="math inline">\(=0\)</span>とし，不要な項を整理すれば
+<span class="math display">\[\begin{align*}
+\frac{\partial S}{\partial \beta_0}
+=
+-2 \sum_{i=1}^n \{ \underbrace{y_i-\beta_0-\beta_1 x_i}_{u_i} \}&amp;=0 \Rightarrow
+\textcolor{red}{\sum_{i=1}^n u_i=0}
+\end{align*}\]</span></p></li>
+<li><p><span class="math inline">\(i\)</span>番目の<span class="math inline">\(\{ y_i-\beta_0-\beta_1 x_i \}^2\)</span>を<span class="math inline">\(\beta_1\)</span>について微分をとれば
+<span class="math display">\[\begin{align*}
+2 \{ y_i-\beta_0-\beta_1 x_i \} \times (-x_i)
+\end{align*}\]</span></p></li>
+<li><p>1から<span class="math inline">\(n\)</span>までの合計を<span class="math inline">\(=0\)</span>とし，不要な項を整理すれば
+<span class="math display">\[\begin{align*}
+\frac{\partial S}{\partial \beta_1}
+=
+-2 \sum_{i=1}^n x_i \{ \underbrace{y_i-\beta_0-\beta_1 x_i}_{u_i} \}&amp;=0 \Rightarrow
+\textcolor{red}{\sum_{i=1}^n x_i u_i=0}
+\end{align*}\]</span></p></li>
+<li><p>1本目の条件式(<span class="math inline">\(\sum u_i=0\)</span>)を次のように変形する
+<span class="math display">\[\begin{align*}
+\sum (y_i-\beta_0-\beta_1 x_i)&amp;=0 \\
+\sum y_i-\sum \beta_0-\sum \beta_1 x_i &amp;=0 \\
+n \bar{y}-n \beta_0-\beta_1 n \bar{x} &amp;=0 \\
+\bar{y}-\beta_0-\beta_1 \bar{x} &amp;=0
+\end{align*}\]</span>
+したがって
+<span class="math display">\[\begin{align*}
+\beta_0=\bar{y}-\beta_1 \bar{x}
+\end{align*}\]</span></p></li>
+<li><p>2本目の条件式(<span class="math inline">\(\sum x_i u_i=0\)</span>)を次のように変形する
+<span class="math display">\[\begin{align*}
+\sum (x_i+\text{定数}) u_i&amp;=0 \\
+\sum (x_i-\bar{x}) u_i&amp;=0 \\
+\sum (x_i-\bar{x}) (\underbrace{y_i-\beta_0-\beta_1 x_i}_{u_i})&amp;=0 \\
+\sum (x_i-\bar{x}) \{ y_i-(\bar{y}-\beta_1 \bar{x})-\beta_1 x_i \}&amp;=0 \\
+\sum (x_i-\bar{x}) \{ (y_i-\bar{y})-\beta_1 (x_i-\bar{x}) \}&amp;=0
+\end{align*}\]</span>
+したがって
+<span class="math display">\[\begin{align*}
+\beta_1=\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}
+\end{align*}\]</span></p></li>
+</ol>
+</div>
+<div id="最小2乗基準にもとづく単回帰モデルの係数の推定量と推定値" class="section level2" number="12.5">
+<h2>
+<span class="header-section-number">12.5</span> 最小2乗基準にもとづく単回帰モデルの係数の推定量と推定値<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E5%9F%BA%E6%BA%96%E3%81%AB%E3%82%82%E3%81%A8%E3%81%A5%E3%81%8F%E5%8D%98%E5%9B%9E%E5%B8%B0%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E4%BF%82%E6%95%B0%E3%81%AE%E6%8E%A8%E5%AE%9A%E9%87%8F%E3%81%A8%E6%8E%A8%E5%AE%9A%E5%80%A4"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：単純回帰モデルの最小2乗推定量</p>
+<p>最小2乗基準にもとづく<span class="math inline">\(\beta_0,\beta_1\)</span>の</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\hat\beta_0=\bar{y}-\beta_1 \bar{x}  \qquad\qquad
+\hat\beta_1=\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}
+=\frac{\text{Cov}(x,y)}{\text{Var}(x)}
+\end{align*}\]</span></p>
+<ul>
+<li>【参考】<span class="math inline">\(\hat\beta_0,\hat\beta_1\)</span>はデータ(=標本)から母集団回帰パラメータ<span class="math inline">\(\beta_0,\beta_1\)</span>を推定するために公式なので``ハット’’をつけます</li>
+<li>上記の<strong>公式にデータを代入</strong>して得た<strong>回帰係数の実際の値</strong>のことを<strong>推定値(OLS estimate)</strong>と呼びます</li>
+</ul>
+<blockquote>
+<p>Excelシートの構造</p>
+</blockquote>
+<!-- \includegraphics[width=7cm,clip]{fig_reg_calculation.png} -->
+<ul>
+<li>青のセル<span class="math inline">\(=\bar{x}\)</span>
+</li>
+<li>緑のセル<span class="math inline">\(=\bar{y}\)</span>
+</li>
+<li>黄緑のセル<span class="math inline">\(=\sum_{i}^{4} (x_i-\bar{x})(y_i-\bar{y})\)</span>
+</li>
+<li>オレンジのセル<span class="math inline">\(=\sum_{i}^{4} (x_i-\bar{x})^2\)</span>
+</li>
+</ul>
+</div>
+<div id="推計した回帰係数からわかること" class="section level2" number="12.6">
+<h2>
+<span class="header-section-number">12.6</span> 推計した回帰係数からわかること<a class="anchor" aria-label="anchor" href="#%E6%8E%A8%E8%A8%88%E3%81%97%E3%81%9F%E5%9B%9E%E5%B8%B0%E4%BF%82%E6%95%B0%E3%81%8B%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%E3%81%93%E3%81%A8"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>分析の結果からわかること
+1. データから計算した直線の切片(<span class="math inline">\(\hat\beta_0\)</span>)と傾き(<span class="math inline">\(\hat\beta_1\)</span>)の値は
+<span class="math display">\[\begin{align*}
+\hat\beta_0=17.0\qquad \qquad
+\hat\beta_1=30.0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>定義：被説明変数の理論値</p>
+<p>ある説明変数<span class="math inline">\(x_i\)</span>の値のもとでの被説明変数の理論上の値を<code>理論値(fitted value)''あるいは</code><span class="math inline">\(y\)</span>の推定値’’とよびます</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\mathop{\hat{y}_i}_{\substack{\uparrow \\ y\text{の推定値}}}=\hat\beta_0+\hat\beta_1 x_i
+\end{align*}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>任意の身長<span class="math inline">\(x_i\)</span>のもとでの体重の推定値は次の数式で表現できる</li>
+</ol>
+<p><span class="math display">\[\begin{align}
+\mathop{\hat{y}_i}_{\substack{\uparrow \\ \text{体重} \\ \text{の推定値}}}
+&amp;=\hat\beta_0+\hat\beta_1 x_i
+=17.0+30.0 x_i \label{steel_eq1}
+\end{align}\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>(<span class="math inline">\(\ref{steel_eq1}\)</span>)式を使えば，身長が1.0(m)のときの体重の推定値は
+<span class="math display">\[\begin{align*}
+17.0+30.0 \times 1.0 = 47.0 (\text{kg})
+\end{align*}\]</span></p></li>
+<li><p>(<span class="math inline">\(\ref{steel_eq1}\)</span>)式を使えば，身長が1.1(m)ならば体重の推定値は
+<span class="math display">\[\begin{align*}
+17.0+30.0 \times 1.1 = 50.0 (\text{kg})
+\end{align*}\]</span></p></li>
+<li><p>つまり0.1(m)高くなることで体重が3.0(kg)増える傾向があることがわかります
+<span class="math display">\[\begin{align*}
+&amp;\frac{\text{1.1(m)のときの平均体重}-\text{1.0(m)のときの平均体重}}{\text{1.1(m)}-\text{1.0(m)}} \\
+&amp;\qquad=\frac{\text{平均体重の変化幅}}{\text{身長の変化幅}} \\
+&amp;\qquad=\frac{50.0-47.0}{1.1-1.0} \\
+&amp;\qquad=30.0\qquad \leftarrow \text{直線の傾き($\hat\beta_1$)の値}
+\end{align*}\]</span></p></li>
+</ol>
+<blockquote>
+<p>応用例：マンションの広さと家賃</p>
+<p>次式は吉祥寺駅周辺のワンルームマンション42件の床面積(m<span class="math inline">\(^2\)</span>)と家賃(万円)のデータから推計した家賃関数です。</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\widehat{\text{rent}}_i=3.172+0.209~\text{area}_i, \qquad i=1,\dots, 42
+\end{align*}\]</span></p>
+<blockquote>
+<p>分析結果からわかること</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>床面積が20m<span class="math inline">\(^2\)</span>の物件の平均的な家賃はXXX万円</li>
+<li>床面積が1m<span class="math inline">\(^2\)</span>広くなると家賃はXXX万円高くなる傾向があることがわかる</li>
+</ol>
+<!-- \includegraphics[width=0.6 \textwidth]{kichi42_scat2a.pdf}  --><blockquote>
+<p>応用例：所得と消費支出</p>
+<p>次の式は，我が国の1994年から2005年までの12年間の実質国内総生産(income)と実質民間最終消費支出(cons)のデータを使って推計した消費関数です。データの単位は兆円です。</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\widehat{\text{cons}}_t=13.44+0.5406~\text{income}_t, \qquad t=1994,\dots,2005
+\end{align*}\]</span></p>
+<blockquote>
+<p>分析結果からわかること</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>消費関数の傾きは0.5406。経済学的な意味は``限界消費性向’’</li>
+<li>このデータからは「国内総生産が1兆円増加すると，消費支出がXXX円増加する」傾向があることがわかる</li>
+</ol>
+<!-- \includegraphics[width=0.6 \textwidth]{fig3_2_im.png}  --><blockquote>
+<p>応用例：広告費と売上の関係</p>
+<p>次式はリディア・ピンカム社の製品(vegetable compound)に関する1907年から1960年の期間(54年間)の毎年の広告費と売上のデータを使った分析の結果です。単位は1000ドルです。</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\widehat{\text{sales}}_t=488.8+1.434~\text{advertisement}_t, \qquad t=1907,\dots,1960
+\end{align*}\]</span></p>
+<p>Palda, Kristian S. (1964). Englewood Cliffs, N.J.: Prentice-Hall.</p>
+<blockquote>
+<p>分析結果からわかること</p>
+</blockquote>
+<!-- \includegraphics[width=0.6 \textwidth]{fig_lydia.png}  -->
+</div>
+<div id="最小2乗法で計算した理論値と残差の特徴" class="section level2" number="12.7">
+<h2>
+<span class="header-section-number">12.7</span> (最小2乗法で計算した)理論値と残差の特徴<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E6%B3%95%E3%81%A7%E8%A8%88%E7%AE%97%E3%81%97%E3%81%9F%E7%90%86%E8%AB%96%E5%80%A4%E3%81%A8%E6%AE%8B%E5%B7%AE%E3%81%AE%E7%89%B9%E5%BE%B4"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>実測値，理論値と残差との関係</p>
+</blockquote>
+<!-- \begin{table}[htp] -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{rrrlll} -->
+<!-- \hline -->
+<!-- $i$ & $x_i$ & $y_i$ & \multicolumn{1}{c}{$\hat{y}_i=\hat\beta_0+\hat\beta_1 x_i$}  -->
+<!-- & \multicolumn{1}{c}{$\hat{u}_i=y_i-\hat{y}_i$} & \multicolumn{1}{c}{$x_i \hat{u}_i$} \\ -->
+<!-- \hline -->
+<!-- $1$ & $1.2$ & $55$ & $53.0=17+30 \times 1.2$ & ~~$2.0=55.0-53.0$ & ~~$2.4=2.0\times 1.2$ \\ -->
+<!-- $2$ & $1.5$ & $60$ & $62.0=17+30 \times 1.5$ & $-2.0=62.0-60.0$ & $-3.0=-2.0\times 1.5$ \\ -->
+<!-- $3$ & $0.9$ & $50$ & $44.0=17+30 \times 0.9$ & ~~$6.0=50.0-44.0$ & ~~$5.4=6.0\times 0.9$ \\ -->
+<!-- $4$ & $0.8$ & $35$ & $41.0=17+30 \times 0.8$ & $-6.0=35.0-41.0$ & $-4.8=-6.0\times 0.8$ \\ -->
+<!-- \hline -->
+<!-- 合計 & $4.4$ & $200$ & \multicolumn{1}{c}{$200$} & \multicolumn{1}{c}{$0$} & \multicolumn{1}{c}{$0$} \\ -->
+<!-- 平均 & $1.1$ & $50$ & \multicolumn{1}{c}{$50$} & \multicolumn{1}{c}{$0$} & \multicolumn{1}{c}{$0$} \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- \end{table}% -->
+<blockquote>
+<p>理論値と残差にかかわる重要な特徴</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><p>実績値の合計と理論値の合計は完全に一致する
+<span class="math display">\[\begin{align*}
+\sum y_i=\sum \hat{y}_i
+\end{align*}\]</span></p></li>
+<li><p>残差の合計(および平均)は必ず0になる
+<span class="math display">\[\begin{align*}
+\sum \hat{u}_i=\frac{1}{n} \sum \hat{u}_i=0
+\end{align*}\]</span></p></li>
+<li><p>説明変数<span class="math inline">\(x_i\)</span>と残差<span class="math inline">\(\hat{u}_i\)</span>は必ず無相関になる
+<span class="math display">\[\begin{align*}
+\sum x_i \hat{u}_i=0
+\end{align*}\]</span></p></li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="%E7%9B%B8%E9%96%A2%E4%BF%82%E6%95%B0.html"><span class="header-section-number">11</span> 相関係数</a></div>
+<div class="next"><a href="hello-bookdown-1.html"><span class="header-section-number">13</span> Hello bookdown</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%901"><span class="header-section-number">12</span> # 回帰分析(1)</a></li>
+<li><a class="nav-link" href="#%E5%9B%A0%E6%9E%9C%E9%96%A2%E4%BF%82%E3%81%AE%E3%83%A2%E3%83%87%E3%83%AB"><span class="header-section-number">12.1</span> 因果関係のモデル</a></li>
+<li><a class="nav-link" href="#%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%90%E3%81%A8%E5%9B%9E%E5%B8%B0%E3%83%A2%E3%83%87%E3%83%AB"><span class="header-section-number">12.2</span> 回帰分析と回帰モデル</a></li>
+<li><a class="nav-link" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E5%9F%BA%E6%BA%96%E3%81%AB%E3%82%82%E3%81%A8%E3%81%A5%E3%81%8F%E4%BF%82%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E6%95%B0%E5%80%A4%E4%BE%8B"><span class="header-section-number">12.3</span> 最小2乗基準にもとづく係数の計算(数値例)</a></li>
+<li><a class="nav-link" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E5%9F%BA%E6%BA%96%E3%81%AB%E3%82%82%E3%81%A8%E3%81%A5%E3%81%8F%E4%BF%82%E6%95%B0%E3%81%AE%E8%A8%88%E7%AE%97%E8%A7%A3%E6%9E%90%E7%9A%84%E3%81%AA%E6%96%B9%E6%B3%95"><span class="header-section-number">12.4</span> 最小2乗基準にもとづく係数の計算(解析的な方法)</a></li>
+<li><a class="nav-link" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E5%9F%BA%E6%BA%96%E3%81%AB%E3%82%82%E3%81%A8%E3%81%A5%E3%81%8F%E5%8D%98%E5%9B%9E%E5%B8%B0%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AE%E4%BF%82%E6%95%B0%E3%81%AE%E6%8E%A8%E5%AE%9A%E9%87%8F%E3%81%A8%E6%8E%A8%E5%AE%9A%E5%80%A4"><span class="header-section-number">12.5</span> 最小2乗基準にもとづく単回帰モデルの係数の推定量と推定値</a></li>
+<li><a class="nav-link" href="#%E6%8E%A8%E8%A8%88%E3%81%97%E3%81%9F%E5%9B%9E%E5%B8%B0%E4%BF%82%E6%95%B0%E3%81%8B%E3%82%89%E3%82%8F%E3%81%8B%E3%82%8B%E3%81%93%E3%81%A8"><span class="header-section-number">12.6</span> 推計した回帰係数からわかること</a></li>
+<li><a class="nav-link" href="#%E6%9C%80%E5%B0%8F2%E4%B9%97%E6%B3%95%E3%81%A7%E8%A8%88%E7%AE%97%E3%81%97%E3%81%9F%E7%90%86%E8%AB%96%E5%80%A4%E3%81%A8%E6%AE%8B%E5%B7%AE%E3%81%AE%E7%89%B9%E5%BE%B4"><span class="header-section-number">12.7</span> (最小2乗法で計算した)理論値と残差の特徴</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/10-lec10.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/10-lec10.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,11 +1,380 @@
-# Hello bookdown 
+# # 回帰分析(1)
 
-All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (`#`) per .Rmd file.
 
-## A section
+## 因果関係のモデル
+> 相関関係と因果関係
 
-All chapter sections start with a second-level (`##`) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+> 例：身長と体重の因果関係
 
-### An unnumbered section {-}
+*    身長と体重のあいだには何らかの関係があり，ある人の身長を聞くと，その人の体重を想像することができる。
+*    つまり「身長$\rightarrow$体重」という因果関係を考えることができる。
 
-Chapters and sections are numbered by default. To un-number a heading, add a `{.unnumbered}` or the shorter `{-}` at the end of the heading, like in this section.
+<!-- \includegraphics[width=0.45\textwidth]{fig_scatter_height-weight.png} -->
+
+
+
+> 数理モデルの例
+
+ここで身長を$x$，体重を$y$とすると，その関係は数式で表すことができる。これを数理モデルとよぶ。
+
+(a)直線のモデル
+<!-- \includegraphics[width=0.9\textwidth]{fig_height-weight-linear.png} -->
+
+\begin{align*}
+y=\beta_0+\beta_1 x
+\end{align*}
+
+(b)2次曲線のモデル
+<!-- \includegraphics[width=0.9\textwidth]{fig_height-weight-quadratic.png} -->
+
+\begin{align*}
+y=\beta_0+\beta_1 x+\beta_2 x^2
+\end{align*}
+
+(b)3次曲線のモデル
+<!-- \includegraphics[width=0.9\textwidth]{fig_height-weight-cubic.png} -->
+
+\begin{align*}
+y&=\beta_0+\beta_1 x \\
+&+\beta_2 x^2+\beta_3 x^3
+\end{align*}
+
+
+## 回帰分析と回帰モデル
+
+> 定義：単純回帰モデル(単回帰モデル,simple regression)
+>
+いま，2つのデータ$x$と$y$の関係を1次式で表します
+
+\begin{align*}
+y_i=\beta_0+\beta_1 x_i+u_i, \qquad i=1,2,\dots,n
+\end{align*}
+
+
+<!-- $x$ & \textcolor{red}{原因(cause)}となる変数 & 説明変数(explanatory variable) \\  -->
+<!--  & & 独立変数(independent variable) \\ -->
+<!-- \hline -->
+<!-- $y$ & \textcolor{red}{結果(result)}となる変数 & 被説明変数(explained variable) \\  -->
+<!--  & & 従属変数(dependent variable) \\ -->
+<!-- \hline -->
+<!-- $u$ & モデルで説明できない部分 & 誤差項(error term) \\  -->
+<!--  & & 撹乱項(disturbance term) \\ -->
+
+
+> 誤差(=観測データが回帰モデルから乖離する)がある理由
+>
+*    データの測定に誤差がある(データ値がまちがっている)
+*    数理モデルがまちがっている
+
+など
+
+
+
+## 最小2乗基準にもとづく係数の計算(数値例)
+
+> 最小2乗法
+
+*    回帰分析の目的のひとつは\textcolor{red}{回帰係数(パラメータ)}$\beta_0,\beta_1$を計算(推定)すること
+*   このときもっともよく利用される方法が最小2乗法(Ordinary Least Square method: OLS)です
+
+\begin{align*}
+\mathop{\min}_{\{\beta_0,\beta_1\}} 
+\mathop{S(\beta_0,\beta_1)}_{\substack{\uparrow \\ \text{関数}S\text{の値は} \\ \beta_0,\beta_1\text{の値} \\ \text{次第で変化}}}
+&=\sum_{i=1}^n \{ 
+\underbrace{
+\mathop{y_i}_{\substack{\uparrow \\ \text{実際の} \\ y}}
+-(\mathop{\beta_0+\beta_1 x_i}_{\substack{\uparrow \\ x\text{と関連付け} \\ \text{が可能な部分}}}) 
+}_{i\text{番目の誤差}}
+\}^2 
+\end{align*}
+
+*   最小2乗法とは$y_i$の観測値と当てはめ値の差の2乗の和を最小にするという基準(最小2乗基準)にもとづいてパラメータを推定する方法です
+
+
+
+> Excelシートの構造
+
+<!-- \includegraphics[width=6cm,clip]{fig_regression.png} -->
+
+1.   列Bと列Cは実際のデータ
+2.   セルC11とC12が回帰係数
+3.   列Dは回帰モデルの理論値
+<!-- \begin{verbatim} -->
+<!-- セルD5は $C$11+$C$12*B5 -->
+<!-- \end{verbatim} -->
+
+4.   列Eは誤差
+<!-- \begin{verbatim} -->
+<!-- セルE5は C5-D5 -->
+<!-- \end{verbatim} -->
+
+5.   列Fは誤差の2乗で，セルF9はその合計値
+
+
+## 最小2乗基準にもとづく係数の計算(解析的な方法)
+
+> 誤差2乗和を最小化する$\beta_0$と$\beta_1$の数学的な求め方
+
+*   誤差2乗和
+
+\begin{align*}
+\mathop{\min}_{\{\beta_0,\beta_1\}} 
+\mathop{S(\beta_0,\beta_1)}_{\substack{\uparrow \\ \text{関数}S\text{の値は} \\ \beta_0,\beta_1\text{の値} \\ \text{次第で変化}}}
+&=\sum_{i=1}^n \{ 
+\underbrace{
+\mathop{y_i}_{\substack{\uparrow \\ \text{実際の} \\ y}}
+-(\mathop{\beta_0+\beta_1 x_i}_{\substack{\uparrow \\ x\text{と関連付け} \\ \text{が可能な部分}}}) 
+}_{i\text{番目の誤差}}
+\}^2 
+\end{align*}
+
+*   $S(\beta_0,\beta_1)$を最小にする$\beta_0,\beta_1$は次の条件(最小化の1階条件)で求めることができます$\Rightarrow$未知数2つに対して条件式が2つ
+
+\begin{align*}
+\frac{\partial S(\beta_0,\beta_1)}{\partial \beta_0}&
+=-2 \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i)=0 
+~~~~~\Rightarrow 
+\sum_{i=1}^n u_i=0 
+\\
+\frac{\partial S(\beta_0,\beta_1)}{\partial \beta_1}&
+=-2 \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i) x_i=0
+~~\Rightarrow 
+\sum_{i=1}^n u_i x_i=0 
+\end{align*}
+
+この連立方程式を解くと$\beta_0,\beta_1$の\textcolor{red}{計算公式}が導出できます
+
+
+
+
+
+> 補足：OLS推定量の導出
+
+1.   $i$番目の$\{ y_i-\beta_0-\beta_1 x_i \}^2$を$\beta_0$について微分をとれば
+\begin{align*}
+2 \{ y_i-\beta_0-\beta_1 x_i \} \times (-1)
+\end{align*}
+
+2.   1から$n$までの合計を$=0$とし，不要な項を整理すれば
+\begin{align*}
+\frac{\partial S}{\partial \beta_0}
+=
+-2 \sum_{i=1}^n \{ \underbrace{y_i-\beta_0-\beta_1 x_i}_{u_i} \}&=0 \Rightarrow 
+\textcolor{red}{\sum_{i=1}^n u_i=0}
+\end{align*}
+ 
+3.   $i$番目の$\{ y_i-\beta_0-\beta_1 x_i \}^2$を$\beta_1$について微分をとれば
+\begin{align*}
+2 \{ y_i-\beta_0-\beta_1 x_i \} \times (-x_i)
+\end{align*}
+
+4.   1から$n$までの合計を$=0$とし，不要な項を整理すれば
+\begin{align*}
+\frac{\partial S}{\partial \beta_1}
+=
+-2 \sum_{i=1}^n x_i \{ \underbrace{y_i-\beta_0-\beta_1 x_i}_{u_i} \}&=0 \Rightarrow 
+\textcolor{red}{\sum_{i=1}^n x_i u_i=0}
+\end{align*}
+
+5.   1本目の条件式($\sum u_i=0$)を次のように変形する
+\begin{align*}
+\sum (y_i-\beta_0-\beta_1 x_i)&=0 \\
+\sum y_i-\sum \beta_0-\sum \beta_1 x_i &=0 \\
+n \bar{y}-n \beta_0-\beta_1 n \bar{x} &=0 \\
+\bar{y}-\beta_0-\beta_1 \bar{x} &=0
+\end{align*}
+したがって
+\begin{align*}
+\beta_0=\bar{y}-\beta_1 \bar{x}
+\end{align*}
+
+6.   2本目の条件式($\sum x_i u_i=0$)を次のように変形する
+\begin{align*}
+\sum (x_i+\text{定数}) u_i&=0 \\ 
+\sum (x_i-\bar{x}) u_i&=0 \\ 
+\sum (x_i-\bar{x}) (\underbrace{y_i-\beta_0-\beta_1 x_i}_{u_i})&=0 \\ 
+\sum (x_i-\bar{x}) \{ y_i-(\bar{y}-\beta_1 \bar{x})-\beta_1 x_i \}&=0 \\ 
+\sum (x_i-\bar{x}) \{ (y_i-\bar{y})-\beta_1 (x_i-\bar{x}) \}&=0
+\end{align*}
+したがって
+\begin{align*}
+\beta_1=\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}
+\end{align*}
+
+
+## 最小2乗基準にもとづく単回帰モデルの係数の推定量と推定値
+
+> 定義：単純回帰モデルの最小2乗推定量
+> 
+最小2乗基準にもとづく$\beta_0,\beta_1$の\textcolor{red}{推定量(最小2乗推定量, OLS estimator)}
+
+\begin{align*}
+\hat\beta_0=\bar{y}-\beta_1 \bar{x}  \qquad\qquad
+\hat\beta_1=\frac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}
+=\frac{\text{Cov}(x,y)}{\text{Var}(x)}
+\end{align*}
+
+*   【参考】$\hat\beta_0,\hat\beta_1$はデータ(=標本)から母集団回帰パラメータ$\beta_0,\beta_1$を推定するために公式なので``ハット''をつけます
+*    上記の**公式にデータを代入**して得た**回帰係数の実際の値**のことを**推定値(OLS estimate)**と呼びます
+
+
+> Excelシートの構造
+
+<!-- \includegraphics[width=7cm,clip]{fig_reg_calculation.png} -->
+
+
+*   青のセル$=\bar{x}$
+*   緑のセル$=\bar{y}$
+*   黄緑のセル$=\sum_{i}^{4} (x_i-\bar{x})(y_i-\bar{y})$
+*   オレンジのセル$=\sum_{i}^{4} (x_i-\bar{x})^2$
+
+
+
+## 推計した回帰係数からわかること
+
+> 分析の結果からわかること
+1.   データから計算した直線の切片($\hat\beta_0$)と傾き($\hat\beta_1$)の値は
+\begin{align*}
+\hat\beta_0=17.0\qquad \qquad
+\hat\beta_1=30.0
+\end{align*}
+
+
+> 定義：被説明変数の理論値
+>
+ある説明変数$x_i$の値のもとでの被説明変数の理論上の値を``理論値(fitted value)''あるいは``$y$の推定値''とよびます
+
+\begin{align*}
+\mathop{\hat{y}_i}_{\substack{\uparrow \\ y\text{の推定値}}}=\hat\beta_0+\hat\beta_1 x_i
+\end{align*}
+
+2.   任意の身長$x_i$のもとでの体重の推定値は次の数式で表現できる
+
+\begin{align}
+\mathop{\hat{y}_i}_{\substack{\uparrow \\ \text{体重} \\ \text{の推定値}}}
+&=\hat\beta_0+\hat\beta_1 x_i
+=17.0+30.0 x_i \label{steel_eq1}
+\end{align}
+
+3.   (\ref{steel_eq1})式を使えば，身長が1.0(m)のときの体重の推定値は
+\begin{align*}
+17.0+30.0 \times 1.0 = 47.0 (\text{kg})
+\end{align*}
+
+4.   (\ref{steel_eq1})式を使えば，身長が1.1(m)ならば体重の推定値は
+\begin{align*}
+17.0+30.0 \times 1.1 = 50.0 (\text{kg})
+\end{align*}
+
+5.   つまり0.1(m)高くなることで体重が3.0(kg)増える傾向があることがわかります
+\begin{align*}
+&\frac{\text{1.1(m)のときの平均体重}-\text{1.0(m)のときの平均体重}}{\text{1.1(m)}-\text{1.0(m)}} \\
+&\qquad=\frac{\text{平均体重の変化幅}}{\text{身長の変化幅}} \\
+&\qquad=\frac{50.0-47.0}{1.1-1.0} \\
+&\qquad=30.0\qquad \leftarrow \text{直線の傾き($\hat\beta_1$)の値}
+\end{align*}
+
+
+
+
+> 応用例：マンションの広さと家賃
+> 
+次式は吉祥寺駅周辺のワンルームマンション42件の床面積(m$^2$)と家賃(万円)のデータから推計した家賃関数です。
+
+\begin{align*}
+\widehat{\text{rent}}_i=3.172+0.209~\text{area}_i, \qquad i=1,\dots, 42
+\end{align*}
+
+> 分析結果からわかること
+
+1.   床面積が20m$^2$の物件の平均的な家賃はXXX万円
+2.   床面積が1m$^2$広くなると家賃はXXX万円高くなる傾向があることがわかる
+
+
+
+
+<!-- \includegraphics[width=0.6 \textwidth]{kichi42_scat2a.pdf}  -->
+
+
+
+> 応用例：所得と消費支出
+>
+次の式は，我が国の1994年から2005年までの12年間の実質国内総生産(income)と実質民間最終消費支出(cons)のデータを使って推計した消費関数です。データの単位は兆円です。
+
+\begin{align*}
+\widehat{\text{cons}}_t=13.44+0.5406~\text{income}_t, \qquad t=1994,\dots,2005
+\end{align*}
+
+> 分析結果からわかること
+
+1.   消費関数の傾きは0.5406。経済学的な意味は``限界消費性向''
+2.   このデータからは「国内総生産が1兆円増加すると，消費支出がXXX円増加する」傾向があることがわかる
+
+
+<!-- \includegraphics[width=0.6 \textwidth]{fig3_2_im.png}  -->
+
+
+> 応用例：広告費と売上の関係
+>
+次式はリディア・ピンカム社の製品(vegetable compound)に関する1907年から1960年の期間(54年間)の毎年の広告費と売上のデータを使った分析の結果です。単位は1000ドルです。
+
+\begin{align*}
+\widehat{\text{sales}}_t=488.8+1.434~\text{advertisement}_t, \qquad t=1907,\dots,1960
+\end{align*}
+
+Palda, Kristian S. (1964). \textit{The Measurement of Cumulative Advertising Effects.} Englewood Cliffs, N.J.: Prentice-Hall.
+
+> 分析結果からわかること
+
+\begin{itemize}
+\item 追加1000ドルの広告費によって，同年の売上げは平均XXXドルだけXXXする
+\end{itemize}
+
+
+
+<!-- \includegraphics[width=0.6 \textwidth]{fig_lydia.png}  -->
+
+
+
+## (最小2乗法で計算した)理論値と残差の特徴
+
+> 実測値，理論値と残差との関係
+
+<!-- \begin{table}[htp] -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{rrrlll} -->
+<!-- \hline -->
+<!-- $i$ & $x_i$ & $y_i$ & \multicolumn{1}{c}{$\hat{y}_i=\hat\beta_0+\hat\beta_1 x_i$}  -->
+<!-- & \multicolumn{1}{c}{$\hat{u}_i=y_i-\hat{y}_i$} & \multicolumn{1}{c}{$x_i \hat{u}_i$} \\ -->
+<!-- \hline -->
+<!-- $1$ & $1.2$ & $55$ & $53.0=17+30 \times 1.2$ & ~~$2.0=55.0-53.0$ & ~~$2.4=2.0\times 1.2$ \\ -->
+<!-- $2$ & $1.5$ & $60$ & $62.0=17+30 \times 1.5$ & $-2.0=62.0-60.0$ & $-3.0=-2.0\times 1.5$ \\ -->
+<!-- $3$ & $0.9$ & $50$ & $44.0=17+30 \times 0.9$ & ~~$6.0=50.0-44.0$ & ~~$5.4=6.0\times 0.9$ \\ -->
+<!-- $4$ & $0.8$ & $35$ & $41.0=17+30 \times 0.8$ & $-6.0=35.0-41.0$ & $-4.8=-6.0\times 0.8$ \\ -->
+<!-- \hline -->
+<!-- 合計 & $4.4$ & $200$ & \multicolumn{1}{c}{$200$} & \multicolumn{1}{c}{$0$} & \multicolumn{1}{c}{$0$} \\ -->
+<!-- 平均 & $1.1$ & $50$ & \multicolumn{1}{c}{$50$} & \multicolumn{1}{c}{$0$} & \multicolumn{1}{c}{$0$} \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- \end{table}% -->
+
+
+
+> 理論値と残差にかかわる重要な特徴
+
+1.   実績値の合計と理論値の合計は完全に一致する
+\begin{align*}
+\sum y_i=\sum \hat{y}_i
+\end{align*}
+
+2.   残差の合計(および平均)は必ず0になる
+\begin{align*}
+\sum \hat{u}_i=\frac{1}{n} \sum \hat{u}_i=0
+\end{align*}
+
+3.   説明変数$x_i$と残差$\hat{u}_i$は必ず無相関になる
+\begin{align*}
+\sum x_i \hat{u}_i=0
+\end{align*}
+
