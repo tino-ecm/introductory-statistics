@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 6 分布の代表値 | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="6.1 算術平均  問題1：平均年収の計算 5人の年収が、それぞれ100万円、300万円、600万円、900万円、1200万円のとき、この5 人の平均年収はいくらですか？ 番号 | 1 | 2 | 3 | 4 | 5 | 記号 | \(x_1\) | \(x_2\) | \(x_3\) | \(x_4\) | \(x_5\) | |–|–|–|–|–|–| | 年収(万円) | 100 |...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 6 分布の代表値 | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="6.1 算術平均  問題1：平均年収の計算 5人の年収が、それぞれ100万円、300万円、600万円、900万円、1200万円のとき、この5 人の平均年収はいくらですか？ 番号 | 1 | 2 | 3 | 4 | 5 | 記号 | \(x_1\) | \(x_2\) | \(x_3\) | \(x_4\) | \(x_5\) | |–|–|–|–|–|–| | 年収(万円) | 100 |...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 6 分布の代表値 | 初級統計学">
+<meta name="twitter:description" content="6.1 算術平均  問題1：平均年収の計算 5人の年収が、それぞれ100万円、300万円、600万円、900万円、1200万円のとき、この5 人の平均年収はいくらですか？ 番号 | 1 | 2 | 3 | 4 | 5 | 記号 | \(x_1\) | \(x_2\) | \(x_3\) | \(x_4\) | \(x_5\) | |–|–|–|–|–|–| | 年収(万円) | 100 |...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 6</span> 分布の代表値</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="分布の代表値" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> 分布の代表値<a class="anchor" aria-label="anchor" href="#%E5%88%86%E5%B8%83%E3%81%AE%E4%BB%A3%E8%A1%A8%E5%80%A4"><i class="fas fa-link"></i></a>
+</h1>
+<div id="算術平均" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> 算術平均<a class="anchor" aria-label="anchor" href="#%E7%AE%97%E8%A1%93%E5%B9%B3%E5%9D%87"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>問題1：平均年収の計算<br>
+5人の年収が、それぞれ100万円、300万円、600万円、900万円、1200万円のとき、この5 人の平均年収はいくらですか？</p>
+</blockquote>
+<div class="line-block">番号 | 1 | 2 | 3 | 4 | 5 |<br>
+記号 | <span class="math inline">\(x_1\)</span> | <span class="math inline">\(x_2\)</span> | <span class="math inline">\(x_3\)</span> | <span class="math inline">\(x_4\)</span> | <span class="math inline">\(x_5\)</span> |</div>
+<p>|–|–|–|–|–|–|
+| 年収(万円) | 100 | 300 | 600 | 900 | 1200 |</p>
+<blockquote>
+<p>解答</p>
+<p>平均年収は
+<span class="math display">\[\begin{align*}
+\text{平均年収}=\frac{100+300+600+900+1200}{5}=620(\text{万円})
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>定義：算術平均<br></p>
+<ul>
+<li>
+<span class="math inline">\(n\)</span>個の観測値を<span class="math inline">\(x_1,x_2,\dots,x_n\)</span>と表すとき、それらの算術平均は</li>
+</ul>
+<p><span class="math display">\[\begin{eqnarray*}
+\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i
+\end{eqnarray*}\]</span></p>
+</blockquote>
+<ul>
+<li>先ほどの例では，年収を変数<span class="math inline">\(x\)</span>で表し，番号を添字にするならば(例：1番目の人の年収を<span class="math inline">\(x_1\)</span>という具合に表現する)
+<span class="math display">\[\begin{align*}
+\bar{x}=\frac{x_1+x_2+x_3+x_4+x_5}{5}=\frac{1}{5}\sum_{i=1}^5 x_i
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>特徴：算術平均の重要な性質<br></p>
+<ol style="list-style-type: decimal">
+<li>長所</li>
+<li>短所</li>
+<li>補足：算術平均の重要な性質</li>
+</ol>
+<ul>
+<li>算術平均からの<strong>偏差の和は常に０</strong>になる</li>
+<li>算術平均はデータの一次変換を保持する</li>
+<li>
+<strong>算術平均は偏差平方和を最小にするような値</strong>である</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>問題2：平均月給<br>
+以下の数値はある会社の全社員10名の月給で，10人の平均月給は30万円です。
+<span class="math display">\[\begin{align*}
+\text{24~~12~~80~~16~~28~~16~~32~~16~~52~~24~(単位：万円)}
+\end{align*}\]</span>
+平均月給はこのグループの給与分布の代表値と言えるでしょうか？</p>
+</blockquote>
+<blockquote>
+<p>解答<br>
+* 平均月収30万円は左右をバランスさせる点の値ですが，この場合では代表値とは言い難いでしょう</p>
+</blockquote>
+</div>
+<div id="中央値" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> 中央値<a class="anchor" aria-label="anchor" href="#%E4%B8%AD%E5%A4%AE%E5%80%A4"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：中央値<br></p>
+</blockquote>
+<ul>
+<li><p>中央値とは観測値を大きさの順にならべたとき、その中央に位置するデータの値のこと。中位数，メディアン（median）。</p></li>
+<li><p>中央値の求め方</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>
+<span class="math inline">\(n\)</span>が奇数ならば、<span class="math inline">\((n+1)/2\)</span>番目のデータの値</li>
+<li>
+<span class="math inline">\(n\)</span>が偶数ならば、<span class="math inline">\(n/2\)</span>番目と <span class="math inline">\(n/2+1\)</span>番目のデータの値の平均値</li>
+</ol>
+<ul>
+<li>算術平均と中央値の特徴の違い</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>算術平均：すべてのデータの値を用いる</li>
+<li>中央値：順序さえ決まったら、真ん中の値だけが問題となるので、他のデータの値は関係ない</li>
+</ol>
+<blockquote>
+<p>特徴：中央値の特徴<br></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>長所</li>
+</ol>
+<ul>
+<li>外れ値（例外値、極端値、Outlier）の影響を受けない</li>
+<li>常に唯一無二の中央値が存在する</li>
+<li>煩雑な計算を必要としない</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>短所</li>
+</ol>
+<ul>
+<li>大量のデータに序列をつけるのは簡単ではない</li>
+<li>すべてのデータを用いる訳ではない</li>
+</ul>
+<blockquote>
+問題3：算術平均と中央値<br>
+4つのクラス(A,B,C,D)で試験を行ったときの学生の成績が次のように得られました。
+<p>各クラスの平均%(<span class="math inline">\(\bar{x}_A,\bar{x}_B,\bar{x}_C,\bar{x}_D\)</span>)
+と中央値%(<span class="math inline">\(Me_A,Me_B,Me_C,Me_D\)</span>)
+を求めて下さい</p>
+</blockquote>
+<blockquote>
+<p>解答
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|rrrr} -->
+<!-- \hline -->
+<!--  & A & B & C & D \\ -->
+<!-- \hline -->
+<!-- 算術平均 & 5 & 5 & 5 & 5 \\ -->
+<!-- 中央値 & 5 & 5 & 5 & 5 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} --></p>
+</blockquote>
+<blockquote>
+<p>問題4：算術平均と中央値との大きな違い<br></p>
+<p>算術平均と中央値との大きな違いは何でしょう？</p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ul>
+<li>算術平均：すべてのデータの値を用いる</li>
+<li>中央値：順序さえ決まったら、真ん中の値だけが問題となるので、他のデータの値は関係ない</li>
+</ul>
+</blockquote>
+</div>
+<div id="最頻値" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> 最頻値<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E9%A0%BB%E5%80%A4"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：最頻値<br></p>
+<p>最も多く観測されたデータの値のこと。モード（mode）。</p>
+</blockquote>
+<!-- \begin{center} -->
+<!-- \includegraphics[width=0.5\textwidth]{pic_mode1.png} -->
+<!-- \end{center} -->
+<blockquote>
+<p>特徴：最頻値の特徴<br></p>
+<ol style="list-style-type: decimal">
+<li>長所</li>
+</ol>
+<ul>
+<li>外れ値（例外値、極端値、Outlier）の影響を受けない</li>
+<li>煩雑な計算を必要としない</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>短所</li>
+</ol>
+<ul>
+<li>存在しないことがある</li>
+<li>唯一無二でないことがある</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>問題5：最頻値について<br></p>
+<p>最頻値が存在しない場合とは，どんな場合でしょう？具体例をあげて下さい</p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ul>
+<li>所得分布を分析するとき，実際の金額そのものをそのまま利用するならば，まったく同じ金額になる可能性は極めて低いので</li>
+<li>階級幅を設けて度数分布表を作成した場合でも，異なる複数の階級の度数が同じになることがある</li>
+</ul>
+</blockquote>
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<!-- \begin{frame}\frametitle{} -->
+<!-- \underline{最頻値の応用例：新築マンションの広告} -->
+<!-- \begin{center} -->
+<!-- \includegraphics[width=0.9\textwidth]{pic_mode2.png} -->
+<!-- \end{center} -->
+<!-- \end{frame} -->
+</div>
+<div id="平均値中央値最頻値の関係" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> 平均値・中央値・最頻値の関係<a class="anchor" aria-label="anchor" href="#%E5%B9%B3%E5%9D%87%E5%80%A4%E4%B8%AD%E5%A4%AE%E5%80%A4%E6%9C%80%E9%A0%BB%E5%80%A4%E3%81%AE%E9%96%A2%E4%BF%82"><i class="fas fa-link"></i></a>
+</h2>
+<!-- \begin{frame}\frametitle{平均値・中央値・最頻値の関係} -->
+<!-- \begin{columns} -->
+<!-- \begin{column}{0.5\textwidth} -->
+<!-- \begin{center} -->
+<!-- \includegraphics[width=0.9\textwidth]{pic_comp1.png} -->
+<!-- \end{center} -->
+<!-- \end{column} -->
+<!-- \begin{column}{0.5\textwidth} -->
+<!-- \begin{center} -->
+<!-- \includegraphics[width=0.9\textwidth]{pic_comp2.png} -->
+<!-- \end{center} -->
+<!-- \end{column} -->
+<!-- \end{columns} -->
+<!-- \end{frame} -->
+<p>参考文献 宮川公男(2016)『基本統計学[第3版]』有斐閣(序章)</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

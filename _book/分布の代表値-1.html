@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 分布の代表値 | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="定義：算術平均} \(n\)個の観測値を\(x_1,x_2,\dots,x_n\)と表すとき、それらの算術平均は \[\begin{eqnarray*} \bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i \end{eqnarray*}\] 長所 すべての分布に常に存在する 唯一無二の平均値がえられる 計算が簡単...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 8 分布の代表値 | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="定義：算術平均} \(n\)個の観測値を\(x_1,x_2,\dots,x_n\)と表すとき、それらの算術平均は \[\begin{eqnarray*} \bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i \end{eqnarray*}\] 長所 すべての分布に常に存在する 唯一無二の平均値がえられる 計算が簡単...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 分布の代表値 | 初級統計学">
+<meta name="twitter:description" content="定義：算術平均} \(n\)個の観測値を\(x_1,x_2,\dots,x_n\)と表すとき、それらの算術平均は \[\begin{eqnarray*} \bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i \end{eqnarray*}\] 長所 すべての分布に常に存在する 唯一無二の平均値がえられる 計算が簡単...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 8</span> 分布の代表値</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="分布の代表値-1" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> 分布の代表値<a class="anchor" aria-label="anchor" href="#%E5%88%86%E5%B8%83%E3%81%AE%E4%BB%A3%E8%A1%A8%E5%80%A4-1"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>定義：算術平均}</p>
+</blockquote>
+<ul>
+<li><p><span class="math inline">\(n\)</span>個の観測値を<span class="math inline">\(x_1,x_2,\dots,x_n\)</span>と表すとき、それらの算術平均は
+<span class="math display">\[\begin{eqnarray*}
+\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{1}{n}\sum_{i=1}^n x_i
+\end{eqnarray*}\]</span></p></li>
+<li><p>長所</p></li>
+<li><p>すべての分布に常に存在する</p></li>
+<li><p>唯一無二の平均値がえられる</p></li>
+<li><p>計算が簡単</p></li>
+<li><p>すべてのデータを用いる</p></li>
+<li><p>意味(=``データの重心’’)が明瞭</p></li>
+<li><p>短所</p></li>
+<li><p>例外値（外れ値）の影響を非常に受ける</p></li>
+<li><p>適切な代表値でない場合がある</p></li>
+<li><p>先ほどの例では，年収を変数<span class="math inline">\(x\)</span>で表し，番号を添字にするならば(例：1番目の人の年収を<span class="math inline">\(x_1\)</span>という具合に表現する)
+<span class="math display">\[\begin{align*}
+\bar{x}=\frac{x_1+x_2+x_3+x_4+x_5}{5}=\frac{1}{5}\sum_{i=1}^5 x_i
+\end{align*}\]</span></p></li>
+</ul>
+<blockquote>
+<p>特徴：算術平均の重要な性質}</p>
+</blockquote>
+<ul>
+<li><p>長所</p></li>
+<li><p>すべての分布に常に存在する</p></li>
+<li><p>唯一無二の平均値がえられる</p></li>
+<li><p>計算が簡単</p></li>
+<li><p>すべてのデータを用いる</p></li>
+<li><p>意味(=``データの重心’’)が明瞭</p></li>
+<li><p>短所</p></li>
+<li><p>例外値（外れ値）の影響を非常に受ける</p></li>
+<li><p>適切な代表値でない場合がある</p></li>
+</ul>
+<blockquote>
+<p>補足：算術平均の重要な性質</p>
+</blockquote>
+<ul>
+<li>算術平均からのになる</li>
+<li>算術平均はデータの一次変換を保持する</li>
+<li>算術平均からの偏差の平方和は他のいかなる一定値からの平方和よりも小である。したがって</li>
+<li>である</li>
+</ul>
+<blockquote>
+<p>定義：中央値}</p>
+</blockquote>
+<ul>
+<li><p>中央値とは観測値を大きさの順にならべたとき、その中央に位置するデータの値のこと。
+中位数，メディアン（median）。</p></li>
+<li><p>中央値の求め方</p></li>
+<li><p><span class="math inline">\(n\)</span>が奇数ならば、<span class="math inline">\((n+1)/2\)</span>番目のデータの値</p></li>
+<li><p><span class="math inline">\(n\)</span>が偶数ならば、<span class="math inline">\(n/2\)</span>番目と <span class="math inline">\(n/2+1\)</span>番目のデータの値の平均値</p></li>
+<li><p>算術平均と中央値の特徴の違い</p></li>
+<li><p>算術平均：すべてのデータの値を用いる</p></li>
+<li><p>中央値：順序さえ決まったら、真ん中の値だけが問題となるので、他のデータの値は関係ない</p></li>
+</ul>
+<blockquote>
+<p>特徴：中央値の特徴}</p>
+</blockquote>
+<ul>
+<li><p>長所</p></li>
+<li><p>外れ値（例外値、極端値、Outlier）の影響を受けない</p></li>
+<li><p>常に唯一無二の中央値が存在する</p></li>
+<li><p>煩雑な計算を必要としない</p></li>
+<li><p>短所</p></li>
+<li><p>大量のデータに序列をつけるのは簡単ではない</p></li>
+<li><p>すべてのデータを用いる訳ではない</p></li>
+</ul>
+<blockquote>
+<p>定義：最頻値}</p>
+</blockquote>
+<ul>
+<li>最も多く観測されたデータの値のこと。モード（mode）。</li>
+</ul>
+<!-- \includegraphics[width=0.5\textwidth]{pic_mode1.png} --><blockquote>
+<p>特徴：最頻値の特徴}</p>
+</blockquote>
+<ul>
+<li><p>長所</p></li>
+<li><p>外れ値（例外値、極端値、Outlier）の影響を受けない</p></li>
+<li><p>煩雑な計算を必要としない</p></li>
+<li><p>短所</p></li>
+<li><p>存在しないことがある</p></li>
+<li><p>唯一無二でないことがある</p></li>
+</ul>
+<blockquote>
+<p>平均値・中央値・最頻値の関係}</p>
+</blockquote>
+<!-- \includegraphics[width=0.9\textwidth]{pic_comp1.png} -->
+<!-- \includegraphics[width=0.9\textwidth]{pic_comp2.png} -->
+<div id="今回のまとめ" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> 今回のまとめ}<a class="anchor" aria-label="anchor" href="#%E4%BB%8A%E5%9B%9E%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>算術平均、中央値、最頻値の３つの統計量</p></li>
+<li><p>データを代表する値なので、「位置の尺度」ともよばれる</p></li>
+<li><p>３つの統計量の利点と欠点は何か？</p></li>
+</ul>
+<!-- % & 定義 & 欠点 \\ --><!-- %\hline --><!-- %算術平均 & データの重心 & 異常値の影響を受けやすい \\ --><!-- %中央値 & 大小順で真ん中 & 一部のデータ値しか使わない \\ --><!-- %最頻値 & 最も多く出現 & 定義できないことがある \\ --><ul>
+<li>分布の形状（偏り）と３つの統計量の大小関係</li>
+</ul>
+</div>
+<div id="分布のばらつきの尺度" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> 分布のばらつきの尺度<a class="anchor" aria-label="anchor" href="#%E5%88%86%E5%B8%83%E3%81%AE%E3%81%B0%E3%82%89%E3%81%A4%E3%81%8D%E3%81%AE%E5%B0%BA%E5%BA%A6"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：範囲(``分布のばらつき’’の指標)}</p>
+</blockquote>
+<ul>
+<li>範囲(range)はデータ分布の幅の最大値のこと
+<span class="math display">\[\begin{align*}
+\text{範囲}=x_{\max}-x_{\min}
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題：英語塾の成績}
+講師Xと講師Yが担当しているクラスの小テストの点数の範囲をそれぞれ求めて下さい。また単位は何ですか？結果から何が言えますか？</p>
+</blockquote>
+<blockquote>
+<p>問題：<code>範囲''の欠点は？} 範囲という統計量の特徴(欠点)は何でしょう？前回に紹介した</code>分布の位置’’の指標の特徴(欠点)を参考にして考えて下さい。</p>
+</blockquote>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<blockquote>
+<p>定義：四分位範囲(``分布のばらつき’’の指標)}</p>
+</blockquote>
+<ul>
+<li><p>四分位範囲(interquartile range)
+<span class="math display">\[\begin{align*}
+\text{IQR}=Q_3-Q_1
+\end{align*}\]</span></p></li>
+<li><p>（しぶんいすう，しぶいすう）とは，データを昇順に並べたとき，データ数を４等分する位置の3つの値のこと。</p></li>
+<li><p><span class="math inline">\(Q_1,Q_2,Q_3\)</span>で表し，第1四分位数，第2四分位数，第3四分位数という</p></li>
+</ul>
+<blockquote>
+<p>利点}</p>
+</blockquote>
+<ul>
+<li>範囲(range)は最大値と最小値の差なので，外れ値(outlier)の存在が直接影響する</li>
+<li>四分位範囲は，分布の両裾25%分のデータを削除して残ったのことなので，外れ値(outlier)の影響を排除できる点が``範囲(range)’’よりも優れている点</li>
+</ul>
+<blockquote>
+数値例：1年間に読んだ本の冊数~(範囲と四分位範囲)}
+生徒15人が1年間に読んだ本の冊数と示した次のデータについて，範囲と四分位範囲を求めて下さい。
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>小さい順に並べると次のようになる</li>
+<li>範囲は<span class="math inline">\(25(\text{冊})~(=36-11)\)</span>
+</li>
+<li>
+<span class="math inline">\(\text{Q}_1=\frac{1}{2}(14+18)=16\)</span>，<span class="math inline">\(\text{Q}_3=\frac{1}{2}(24+24)=24\)</span>，よって
+<span class="math display">\[\begin{align*}
+\text{四分位範囲}=24-16=8(\text{冊})
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>四分位数の求め方}</p>
+</blockquote>
+<ul>
+<li>データの値について昇順に並べる</li>
+<li>データを前半と後半にわける位置の値を探す<span class="math inline">\(\Rightarrow\)</span>``中央値’’，<span class="math inline">\(Q_2\)</span>
+</li>
+<li>前半をさらに2分割するデータの値を探す<span class="math inline">\(\Rightarrow\)</span><span class="math inline">\(Q_1\)</span>
+</li>
+<li>後半をさらに2分割するデータの値を探す<span class="math inline">\(\Rightarrow\)</span><span class="math inline">\(Q_3\)</span>
+</li>
+</ul>
+<blockquote>
+<p>数値例：四分位数の探し方}
+次の7個のデータは7人のアルバイト給与のデータです。<span class="math inline">\(Q_2\)</span>の値を求めて下さい。
+<span class="math display">\[\begin{align*}
+1~~~2~~~3~~~4~~~5~~~6~~~7(\text{単位：千円})
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>数値例：四分位数の探し方}
+次の10個のデータは10人のアルバイト給与のデータです。<span class="math inline">\(Q_1,Q_2,Q3\)</span>の値を求めて下さい。
+<span class="math display">\[\begin{align*}
+1~~~2~~~3~~~4~~~5~~~6~~~7~~~8~~~9~~~10(\text{単位：千円})
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>
+<span class="math inline">\(Q_2\)</span>はデータを2分割する位置の値</li>
+<li>
+<span class="math inline">\(Q_1\)</span>は前半のデータを2分割する位置の値</li>
+</ul>
+<blockquote>
+<p>補足：四分位数の求め方}</p>
+</blockquote>
+<ul>
+<li><p><span class="math inline">\(n\)</span>個のデータを大きさの順に並べる
+<span class="math display">\[\begin{align*}
+x_{(1)} \le x_{(2)} \le \cdots x_{(n)}
+\end{align*}\]</span></p></li>
+<li><p>カッコ付きの添字は大きさの順に並べ替えた後の順番の意</p></li>
+<li><p>25%分位点，50%分位点，75%分位点の求め方</p></li>
+<li><p><span class="math inline">\(100 \alpha\)</span>%分位点の値は<span class="math inline">\(n \alpha\)</span>の整数部分を<span class="math inline">\(j\)</span>，小数部分を<span class="math inline">\(g\)</span>として
+<span class="math display">\[\begin{align*}
+\begin{cases}
+\frac{x_{(j)}+x_{(j+1)}}{2} &amp; g=0\text{のとき} \\
+x_{(j+1)} &amp; g&gt;0\text{のとき}
+\end{cases}
+\end{align*}\]</span></p></li>
+<li><p><span class="math inline">\(n=7\)</span>ならば次表のようになる．
+<!-- {\scriptsize -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|cccc|l} -->
+<!--  & $\alpha$ & $n \alpha$ & $j$ & $g$ & \\ -->
+<!-- \hline -->
+<!-- 25\%分位点 & 0.25 & 1.75 & 1 & 0.75 & $Q_1$(第1四分位) \\ -->
+<!-- 50\%分位点 & 0.50 & 3.5 & 3 & 0.5 & $Q_2$(第2四分位，メディアン) \\  -->
+<!-- 75\%分位点 & 0.75 & 5.25 & 5 & 0.25 & $Q_3$(第3四分位) \\ -->
+<!-- \end{tabular} -->
+<!-- } -->
+つまり，25%分位点は<span class="math inline">\(j=1\)</span>なので大きさ順に2番目の値，50%分位点は4番目，75%分位点は6番目の値になる．</p></li>
+</ul>
+<blockquote>
+<p>数値例：四分位数の探し方}</p>
+<p>次の7個のデータは7人のアルバイト給与のデータです。前半を2分割する点の値(<span class="math inline">\(Q_1\)</span>)の値を求めて下さい。</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\textcolor{red}{1~~~2~~~3}~~~\mathop{4}_{\substack{\uparrow \\ Q_2}}~~~5~~~6~~~7(\text{単位：千円})
+\end{align*}\]</span></p>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<blockquote>
+<p>問題：吉祥寺駅周辺の住宅データ}
+以下の数値は，吉祥寺駅周辺から徒歩5分圏内に立地するワンルームマンション42件の家賃（月額，万円）のデータを，家賃の低い物件順に並べたものです。</p>
+</blockquote>
+<!-- %\begin{center} -->
+<!-- %\includegraphics[width=0.9 \textwidth]{BmFigs/tbl_kichi42rent.pdf} -->
+<!-- % -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{rrrrrrrrrr} -->
+<!-- 4.9 & 4.9 & 4.9 & 5.2 & 5.4 & 5.5 & 5.7 \\ -->
+<!-- 5.8 & 5.9 & 6.0 & 6.2 & 6.4 & 6.5 & 6.5 \\ -->
+<!-- 6.5 & 6.8 & 6.8 & 6.8 & 6.8 & 6.8 & 6.8 \\  -->
+<!-- 6.8 & 6.9 & 7.2 & 7.2 & 7.3 & 7.3 & 7.5 \\  -->
+<!-- 7.5 & 7.5 & 7.5 & 7.5 & 7.5 & 7.5 & 7.7 \\  -->
+<!-- 7.8 & 8.8 & 8.8 & 9.8 & 11.0 & 11.0 & 11.4 -->
+<!-- \end{tabular} -->
+<ul>
+<li>範囲の値を求めて下さい。また単位は何ですか？</li>
+<li>四分位範囲の値を求めて下さい。また単位は何ですか？</li>
+</ul>
+<p>出所：リクルート ISIZE（2011/5/4）からダウンロード</p>
+<blockquote>
+<p>補足：四分位数の求め方}</p>
+</blockquote>
+<ul>
+<li><p><span class="math inline">\(n\)</span>個のデータを大きさの順に並べる
+<span class="math display">\[\begin{align*}
+x_{(1)} \le x_{(2)} \le \cdots x_{(n)}
+\end{align*}\]</span></p></li>
+<li><p>カッコ付きの添字は大きさの順に並べ替えた後の順番の意</p></li>
+<li><p>25%分位点，50%分位点，75%分位点の求め方</p></li>
+<li><p><span class="math inline">\(100 \alpha\)</span>%分位点の値は<span class="math inline">\(n \alpha\)</span>の整数部分を<span class="math inline">\(j\)</span>，小数部分を<span class="math inline">\(g\)</span>として
+<span class="math display">\[\begin{align*}
+\begin{cases}
+\frac{x_{(j)}+x_{(j+1)}}{2} &amp; g=0\text{のとき} \\
+x_{(j+1)} &amp; g&gt;0\text{のとき}
+\end{cases}
+\end{align*}\]</span></p></li>
+<li><p><span class="math inline">\(n=42\)</span>ならば次表のようになる．
+<!-- {\scriptsize -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|cccc|l} -->
+<!--  & $\alpha$ & $n \alpha$ & $j$ & $g$ & \\ -->
+<!-- \hline -->
+<!-- 25\%分位点 & 0.25 & 10.5 & 10 & 0.5 & $Q_1$(第1四分位) \\ -->
+<!-- 50\%分位点 & 0.50 & 21.0 & 21 & 0.0 & $Q_2$(第2四分位，メディアン) \\  -->
+<!-- 75\%分位点 & 0.75 & 31.5 & 31 & 0.5 & $Q_3$(第3四分位) \\ -->
+<!-- \end{tabular} --></p></li>
+</ul>
+<p>つまり，25%分位点は<span class="math inline">\(j=10\)</span>なので大きさ順に11番目の値，50%分位点は21番目と22番目の平均値，75%分位点は32番目の値になる．</p>
+<blockquote>
+解答：吉祥寺駅周辺の住宅データ}
+%以下は42件の家賃データ(単位：万円)です
+\begin{center}
+</blockquote>
+<blockquote>
+<p>数値例}
+<span class="math display">\[\begin{align*}
+\text{範囲}
+&amp;=\mathop{11.4}_{\substack{\uparrow \\ \text{最大値}}}
+-\mathop{4.9}_{\substack{\uparrow \\ \text{最小値}}}
+=6.5(\text{万円}) \\
+%
+\text{四分位範囲}
+&amp;=\mathop{7.5}_{\substack{\uparrow \\ Q_3}}
+-\mathop{6.2}_{\substack{\uparrow \\ Q_1}}
+=1.3(\text{万円})
+\end{align*}\]</span></p>
+</blockquote>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<blockquote>
+<p>定義：平均絶対偏差(``分布のばらつき’’の指標)}</p>
+</blockquote>
+<ul>
+<li><p>平均絶対偏差(mean absolute deviation)
+<span class="math display">\[\begin{align*}
+\text{MAD}
+&amp;=\frac{1}{n}(\underbrace{|x_1-\bar{x}|}_{\text{1番目の偏差}}+|x_2-\bar{x}|+\cdots+|x_n-\bar{x}|) \\
+&amp;=\frac{1}{n} \sum_{i=1}^n |x_i-\bar{x}|
+=\text{偏差の絶対値の平均値}
+\end{align*}\]</span></p></li>
+<li><p>各データ値のを計算し，それらのをとったのちにを求めることで，各データが算術平均から平均的にどれだけ離れているかを示す指標</p></li>
+<li><p>ちらばりの程度を計りたいので，算術平均からどれだけ離れているのか(=偏差の絶対値)に関心がある</p></li>
+</ul>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<blockquote>
+<p>問題：英語塾の成績}
+講師Xが担当している10人について，それぞれを計算し，それを使って平均絶対偏差を求めて下さい。また平均絶対偏差の単位は何ですか？</p>
+</blockquote>
+<blockquote>
+<p>解答 <span class="math inline">\(\text{平均絶対偏差}=0.8(\text{点})\)</span></p>
+</blockquote>
+<blockquote>
+<p>問題：英語塾の成績}
+の合計値はいくつになりますか？</p>
+</blockquote>
+<blockquote>
+<p>復習：算術平均の重要な性質</p>
+</blockquote>
+<ul>
+<li>算術平均からのになる</li>
+</ul>
+<div id="前回前々回のポイントと今日のテーマ" class="section level3" number="8.2.1">
+<h3>
+<span class="header-section-number">8.2.1</span> 前回，前々回のポイントと今日のテーマ<a class="anchor" aria-label="anchor" href="#%E5%89%8D%E5%9B%9E%E5%89%8D%E3%80%85%E5%9B%9E%E3%81%AE%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%81%A8%E4%BB%8A%E6%97%A5%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>１つの変数の分布の特徴を表す統計量
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|l} -->
+<!-- \hline -->
+<!-- 特徴 & 統計量 \\ -->
+<!-- \hline -->
+<!-- 分布の位置 & 算術平均，中央値，最頻値 \\ -->
+<!-- 分布のばらつき & 範囲，四分位範囲，平均絶対偏差， \\ -->
+<!--  & 標準偏差(と分散) \\ -->
+<!-- \hline -->
+<!-- \end{tabular} --></p></li>
+<li><p>その他の統計量</p></li>
+<li><p>平均の指標：加重算術平均，幾何平均</p></li>
+<li><p>変動の指標：変動係数</p></li>
+<li><p>変数の標準化：標準化変量，偏差値</p></li>
+</ul>
+<blockquote>
+<p>例：K駅周辺の住宅データ}
+以下の数値は，K駅周辺から徒歩5分圏内に立地するワンルームマンション42件の家賃（月額，万円）のデータを，家賃の低い物件順に並べたものです。
+<!-- \begin{center} -->
+<!-- \begin{tabular}{rrrrrrrrrr} -->
+<!-- \textcolor{blue}{4.9} & 4.9 & 4.9 & 5.2 & 5.4 & 5.5 & 5.7 \\ -->
+<!-- 5.8 & 5.9 & 6.0 & \textcolor{red}{6.2} & 6.4 & 6.5 & 6.5 \\ -->
+<!-- 6.5 & 6.8 & 6.8 & 6.8 & 6.8 & 6.8 & \textcolor{red}{6.8} \\  -->
+<!-- \textcolor{red}{6.8} & 6.9 & 7.2 & 7.2 & 7.3 & 7.3 & 7.5 \\  -->
+<!-- 7.5 & 7.5 & 7.5 & 7.5 & \textcolor{red}{7.5} & 7.5 & 7.7 \\  -->
+<!-- 7.8 & 8.8 & 8.8 & 9.8 & 11.0 & 11.0 & \textcolor{blue}{11.4} -->
+<!-- \end{tabular} --></p>
+</blockquote>
+<blockquote>
+<p>数値例}
+<span class="math display">\[\begin{align*}
+\text{範囲}
+&amp;=\mathop{11.4}_{\substack{\uparrow \\ \text{最大値}}}
+-\mathop{4.9}_{\substack{\uparrow \\ \text{最小値}}}
+=6.5(\text{万円}) \\
+%
+\text{四分位範囲}
+&amp;=\mathop{7.5}_{\substack{\uparrow \\ Q_3}}
+-\mathop{6.2}_{\substack{\uparrow \\ Q_1}}
+=1.3(\text{万円})
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>家賃の基本統計量と箱ひげ図}</p>
+</blockquote>
+<blockquote>
+<p>数値例：家賃の基本統計量と箱ひげ図}
+\begin{columns}
+\begin{column}{0.5}</p>
+</blockquote>
+<ul>
+<li>記述統計量(要約統計量)</li>
+</ul>
+<!-- {\footnotesize --><!-- \begin{center} --><!-- \begin{tabular}{ccr} --><!-- \hline --><!--  & & RENT \\ --><!-- \hline --><!-- 平均値 & Mean & 7.110 \\ --><!-- 中央値 & Median & 6.800 \\ --><!-- 最大値 & Maximum & 11.400 \\ --><!-- 最小値 & Minimum & 4.900 \\ --><!-- 標準偏差 & Std. Dev. & 1.538 \\ --><!-- 歪度 & Skewness & 1.141 \\ --><!-- 尖度 & Kurtosis & 4.369 \\ --><!-- 偏差2乗和 & Sum Sq. Dev. & 96.976 \\ --><!-- データ数 & Observations & 42 \\ --><!-- \hline --><!-- \end{tabular} --><ul>
+<li>箱ひげ図(Box-whisker plot)</li>
+</ul>
+<!-- %\includegraphics[width=0.5 \textwidth]{BmFigs/tbl_kichisummary.pdf} --><!-- %~~~~ --><!-- %\includegraphics[width=0.3 \textwidth]{BmFigs/fig_kichibox.pdf} --><!-- %\includegraphics[width=0.4\textwidth,angle=-90]{BmFigs/boxplot_RENT1.pdf} --><!-- \includegraphics[width=0.4\textwidth,angle=-90]{boxplot_RENT1.pdf} --><ul>
+<li>箱の左端は<span class="math inline">\(Q_1\)</span>，右端は<span class="math inline">\(Q_3\)</span>，縦線は<span class="math inline">\(Q_2\)</span>で中央値，<span class="math inline">\(\diamond\)</span>は平均</li>
+<li>ヒゲは，(1)箱の両端から箱の幅の倍まで伸ばし，(2)のデータに触れるまで縮める</li>
+<li>ヒゲが位置にあるデータは丸印などで表す</li>
+</ul>
+<p>}</p>
+</div>
+</div>
+<div id="その他の統計量-1" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> その他の統計量}<a class="anchor" aria-label="anchor" href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E7%B5%B1%E8%A8%88%E9%87%8F-1"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>定義：加重算術平均(weighted arithmetic mean)}
+各データの重要度に応じて重み付けして平均をとる方法</p>
+</blockquote>
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|cc} -->
+<!-- \hline -->
+<!-- グループ & 変数$x$ & ウエート$w$ \\  -->
+<!-- \hline -->
+<!-- 1 & $x_1$ & $w_1$ \\ -->
+<!-- 2 & $x_2$ & $w_2$ \\ -->
+<!-- : & : & : \\ -->
+<!-- $n$ & $x_2$ & $w_2$ \\ -->
+<!-- \hline -->
+<!-- 合計 & & $\sum_{i=1}^n w_i$ \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<p>加重平均は
+<span class="math display">\[\begin{align*}
+x_w
+&amp;=\frac{w_1 x_1+w_2 x_2+\cdots+w_n x_n}{\sum_{i=1}^n w_i} \\
+&amp;=\underbrace{\left( \frac{w_1}{\sum_{i=1}^n w_i} \right)}_{1\text{の相対比率}}x_1
++\cdots+\left( \frac{w_n}{\sum_{i=1}^n w_i} \right) x_n
+\end{align*}\]</span></p>
+<blockquote>
+問題1：加重算術平均}
+C-3：加重算術平均}
+次の表は2006年3月時点の東京都と茨城県の女子高生の大学等進学率と卒業者数のデータです。
+\begin{center}
+</blockquote>
+<p>2都県の平均大学等進学率を求めて下さい。</p>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>大学等進学者数は
+<span class="math display">\[\begin{align*}
+\text{大学等進学者数(百人)}=\frac{47.1}{100} \times 145 + \frac{62.1}{100} \times 519=\fbox{\phantom{~390.594~}}
+\end{align*}\]</span>
+</li>
+<li>したがって平均値は
+<span class="math display">\[\begin{align*}
+\text{平均値}=\frac{68.295+322.299}{145+519}=\frac{390.594}{664}=
+0.588=58.8\%
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>別解}
+<span class="math display">\[\begin{align*}
+\text{平均値}
+%&amp;=\frac{\text{進学率}_{\text{茨城}}\times \text{卒業者数}_{\text{茨城}}+\text{進学率}_{\text{東京}}\times \text{卒業者数}_{\text{東京}}} {\text{卒業者数}_{\text{茨城}}+\text{卒業者数}_{\text{東京}}} \\
+%&amp;=
+%\underbrace{\frac{\text{卒業者数}_{\text{茨城}}}{\text{卒業者数}_{\text{茨城}}+\text{卒業者数}_{\text{東京}}}}_{\text{茨城の比率}}
+%\times \text{進学率}_{\text{茨城}} \\
+&amp;=
+\underbrace{\footnotesize\frac{\text{茨城の卒業者数}}{\text{卒業者数の合計}}}_{\text{茨城の比率}}
+\times \text{\footnotesize 茨城の進学率}
++
+\underbrace{\footnotesize\frac{\text{東京の卒業者数}}{\text{卒業者数の合計}}}_{\text{東京の比率}}
+\times \text{\footnotesize 東京の進学率} \\
+%&amp;=\text{茨城の比率}\times \text{茨城の進学率}+\text{東京の比率}\times \text{東京の進学率} \\
+&amp;=\frac{\fbox{\phantom{~145~}}}{664}\times 47.1+\frac{\fbox{\phantom{~519~}}}{664}\times 62.1 \\
+&amp;=0.2183\times 47.1+0.7816\times 62.1 \\
+&amp;=10.28+48.54 \\
+&amp;=58.82\%
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>問題2：1年あたりの人口の平均伸び率}</p>
+<p>ある市の人口について,毎年の4月1日に1年前との比を8年間にわたって調べたところ</p>
+</blockquote>
+<!-- %\begin{center} -->
+<!-- %\begin{verbatim} -->
+<!-- %1.07  1.28  1.32  1.21  1.11  1.09  1.05  1.01 -->
+<!-- %\end{verbatim} -->
+<p>となった。この8年間の，1年あたりの人口の伸びの平均は何倍か，および何%かを求めよ.</p>
+<blockquote>
+<p>解答
+<span class="math display">\[\begin{align*}
+G
+&amp;=\sqrt[8]{1.07 \times 1.28 \times 1.32 \times 1.21 \times 1.11 \times 1.09 \times 1.05 \times 1.01} \\
+&amp;=\sqrt[8]{2.8068}~~\leftarrow \text{ここまで} \\
+&amp;=1.137~~\leftarrow \text{この計算には関数電卓かエクセルなどが必要です}
+\end{align*}\]</span>
+したがって1.14倍，つまり平均増加率は14% \
+(注:~累乗根の計算は普通の電卓ではできません)</p>
+</blockquote>
+<blockquote>
+<p>定義：幾何平均(geometric mean)}
+算術平均はデータを「足して割る」ものだが，幾何平均はデータを「掛けて累乗根をとる」もの。成長率の平均などに用いる。</p>
+</blockquote>
+<ul>
+<li>
+<span class="math inline">\(n\)</span>時点の成長率のデータであれば，まずそれらを比率に変換する(例：5%ならば1.05)</li>
+<li>次に比を掛け合わせる
+<span class="math display">\[\begin{align*}
+X_1 \times X_2 \times \cdots \times X_n
+\end{align*}\]</span>
+</li>
+<li>最後に<span class="math inline">\(n\)</span>乗根をとる
+<span class="math display">\[\begin{align*}
+G=\sqrt[n]{X_1 \times X_2 \times \cdots X_n}
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+問題2：1年あたりの人口の平均伸び率}
+C-4：1年あたりの人口の平均伸び率}
+ある市の人口について,毎年の4月1日に1年前との比を2年間調べたところ
+\begin{center}
+</blockquote>
+<p>となった。この2年間の，1年あたりの人口の伸びの平均は何倍か，および何%かを求めよ.</p>
+<p>(1)1.0%~~
+(2)5.9%~~
+(3)6.0%~~
+(4)11.0%~~</p>
+<p>\begin{columns}
+\begin{column}{0.4}
+&gt; 解答(1)}
+<span class="math display">\[\begin{align*}
+G
+&amp;=\sqrt{\fbox{\phantom{~1.01~}} \times \fbox{\phantom{~1.11~}}} \\
+&amp;=\sqrt{1.1211} \\
+&amp;=1.0588 \text{(小数点第5位を四捨五入)}
+\end{align*}\]</span>
+したがって1.059倍，つまり平均増加率は5.9%</p>
+<p>%
+\begin{column}{0.5}
+&gt; 別解} \
+平均の(純)増加率を<span class="math inline">\(g\)</span>(%)とすると2年間で
+<span class="math display">\[\begin{align*}
+\left( 1+\frac{g}{100} \right)^2=\underbrace{1.1211}_{1.01 \times 1.11}~~~\text{なので} \\
+\left( 1+\frac{g}{100} \right)=\sqrt{1.1211}=1.0588.~~~\text{つまり} \\
+\frac{g}{100}=0.0588
+\end{align*}\]</span></p>
+<blockquote>
+<p>問題3：売上高の期間平均増加率の計算}
+C-5：売上高の期間平均増加率の計算}
+以下の数値はトヨタ自動車，日産自動車，ホンダの1年間の売上高の増加率(%)です。
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|rrr} -->
+<!-- \hline -->
+<!-- 年度 & トヨタ & 日産 & ホンダ \\ -->
+<!-- \hline -->
+<!-- 2001 & 4.2 & 1.9 & 6.0 \\ -->
+<!-- 2002 & 12.5 & 1.8 & 13.9 \\ -->
+<!-- 2003 & 6.3 & 10.2 & 8.3 \\ -->
+<!-- 2004 & 7.3 & 15.4 & 6.0 \\ -->
+<!-- 2005 & 13.4 & 9.9 & 14.5 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} --></p>
+</blockquote>
+<ul>
+<li><p>トヨタ自動車の平均売上増加率として適切なものはどれですか。
+<span class="math display">\[\begin{align*}
+&amp;(1)~\frac{1}{5}(4.2+12.5+6.3+7.3+13.4) \\
+&amp;(2)~\sqrt[5]{1.042 \times 1.125 \times 1.063 \times 1.073 \times 1.134} \\
+&amp;(3)~\sqrt[5]{0.042 \times 0.125 \times 0.063 \times 0.073 \times 0.134}
+\end{align*}\]</span></p></li>
+<li><p><span class="math inline">\(\sqrt[5]{1.042 \times 1.125 \times 1.063 \times 1.073 \times 1.134}\)</span></p></li>
+<li><p><span class="math inline">\(\sqrt[5]{0.042 \times 0.125 \times 0.063 \times 0.073 \times 0.134}\)</span>
+%* <span class="math inline">\(\sqrt[5]{4.2 \times 12.5 \times 6.3 \times 7.3 \times 13.4}\)</span></p></li>
+</ul>
+<blockquote>
+<p>解答
+(2)が正しい表現</p>
+</blockquote>
+<blockquote>
+<p>(問題3：売上高の期間平均増加率の計算)の続き}
+C-6：売上高の期間平均増加率の計算}</p>
+</blockquote>
+<ul>
+<li><p>トヨタ自動車の平均売上増加率は以下の通りです
+<!-- %\begin{align*} -->
+<!-- %G -->
+<!-- %&=\sqrt[5]{1.042 \times 1.125 \times 1.063 \times 1.073 \times 1.134} \\ -->
+<!-- %&=\sqrt[5]{1.5162}=1.087 -->
+<!-- %\end{align*} -->
+<!-- %したがって平均増加率は$8.7\%$ --></p></li>
+<li><p>同様にして日産とホンダの増加率を(途中まで)計算して下さい。もっとも売上増加率の低いのはどれでしょう？</p></li>
+</ul>
+<p>(1)トヨタ~~
+(2)日産~~
+(3)ホンダ</p>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>トヨタ<span class="math inline">\(G=\sqrt[5]{1.5162}=1.087~~~\text{したがって}8.7\%\)</span>
+</li>
+<li>日産<span class="math inline">\(G=\sqrt[5]{\fbox{\phantom{~1.4498~}}}=\fbox{\phantom{~1.077~}}\)</span> %~~~7.7%$</li>
+<li>ホンダ<span class="math inline">\(G=\sqrt[5]{\fbox{\phantom{~1.5870~}}}=\fbox{\phantom{~1.097~}}\)</span> % ~~~9.7%$</li>
+</ul>
+<p>よってこの期間については，日産の増加率が一番低い。</p>
+<p>【ポイント】累乗根を解かなくても大小関係ならば比較可能です</p>
+<blockquote>
+<p>問題4：測定値の標準誤差の比較について}
+C-7：測定値の標準誤差の比較について}
+2つのグループ(XとY)が，異なるある2地点間の距離を100回ずつ測量して得たデータについて，標準誤差を計算したところ以下のようになった。</p>
+</blockquote>
+<ul>
+<li>Xグループ：地点Aと地点Bの測定の標準誤差は1m</li>
+<li>Yグループ：地点Cと地点Dの測定の標準誤差は5mm</li>
+</ul>
+<p>どちらのグループの測量の方が正確と言えるだろうか？</p>
+<p>(1)Xグループ~~
+(2)Yグループ~~</p>
+<blockquote>
+<p>(問題4：測定値の標準誤差の比較について)の続き}
+C-8：測定値の標準誤差の比較について}
+Xグループが測定した区間(地点Aと地点B)の距離はおよそ1000m，これに対してYグループが測定した区間(地点Cと地点D)の距離は約1mだった。
+どちらのグループの測量の方が正確と言えるだろうか？</p>
+</blockquote>
+<p>(1)Xグループ~~
+(2)Yグループ~~</p>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>前者は1000mに対して1mのばらつき，後者は1mに対して5mmのばらつきなので，「ばらつきの相対的大きさ」は
+<span class="math display">\[\begin{align*}
+&amp;\text{Xグループの場合}=\frac{1}{1000}=0.001 \\
+&amp;\text{Yグループの場合}=\frac{5}{1000}=0.005
+\end{align*}\]</span>
+したがって前者の方が正確な測定と言える</li>
+</ul>
+<blockquote>
+<p>定義：変動係数(coefficient of variation)}
+標準偏差を算術平均で割ったもので
+<span class="math display">\[\begin{align*}
+\text{変動係数(CV)}=\frac{\text{sd}(x)}{\bar{x}}=\frac{x\text{の標準偏差}}{x\text{の算術平均}}
+\end{align*}\]</span>
+なお，使用するデータはすべて正。算術平均が0や0に近い場合，変動係数が計算できない，あるいは曖昧な尺度になるので注意が必要です</p>
+</blockquote>
+<blockquote>
+<p>問題5：為替レートの変動}
+C-9：為替レートの変動}
+次の表は1991年第1四半期から1996年第1四半期の期間の日本・ドイツ・フランスの為替レート(対ドル)の値です(抜粋)。</p>
+</blockquote>
+<!-- \begin{center} -->
+<!-- \begin{tabular}{cccc} -->
+<!-- \hline -->
+<!-- 年・期 & 日本(円) & ドイツ(マルク) & フランス(フラン) \\ -->
+<!-- \hline -->
+<!-- 1991/1 & 140.55 & 1.697 & 5.746 \\ -->
+<!-- 1991/2 & 138.15 & 1.810 & 6.135 \\ -->
+<!-- : & : & : & : \\ -->
+<!-- 1996/1 & 106.48 & 1.475 & 5.032 \\ -->
+<!-- \hline -->
+<!-- 平均 & 112.62 & 1.573 & 5.381 \\ -->
+<!-- 標準偏差 & 15.88 & 0.124 & 0.399 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<p>変動リスクが一番高いと思われる通貨はどれですか？ % その理由も述べて下さい。</p>
+<p>(1)円~~
+(2)マルク~~
+(3)フラン</p>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>各国の通貨は単位が異なり，また水準も大きく異なるため，単純に標準偏差を比較しただけではどの通貨の変動が最も大きいのか，は判断できません
+%</li>
+<li>そこで，変動係数を計算します
+%
+\begin{center}</li>
+<li>このことから，日本，ドイツ，フランスの順に相対的分散度が大きいことがわかります</li>
+</ul>
+<blockquote>
+<p>問題演習</p>
+</blockquote>
+<blockquote>
+<p>問題6：テストの成績~(平均と中央値)}
+生徒15人の成績が次のようであるとき平均と中央値を求めて下さい。
+<!-- \begin{verbatim} -->
+<!-- 41   72   74   58   24   100   63   43   31   73  -->
+<!-- 62   59   44   61   65 (点) -->
+<!-- \end{verbatim} --></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>平均値は
+<span class="math display">\[\begin{align*}
+\bar{x}=\frac{870}{15}=58(\text{点})
+\end{align*}\]</span>
+</li>
+<li>中央値は61()</li>
+</ul>
+<blockquote>
+<p>問題7：各統計量の特徴は？}
+分布の位置を示す3つの統計量(算術平均，中央値，最頻値)のうち，次のような特徴(欠点)をもつ統計量はそれぞれどれでしょう？</p>
+</blockquote>
+<ul>
+<li>データに異常値が入っているときに影響を受けやすいのは？</li>
+<li>データの値によっては定義できないことがあるものは？</li>
+<li>すべてのデータの値ではなく，一部の値しか使わないものは？</li>
+</ul>
+<!-- %\begin{center} --><!-- %\begin{tabular}{cc} --><!-- %\hline --><!-- %算術平均 & 異常値の影響を受けやすい \\ --><!-- %中央値 & 一部のデータ値しか使わない \\ --><!-- %最頻値 & 定義できないことがある \\ --><!-- %\hline --><!-- %\end{tabular} --><blockquote>
+<p>問題8：1年間に読んだ本の冊数~(範囲と四分位範囲)}
+生徒15人が1年間に読んだ本の冊数と示した次のデータについて，範囲と四分位範囲を求めて下さい。
+<!-- \begin{verbatim} -->
+<!-- 24  12  14  24  11  18  19  14  18  32 -->
+<!-- 24  22  24  18  36  18  12  24  20  34 -->
+<!-- \end{verbatim} --></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>小さい順に並べると次のようになる</li>
+<li>範囲は<span class="math inline">\(25(=36-11)\)</span>
+</li>
+<li>
+<span class="math inline">\(\text{Q}_1=\frac{1}{2}(14+18)=16\)</span>，<span class="math inline">\(\text{Q}_3=\frac{1}{2}(24+24)=24\)</span>，よって
+<span class="math display">\[\begin{align*}
+\text{四分位範囲}=24-16=8
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題9：平均絶対偏差の計算}
+次の数値について平均絶対偏差を求めて下さい。
+<!-- \begin{verbatim} -->
+<!-- 3  2  6  1  5  7 -->
+<!-- \end{verbatim} --></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>まず平均を求めると
+<span class="math display">\[\begin{align*}
+\bar{x}=\frac{1}{6}(3+2+6+1+5+7)=\frac{24}{6}=4
+\end{align*}\]</span>
+</li>
+<li>「平均からの偏差」の絶対値を平均するので
+<span class="math display">\[\begin{align*}
+\text{MAD}
+&amp;=\frac{1}{6}(|3-4|+|2-4|+|6-4|+|1-4|+|5-4|+|7-4|) \\
+&amp;=\frac{1}{6}(1+2+2+3+1+3)=\frac{12}{6}=2
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題10：分散と標準偏差の計算}
+同じ数値を使って，分散と標準偏差を求めて下さい。</p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>(母)分散は，「平均からの偏差」の2乗を平均するので
+<span class="math display">\[\begin{align*}
+\text{分散}
+&amp;=\frac{1}{6}\{ (3-4)^2+(2-4)^2+(6-4)^2+(1-4)^2 \\
+&amp; \qquad+(5-4)^2+(7-4)^2 \}\\
+&amp;=\frac{28}{6}=\frac{14}{3}=4.66
+\end{align*}\]</span>
+</li>
+<li>標準偏差は
+<span class="math display">\[\begin{align*}
+\text{標準偏差}=\sqrt{\text{分散}}=\sqrt{\frac{14}{3}}=\sqrt{4.66}=2.16
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題11：分散と標準偏差の計算}
+次の数値について分散と標準偏差を求めて下さい。
+<!-- \begin{verbatim} -->
+<!-- 1  2  3  4  5  6  7  8  9  10 -->
+<!-- \end{verbatim} --></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>平均値は<span class="math inline">\(\frac{55}{10}=\frac{11}{2}\)</span>なので定義通りに計算すると面倒。</li>
+<li>そこで
+<span class="math display">\[\begin{align*}
+\text{分散}=\text{データの2乗の平均値}-\text{データの平均値の2乗}
+\end{align*}\]</span>
+で計算する
+<span class="math display">\[\begin{align*}
+\text{分散}=\frac{77}{2}-\left( \frac{11}{2} \right)^2=\frac{33}{4}=8.25
+\end{align*}\]</span>
+</li>
+<li>標準偏差は
+<span class="math display">\[\begin{align*}
+\text{標準偏差}=\sqrt{\text{分散}}=\sqrt{\frac{33}{4}}=\sqrt{8.25}=2.872
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題12：各統計量の特徴は？}
+分布のちらばりを示す4つの統計量(範囲，四分位範囲，平均絶対偏差，標準偏差)について，次のような特徴(欠点)をもつ統計量はそれぞれどれでしょう？</p>
+</blockquote>
+<ul>
+<li>データに異常値が入っているときに影響を受けやすいのは？</li>
+<li>データの値によっては定義できないことがあるものは？</li>
+<li>すべてのデータの値ではなく，一部の値しか使わないものは？</li>
+</ul>
+<!-- %\begin{center} --><!-- %\begin{tabular}{cc} --><!-- %\hline --><!-- %算術平均 & 異常値の影響を受けやすい \\ --><!-- %中央値 & 一部のデータ値しか使わない \\ --><!-- %最頻値 & 定義できないことがある \\ --><!-- %\hline --><!-- %\end{tabular} --><blockquote>
+<p>問題13：標準化変量}
+平均が32点，標準偏差が8点の試験において，次の3人の得点の標準化変量を求めて下さい
+<!-- \begin{verbatim} -->
+<!-- A: 56点,   B: 28点,   C: 32点 -->
+<!-- \end{verbatim} --></p>
+</blockquote>
+<blockquote>
+<p>定義：標準化変量}
+データのなかのある数値が，算術平均<span class="math inline">\(\bar{x}\)</span>から標準偏差<span class="math inline">\(\text{sd}(x)\)</span>の何倍離れているかを表す数値が``標準化変量’’です</p>
+<p><span class="math display">\[\begin{align*}
+\text{標準化変量}
+=\frac{\text{データの値}-\text{算術平均}}{\text{標準偏差}}
+=\frac{\text{データの値}-\bar{x}}{\text{sd}(x)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>3人の標準化変量はそれぞれ
+<span class="math display">\[\begin{align*}
+z_A=\frac{56-32}{8}=3,~~~
+z_A=\frac{28-32}{8}=-0.5~~~
+z_A=\frac{32-32}{8}=0
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題14：偏差値}
+上記の例の3人について偏差値を求めて下さい</p>
+</blockquote>
+<blockquote>
+<p>定義：偏差値}
+偏差値は次のように定義されます
+<span class="math display">\[\begin{align*}
+\text{偏差値}=50+10 \times \text{標準化変量}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>したがって3人の偏差値はそれぞれ
+<span class="math display">\[\begin{align*}
+50+10 \times 3=80,~~~
+50+10 \times (-0.5)=45,~~~
+50+10 \times 0=50
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題15：偏差値}
+試験の得点が正規分布になっているとします。その場合，偏差値が80の人は分布の上からどのあたりに位置する人でしょう？また偏差値が50の人はどうでしょう？</p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>正規分布に従っているならば，平均値に加えて標準偏差の値がわかれば，どのような範囲にどれくらいの割合のデータが含まれるのかを概略知ることができます</li>
+</ul>
+<!-- \begin{center} --><!-- \begin{tabular}{cc} --><!-- \hline --><!-- 区間 & 占める割合 \\ --><!-- \hline --><!-- %$\bar{x}\pm\frac{2}{3}\times\text{sd}(x)$ & 約$\frac{1}{2}$ \\ --><!-- $\bar{x}\pm 1\times\text{sd}(x)$ & 約$\frac{2}{3}$ \\ --><!-- $\bar{x}\pm 2\times\text{sd}(x)$ & 約95\% \\ --><!-- $\bar{x}\pm 3\times\text{sd}(x)$ & 99 $\sim$ 100\%  \\ --><!-- \hline --><!-- \end{tabular} --><ul>
+<li>偏差値が80ということは平均から右方向に標準偏差の何倍離れているでしょう？</li>
+</ul>
+<blockquote>
+<p>問題16：標準偏差の性質(単位変更の影響)}</p>
+<p>3人のアルバイト給与のデータを使って標準偏差を求めて下さい。</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+1~~~2~~~3~(\text{万円})
+\end{align*}\]</span></p>
+<p>なお，次の標準偏差の公式を使うことにします。</p>
+<p><span class="math display">\[\begin{align*}
+\text{(母)標準偏差}:~~\text{sd}(x)
+=\sqrt{\text{Var}(x)}
+=\sqrt{\frac{1}{n} \sum_{i=1}^n (x_i-\bar{x})^2}
+\end{align*}\]</span></p>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>平均は2(万円)なので分散は
+<span class="math display">\[\begin{align*}
+\text{Var}(x)=\frac{1}{3} \{ (1-2)^2+(2-2)^2+(3-2)^2 \}=\frac{2}{3}
+\end{align*}\]</span>
+</li>
+<li>したがって1標準偏差は
+<span class="math display">\[\begin{align*}
+\text{sd}(x)=\sqrt{\frac{2}{3}}=0.816(\text{万円})
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>問題16：(標準偏差の性質(単位変更の影響))の続き}
+同じデータの単位を万円から円に変更した場合，1標準偏差の値を求めて下さい。
+<span class="math display">\[\begin{align*}
+10,000~~~20,000~~~30,000~(\text{円})
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+</blockquote>
+<ul>
+<li>
+<span class="math inline">\(y=10000 \times x\)</span>とします</li>
+<li>平均は20000(円)なので分散は
+<span class="math display">\[\begin{align*}
+\text{Var}(y)&amp;=\frac{1}{3} \{ (10000-20000)^2+(20000-20000)^2 \\
+&amp;\quad +(30000-20000)^2 \}=\frac{200000000}{3}
+\end{align*}\]</span>
+</li>
+<li>したがって1標準偏差は
+<span class="math display">\[\begin{align*}
+\text{sd}(y)
+&amp;=\sqrt{\frac{200000000}{3}}=8165(\text{円}) \\
+&amp;=10000 \times \text{sd}(x)
+\end{align*}\]</span>
+</li>
+</ul>
+<blockquote>
+<p>性質：標準偏差}
+変数<span class="math inline">\(x_i\)</span>を<span class="math inline">\(a\)</span>倍して，<span class="math inline">\(b\)</span>を足したものを変数<span class="math inline">\(y_i\)</span>とすると
+<span class="math display">\[\begin{eqnarray*}
+%s_y=|a| s_x
+\text{sd}(y)=|a| \times \text{sd}(x)
+\end{eqnarray*}\]</span></p>
+</blockquote>
+<ul>
+<li>データの単位を変更した結果，数値が1万倍になったので，標準偏差も1万倍になる</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

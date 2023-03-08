@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 その他の統計量 | 初級統計学</title>
+<meta name="author" content="TI">
+<meta name="description" content="問題1：測定値の標準誤差の比較について 2つのグループ(XとY)が，異なるある2地点間の距離を100回ずつ測量して得たデータについて，標準誤差を計算したところ以下のようになった。 Xグループ：地点Aと地点Bの測定の標準誤差は1m Yグループ：地点Cと地点Dの測定の標準誤差は5mm どちらのグループの測量の方が正確と言えるだろうか？  問題2：測定値の標準誤差の比較について...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Chapter 7 その他の統計量 | 初級統計学">
+<meta property="og:type" content="book">
+<meta property="og:description" content="問題1：測定値の標準誤差の比較について 2つのグループ(XとY)が，異なるある2地点間の距離を100回ずつ測量して得たデータについて，標準誤差を計算したところ以下のようになった。 Xグループ：地点Aと地点Bの測定の標準誤差は1m Yグループ：地点Cと地点Dの測定の標準誤差は5mm どちらのグループの測量の方が正確と言えるだろうか？  問題2：測定値の標準誤差の比較について...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 その他の統計量 | 初級統計学">
+<meta name="twitter:description" content="問題1：測定値の標準誤差の比較について 2つのグループ(XとY)が，異なるある2地点間の距離を100回ずつ測量して得たデータについて，標準誤差を計算したところ以下のようになった。 Xグループ：地点Aと地点Bの測定の標準誤差は1m Yグループ：地点Cと地点Dの測定の標準誤差は5mm どちらのグループの測量の方が正確と言えるだろうか？  問題2：測定値の標準誤差の比較について...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">初級統計学</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 7</span> その他の統計量</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="その他の統計量" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> その他の統計量<a class="anchor" aria-label="anchor" href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E7%B5%B1%E8%A8%88%E9%87%8F"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>問題1：測定値の標準誤差の比較について<br></p>
+<p>2つのグループ(XとY)が，異なるある2地点間の距離を100回ずつ測量して得たデータについて，標準誤差を計算したところ以下のようになった。</p>
+<ul>
+<li>Xグループ：地点Aと地点Bの測定の標準誤差は1m</li>
+<li>Yグループ：地点Cと地点Dの測定の標準誤差は5mm</li>
+</ul>
+<p>どちらのグループの測量の方が正確と言えるだろうか？</p>
+</blockquote>
+<blockquote>
+<p>問題2：測定値の標準誤差の比較について<br></p>
+<p>Xグループが測定した区間(地点Aと地点B)の距離はおよそ1000m，これに対してYグループが測定した区間(地点Cと地点D)の距離は約1mだった。
+どちらのグループの測量の方が正確と言えるだろうか？</p>
+</blockquote>
+<blockquote>
+<p>問題2：測定値の標準誤差の比較について<br></p>
+<p>Xグループが測定した区間(地点Aと地点B)の距離はおよそ1000m，これに対してYグループが測定した区間(地点Cと地点D)の距離は約1mだった。
+どちらのグループの測量の方が正確と言えるだろうか？</p>
+</blockquote>
+<blockquote>
+<p>解答<br></p>
+<ul>
+<li>前者は1000mに対して1mのばらつき，後者は1mに対して5mmのばらつきなので，「ばらつきの相対的大きさ」は</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+&amp;\text{Xグループの場合}=\frac{1}{1000}=0.001 \\
+&amp;\text{Yグループの場合}=\frac{5}{1000}=0.005
+\end{align*}\]</span>
+したがって前者の方が正確な測定と言える</p>
+</blockquote>
+<blockquote>
+<p>定義：変動係数(coefficient of variation)<br></p>
+<p>標準偏差を算術平均で割ったもので
+<span class="math display">\[\begin{align*}
+\text{変動係数(CV)}=\frac{\text{sd}(x)}{\bar{x}}=\frac{x\text{の標準偏差}}{x\text{の算術平均}}
+\end{align*}\]</span>
+なお，使用するデータはすべて正。算術平均が0や0に近い場合，変動係数が計算できない，あるいは曖昧な尺度になるので注意が必要です</p>
+</blockquote>
+<blockquote>
+<p>問題3：為替レートの変動<br></p>
+<p>次の表は1991年第1四半期から1996年第1四半期の期間の日本・ドイツ・フランスの為替レート(対ドル)の値です(抜粋)。</p>
+</blockquote>
+<!-- \begin{center} -->
+<!-- \begin{tabular}{cccc} -->
+<!-- \hline -->
+<!-- 年・期 & 日本(円) & ドイツ(マルク) & フランス(フラン) \\ -->
+<!-- \hline -->
+<!-- 1991/1 & 140.55 & 1.697 & 5.746 \\ -->
+<!-- 1991/2 & 138.15 & 1.810 & 6.135 \\ -->
+<!-- : & : & : & : \\ -->
+<!-- 1996/1 & 106.48 & 1.475 & 5.032 \\ -->
+<!-- \hline -->
+<!-- 平均 & 112.62 & 1.573 & 5.381 \\ -->
+<!-- 標準偏差 & 15.88 & 0.124 & 0.399 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<p>変動リスクが一番高いと思われる通貨はどれですか？ % その理由も述べて下さい。</p>
+<blockquote>
+<p>解答</p>
+<ul>
+<li>各国の通貨は単位が異なり，また水準も大きく異なるため，単純に標準偏差を比較しただけではどの通貨の変動が最も大きいのか，は判断できません</li>
+<li>そこで，変動係数を計算します</li>
+</ul>
+</blockquote>
+<!-- 年・期 & 日本(円) & ドイツ(マルク) & フランス(フラン) \\ -->
+<!-- \hline -->
+<!-- 平均 & 112.62 & 1.573 & 5.381 \\ -->
+<!-- 標準偏差 & 15.88 & 0.124 & 0.399 \\ -->
+<!-- \hline -->
+<!-- 変動係数(\%) & 14.10 & 7.87 & 7.43 \\ -->
+<ul>
+<li>このことから，日本，ドイツ，フランスの順に相対的分散度が大きいことがわかります</li>
+</ul>
+<blockquote>
+<p>問題6：テストの成績~(平均と中央値)<br></p>
+<!-- %生徒15人の成績が次のようであるとき平均と中央値を求めて下さい。 -->
+<!-- %\begin{verbatim} -->
+<!-- %41   72   74   58   24   100   63   43   31   73  -->
+<!-- %62   59   44   61   65 (点) -->
+<!-- %\end{verbatim} -->
+<!-- %\end{exampleblock} -->
+<!-- %% -->
+<!-- %\underline{解答} -->
+<!-- %\begin{enumerate} -->
+<!-- %\item 平均値は -->
+<!-- %\begin{align*} -->
+<!-- %\bar{x}=\frac{870}{15}=58(\text{点}) -->
+<!-- %\end{align*} -->
+<!-- %\item 中央値は61(\text{点}) -->
+<!-- %\end{enumerate} -->
+<!-- %\end{frame} -->
+</blockquote>
+<blockquote>
+<p>問題7：各統計量の特徴は？<br></p>
+<!-- %分布の位置を示す3つの統計量(算術平均，中央値，最頻値)のうち，次のような特徴(欠点)をもつ統計量はそれぞれどれでしょう？ -->
+<!-- %\begin{enumerate} -->
+<!-- %\item データに異常値が入っているときに影響を受けやすいのは？ -->
+<!-- %\item データの値によっては定義できないことがあるものは？ -->
+<!-- %\item すべてのデータの値ではなく，一部の値しか使わないものは？ -->
+<!-- %\end{enumerate} -->
+<!-- %%\begin{center} -->
+<!-- %%\begin{tabular}{cc} -->
+<!-- %%\hline -->
+<!-- %%算術平均 & 異常値の影響を受けやすい \\ -->
+<!-- %%中央値 & 一部のデータ値しか使わない \\ -->
+<!-- %%最頻値 & 定義できないことがある \\ -->
+</blockquote>
+<blockquote>
+<p>問題8：1年間に読んだ本の冊数~(範囲と四分位範囲)<br><!-- %生徒15人が1年間に読んだ本の冊数と示した次のデータについて，範囲と四分位範囲を求めて下さい。 --><!-- %\begin{verbatim} --><!-- %24  12  14  24  11  18  19  14  18  32 --><!-- %24  22  24  18  36  18  12  24  20  34 --><!-- %\end{verbatim} --><!-- %\end{exampleblock} --><!-- %% --><!-- %\underline{解答} --><!-- %\begin{enumerate} --><!-- %\item 小さい順に並べると次のようになる --><!-- %\begin{verbatim} --><!-- %11  12  12  14  14  18  18  18  18  19 --><!-- %20  22  24  24  24  24  24  32  34  36 --><!-- %\end{verbatim} --><!-- %\item 範囲は$25(=36-11)$ --><!-- %\item $\text{Q}_1=\frac{1}{2}(14+18)=16$，$\text{Q}_3=\frac{1}{2}(24+24)=24$，よって --><!-- %\begin{align*} --><!-- %\text{四分位範囲}=24-16=8 --></p>
+</blockquote>
+<blockquote>
+<p>問題9：平均絶対偏差の計算}</p>
+次の数値について平均絶対偏差を求めて下さい。
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ul>
+<li><p>まず平均を求めると
+<span class="math display">\[\begin{align*}
+\bar{x}=\frac{1}{6}(3+2+6+1+5+7)=\frac{24}{6}=4
+\end{align*}\]</span></p></li>
+<li><p>「平均からの偏差」の絶対値を平均するので
+<span class="math display">\[\begin{align*}
+\text{MAD}
+&amp;=\frac{1}{6}(|3-4|+|2-4|+|6-4|+|1-4|+|5-4|+|7-4|) \\
+&amp;=\frac{1}{6}(1+2+2+3+1+3)=\frac{12}{6}=2
+\end{align*}\]</span></p></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>問題10：分散と標準偏差の計算<br></p>
+<p>同じ数値を使って，分散と標準偏差を求めて下さい。</p>
+</blockquote>
+<blockquote>
+<p>解答}</p>
+<ol style="list-style-type: decimal">
+<li><p>(母)分散は，「平均からの偏差」の2乗を平均するので
+<span class="math display">\[\begin{align*}
+\text{分散}
+&amp;=\frac{1}{6}\{ (3-4)^2+(2-4)^2+(6-4)^2+(1-4)^2 \\
+&amp; \qquad+(5-4)^2+(7-4)^2 \}\\
+&amp;=\frac{28}{6}=\frac{14}{3}=4.66
+\end{align*}\]</span></p></li>
+<li><p>標準偏差は
+<span class="math display">\[\begin{align*}
+\text{標準偏差}=\sqrt{\text{分散}}=\sqrt{\frac{14}{3}}=\sqrt{4.66}=2.16
+\end{align*}\]</span></p></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>問題11：分散と標準偏差の計算<br></p>
+次の数値について分散と標準偏差を求めて下さい。
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ol style="list-style-type: decimal">
+<li><p>平均値は<span class="math inline">\(\frac{55}{10}=\frac{11}{2}\)</span>なので定義通りに計算すると面倒。</p></li>
+<li><p>そこで
+<span class="math display">\[\begin{align*}
+\text{分散}=\text{データの2乗の平均値}-\text{データの平均値の2乗}
+\end{align*}\]</span>
+で計算する
+\begin{align<em>}
+=-( )^2==8.25
+%\end{align</em>}</p></li>
+<li><p>標準偏差は
+<span class="math display">\[\begin{align*}
+\text{標準偏差}=\sqrt{\text{分散}}=\sqrt{\frac{33}{4}}=\sqrt{8.25}=2.872
+\end{align*}\]</span></p></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>問題12：各統計量の特徴は？<br></p>
+<p>分布のちらばりを示す4つの統計量(範囲，四分位範囲，平均絶対偏差，標準偏差)について，次のような特徴(欠点)をもつ統計量はそれぞれどれでしょう？</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>データに異常値が入っているときに影響を受けやすいのは？</li>
+<li>データの値によっては定義できないことがあるものは？</li>
+<li>すべてのデータの値ではなく，一部の値しか使わないものは？</li>
+</ol>
+<!-- %%算術平均 & 異常値の影響を受けやすい \\ --><!-- %%中央値 & 一部のデータ値しか使わない \\ --><!-- %%最頻値 & 定義できないことがある \\ --><blockquote>
+<p>問題4：標準化変量}</p>
+平均が32点，標準偏差が8点の試験において，次の3人の得点の標準化変量を求めて下さい
+</blockquote>
+<blockquote>
+<p>定義：標準化変量
+データのなかのある数値が，算術平均<span class="math inline">\(\bar{x}\)</span>から標準偏差<span class="math inline">\(\text{sd}(x)\)</span>の何倍離れているかを表す数値が``標準化変量’’です</p>
+<p><span class="math display">\[\begin{align*}
+\text{標準化変量}
+=\frac{\text{データの値}-\text{算術平均}}{\text{標準偏差}}
+=\frac{\text{データの値}-\bar{x}}{\text{sd}(x)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ol style="list-style-type: decimal">
+<li>3人の標準化変量はそれぞれ
+<span class="math display">\[\begin{align*}
+z_A=\frac{56-32}{8}=3,~~~
+z_A=\frac{28-32}{8}=-0.5~~~
+z_A=\frac{32-32}{8}=0
+\end{align*}\]</span>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>問題5：偏差値</p>
+<p>上記の例の3人について偏差値を求めて下さい</p>
+</blockquote>
+<blockquote>
+<p>定義：偏差値}
+偏差値は次のように定義されます
+<span class="math display">\[\begin{align*}
+\text{偏差値}=50+10 \times \text{標準化変量}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ul>
+<li>したがって3人の偏差値はそれぞれ
+<span class="math display">\[\begin{align*}
+50+10 \times 3=80,~~~
+50+10 \times (-0.5)=45,~~~
+50+10 \times 0=50
+\end{align*}\]</span>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>問題6：偏差値</p>
+<p>試験の得点が正規分布になっているとします。その場合，偏差値が80の人は分布の上からどのあたりに位置する人でしょう？また偏差値が50の人はどうでしょう？</p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ol style="list-style-type: decimal">
+<li><p>正規分布に従っているならば，平均値に加えて標準偏差の値がわかれば，どのような範囲にどれくらいの割合のデータが含まれるのかを概略知ることができます
+<!-- \begin{center} -->
+<!-- \begin{tabular}{cc} -->
+<!-- \hline -->
+<!-- 区間 & 占める割合 \\ -->
+<!-- \hline -->
+<!-- %$\bar{x}\pm\frac{2}{3}\times\text{sd}(x)$ & 約$\frac{1}{2}$ \\ -->
+<!-- $\bar{x}\pm 1\times\text{sd}(x)$ & 約$\frac{2}{3}$ \\ -->
+<!-- $\bar{x}\pm 2\times\text{sd}(x)$ & 約95\% \\ -->
+<!-- $\bar{x}\pm 3\times\text{sd}(x)$ & 99 $\sim$ 100\%  \\ --></p></li>
+<li><p>偏差値が80ということは平均から右方向に標準偏差の何倍離れているでしょう？</p></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>問題16：標準偏差の性質(単位変更の影響)}</p>
+<p>3人のアルバイト給与のデータを使って標準偏差を求めて下さい。
+<span class="math display">\[\begin{align*}
+1~~~2~~~3~(\text{万円})
+\end{align*}\]</span></p>
+<p>なお，次の標準偏差の公式を使うことにします。
+<span class="math display">\[\begin{align*}
+\text{(母)標準偏差}:~~\text{sd}(x)
+=\sqrt{\text{Var}(x)}
+=\sqrt{\frac{1}{n} \sum_{i=1}^n (x_i-\bar{x})^2}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ol style="list-style-type: decimal">
+<li><p>平均は2(万円)なので分散は
+<span class="math display">\[\begin{align*}
+\text{Var}(x)=\frac{1}{3} \{ (1-2)^2+(2-2)^2+(3-2)^2 \}=\frac{2}{3}
+\end{align*}\]</span></p></li>
+<li><p>したがって1標準偏差は
+<span class="math display">\[\begin{align*}
+\text{sd}(x)=\sqrt{\frac{2}{3}}=0.816(\text{万円})
+\end{align*}\]</span></p></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>問題16：(標準偏差の性質(単位変更の影響))の続き}</p>
+<p>同じデータの単位を万円から円に変更した場合，1標準偏差の値を求めて下さい。
+<span class="math display">\[\begin{align*}
+10,000~~~20,000~~~30,000~(\text{円})
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>解答</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(y=10000 \times x\)</span>とします</p></li>
+<li><p>平均は20000(円)なので分散は
+<span class="math display">\[\begin{align*}
+\text{Var}(y)&amp;=\frac{1}{3} \{ (10000-20000)^2+(20000-20000)^2 \\
+&amp;\quad +(30000-20000)^2 \}=\frac{200000000}{3}
+\end{align*}\]</span></p></li>
+<li><p>したがって1標準偏差は
+<span class="math display">\[\begin{align*}
+\text{sd}(y)
+&amp;=\sqrt{\frac{200000000}{3}}=8165(\text{円}) \\
+&amp;=10000 \times \text{sd}(x)
+\end{align*}\]</span></p></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>性質：標準偏差</p>
+<p>変数<span class="math inline">\(x_i\)</span>を<span class="math inline">\(a\)</span>倍して，<span class="math inline">\(b\)</span>を足したものを変数<span class="math inline">\(y_i\)</span>とすると
+<span class="math display">\[\begin{eqnarray*}
+s_y=|a| s_x
+\text{sd}(y)=|a| \times \text{sd}(x)
+\end{eqnarray*}\]</span></p>
+</blockquote>
+<ul>
+<li>データの単位を変更した結果，数値が1万倍になったので，標準偏差も1万倍になる</li>
+</ul>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>初級統計学</strong>" was written by TI. It was last built on 2023-03-08.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

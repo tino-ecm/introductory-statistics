@@ -64,34 +64,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">編集用</a></li>
-<li class="book-part">第１部</li>
-<li><a class="" href="%E7%B5%B1%E8%A8%88%E3%81%A8%E4%BA%BA%E9%96%93%E7%94%9F%E6%B4%BB.html"><span class="header-section-number">2</span> 統計と人間生活</a></li>
-<li><a class="" href="%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%BA%E5%BA%A6%E3%81%AA%E3%81%A9.html"><span class="header-section-number">3</span> データの尺度など</a></li>
-<li><a class="" href="%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A.html"><span class="header-section-number">4</span> ローレンツ曲線</a></li>
-<li><a class="active" href="%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0%E3%81%AE%E5%88%A5%E3%81%AE%E5%BF%9C%E7%94%A8%E4%BE%8B.html"><span class="header-section-number">5</span> ジニ係数の別の応用例</a></li>
-<li class="book-part">第２部</li>
-<li><a class="" href="hello-bookdown.html"><span class="header-section-number">7</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-1.html"><span class="header-section-number">8</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-2.html"><span class="header-section-number">9</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-3.html"><span class="header-section-number">10</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-4.html"><span class="header-section-number">11</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-5.html"><span class="header-section-number">12</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-6.html"><span class="header-section-number">13</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-7.html"><span class="header-section-number">14</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-8.html"><span class="header-section-number">15</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-9.html"><span class="header-section-number">16</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-10.html"><span class="header-section-number">17</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-11.html"><span class="header-section-number">18</span> Hello bookdown</a></li>
-<li><a class="" href="hello-bookdown-12.html"><span class="header-section-number">19</span> Hello bookdown</a></li>
-<li><a class="" href="cross.html"><span class="header-section-number">20</span> Cross-references</a></li>
-<li><a class="" href="parts.html"><span class="header-section-number">21</span> Parts</a></li>
-<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">22</span> Footnotes and citations</a></li>
-<li><a class="" href="blocks.html"><span class="header-section-number">23</span> Blocks</a></li>
-<li><a class="" href="sharing-your-book.html"><span class="header-section-number">24</span> Sharing your book</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 5</span> ジニ係数の別の応用例</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
@@ -129,35 +102,258 @@
 <li>ヨコ軸の増加幅が等間隔でないため``高さ’’の値がバラバラです</li>
 <li>しかし必要な領域の面積は(若干面倒ですが)以前の例と同じ考え方で計算できます</li>
 </ul>
-<div id="a-section" class="section level2" number="5.1">
+<div id="シグマ記号" class="section level2" number="5.1">
 <h2>
-<span class="header-section-number">5.1</span> A section<a class="anchor" aria-label="anchor" href="#a-section"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.1</span> シグマ記号<a class="anchor" aria-label="anchor" href="#%E3%82%B7%E3%82%B0%E3%83%9E%E8%A8%98%E5%8F%B7"><i class="fas fa-link"></i></a>
 </h2>
-<p>All chapter sections start with a second-level (<code>##</code>) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.</p>
-<div id="an-unnumbered-section" class="section level3 unnumbered">
-<h3>An unnumbered section<a class="anchor" aria-label="anchor" href="#an-unnumbered-section"><i class="fas fa-link"></i></a>
-</h3>
-<p>Chapters and sections are numbered by default. To un-number a heading, add a <code>{.unnumbered}</code> or the shorter <code>{-}</code> at the end of the heading, like in this section.</p>
-
+<blockquote>
+<p>重要な3つのルール<br></p>
+<ul>
+<li><p>ルール1
+<span class="math display">\[\begin{align*}
+\sum_{i=1}^n (X_i+c)=\sum_{i=1}^n X_i+nc
+\end{align*}\]</span></p></li>
+<li><p>ルール2
+<span class="math display">\[\begin{align*}
+\sum_{i=1}^n c X_i=c \sum_{i=1}^n X_i
+\end{align*}\]</span></p></li>
+<li><p>ルール3
+<span class="math display">\[\begin{align*}
+\sum_{i=1}^n (a X_i+b)=a \sum_{i=1}^n X_i +nb
+\end{align*}\]</span></p></li>
+</ul>
+</blockquote>
+<p><strong>ルール１の確認</strong></p>
+<p>一般的には大きさが<span class="math inline">\(n\)</span>の標本 <span class="math inline">\(\{ X_i \}=\{ X_1,X_2,\cdots,X_n \}\)</span>のそれぞれのデータに定数<span class="math inline">\(c\)</span>を加えた新しいデータ <span class="math inline">\(\{ X_i+c \}\)</span>の和は
+<span class="math display">\[\begin{align}
+\sum_{i=1}^n (X_i+c)
+&amp;=(X_1+c)+(X_2+c)+\cdots+(X_n+c) \nonumber \\
+&amp;=(X_1+X_2+\cdots+X_n)+\underbrace{(c+c+\cdots+c)}_{\text{$n$個の$c$の合計}} \nonumber \\
+&amp;=\sum_{i=1}^n X_i+nc \label{(2.15)}
+\end{align}\]</span>
+になります。</p>
+<p><strong>ルール２の確認</strong></p>
+<p>一般的には大きさが<span class="math inline">\(n\)</span>の標本 <span class="math inline">\(\{ X_i \}=\{ X_1,X_2,\cdots,X_n \}\)</span>のそれぞれのデータを<span class="math inline">\(c\)</span>倍した新しいデータ <span class="math inline">\(\{ c X_i \}\)</span>の和は
+<span class="math display">\[\begin{align}
+\sum_{i=1}^n c X_i
+&amp;=c X_1+c X_2+\cdots+c X_n \nonumber \\
+&amp;=c (X_1+X_2+\cdots+X_n) \nonumber \\
+&amp;=c \sum_{i=1}^n X_i \label{(2.17)}
+\end{align}\]</span>
+になります。</p>
+<p><strong>ルール３の確認</strong></p>
+<p>式(<span class="math inline">\(\ref{(2.15)}\)</span>)と式(<span class="math inline">\(\ref{(2.17)}\)</span>)を組合せると，大きさ<span class="math inline">\(n\)</span>の標本 <span class="math inline">\(\{ X_i \}\)</span>のそれぞれのデータを<span class="math inline">\(a\)</span>倍し，さらにそれぞれに<span class="math inline">\(b\)</span>を足しあわせた新しいデータ<span class="math inline">\(\{ aX_i+b \}\)</span>の和を次のように計算できます。
+<span class="math display">\[\begin{align}
+\sum_{i=1}^n (a X_i+b)
+&amp;=(a X_1+b)+(a X_2+b)+\cdots+(a X_n+b) \nonumber \\
+&amp;=\underbrace{(aX_1+aX_2+\cdots+aX_n)}_{a (X_1+X_2+\cdots+X_n)}+\underbrace{(b+b+\cdots+b)}_{\text{$n$個の$b$の合計}} \nonumber \\
+&amp;=a \sum_{i=1}^n X_i+nb \label{(2.18)}
+\end{align}\]</span></p>
+<blockquote>
+<p>ジニ係数と５分位(Gini_Quintile2021.tex)</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>世帯を所得の低い方から順に並べ，世帯数で５等分し，それぞれを第I，第II，第III，第IV，第V五分位階級とよぶ。ここで横軸に累積世帯比率，縦軸に累積所得比率をとった座標平面において，次のローレンツ曲線のジニ係数を記号で表現する。</li>
+</ol>
+<div class="figure">
+<img src="images/lec04/GINI_GRAPH.png" style="width:80.0%" alt=""><p class="caption">image of histogram</p>
 </div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">所得階級</th>
+<th align="center">所得分配</th>
+<th align="center">世帯数</th>
+<th align="center">所得</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">第I 五分位階級</td>
+<td align="center"><span class="math inline">\(Q_1\)</span></td>
+<td align="center">0.2</td>
+<td align="center"><span class="math inline">\(y_1\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">第II 五分位階級</td>
+<td align="center"><span class="math inline">\(Q_2\)</span></td>
+<td align="center">0.4</td>
+<td align="center"><span class="math inline">\(y_2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">第III 五分位階級</td>
+<td align="center"><span class="math inline">\(Q_3\)</span></td>
+<td align="center">0.6</td>
+<td align="center"><span class="math inline">\(y_3\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">第IV 五分位階級</td>
+<td align="center"><span class="math inline">\(Q_4\)</span></td>
+<td align="center">0.8</td>
+<td align="center"><span class="math inline">\(y_4\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">第V 五分位階級</td>
+<td align="center"><span class="math inline">\(Q_5\)</span></td>
+<td align="center">1.0</td>
+<td align="center"><span class="math inline">\(y_5\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(Q_i\)</span>は第<span class="math inline">\(i\)</span>階級の所得割合。<span class="math inline">\(y_i\)</span>は第<span class="math inline">\(i\)</span>階級までの累積値。</li>
+</ol>
+<ul>
+<li>ローレンツ曲線よりも右下の領域の面積はそれぞれ</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\text{第I階級の部分の面積}
+&amp;=
+\text{底辺}\times\text{高さ}\div 2 \\
+&amp;=
+\mathop{y_1}_{\text{底辺} \times \mathop{0.2}_{\text{高さ} \times \frac{1}{2} =0.1 \times y_1}
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\text{第II階級の部分の面積}
+&amp;=
+(\text{上底}+\text{下底})\times\text{高さ}\div 2
+=(y_1+y_2) \times 0.2 \times \frac{1}{2}=0.1 \times (y_1+y_2)
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\text{第III階級の部分の面積}
+&amp;
+=
+(y_2+y_3) \times 0.2 \times \frac{1}{2}=0.1 \times (y_2+y_3)
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\text{第IV階級の部分の面積}
+&amp;
+=
+(y_3+y_4) \times 0.2 \times \frac{1}{2}=0.1 \times (y_3+y_4)
+\end{align*}\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\text{第V階級の部分の面積}
+&amp;
+=(y_4+y_5) \times 0.2 \times \frac{1}{2} =0.1 \times (y_4+1)
+\end{align*}\]</span></p>
+<ul>
+<li>以上を合計すれば，ローレンツ曲線よりも右下の領域(領域B)の面積は</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\text{領域Bの面積}&amp;=
+0.1 \times y_1
++0.1 \times (y_1+y_2)
++0.1 \times (y_2+y_3)
++0.1 \times (y_3+y_4)
++0.1 \times (y_4+1) \\
+&amp;=0.1 \times \{ y_1+(y_1+y_2)+(y_2+y_3)+(y_3+y_4)+(y_4+1) \} \\
+&amp;=0.1 \times ( 2y_1+2 y_2+2 y_3+2 y_4 +1 )
+\end{align*}\]</span></p>
+<ul>
+<li>ジニ係数は，完全平等線より右下の領域の面積（<span class="math inline">\(1/2\)</span>）からローレンツ曲線よりも右下の領域の面積を引き，2倍したものなので</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\text{Gini係数}
+&amp;=\underbrace{2 \times 0.5}_{\text{領域Aの2倍}}
+-
+\underbrace{2 \times 0.1 \times ( 2y_1+2 y_2+2 y_3+2 y_4 +1 )}_{\text{領域Bの2倍}} \nonumber \\
+&amp;=1-(0.4y_1+0.4y_2+0.4y_3+0.4y_4+0.2)  \nonumber \\
+&amp;=0.8-0.4 \times ( y_1+y_2+y_3+y_4)  \label{gini_eq1}
+\end{align}\]</span></p>
+<ul>
+<li>ここで<span class="math inline">\(y\)</span>と<span class="math inline">\(Q\)</span>のあいだには次の関係があるので</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+y_1&amp;=Q_1 \\
+y_2&amp;=Q_1+Q_2 \\
+y_3&amp;=Q_1+Q_2+Q_3 \\
+y_4&amp;=Q_1+Q_2+Q_3+Q_4
+\end{align*}\]</span>
+このことから
+<span class="math display">\[\begin{align}
+y_1+y_2+y_3+y_4=4 Q_1+3 Q_2+2 Q_3+Q_4 \label{gini_eq2}
+\end{align}\]</span></p>
+<ul>
+<li>したがって(<span class="math inline">\(\ref{gini_eq1}\)</span>)式と(<span class="math inline">\(\ref{gini_eq2}\)</span>)式から、ジニ係数は次の式により三角形や台形の面積を計算することなく，各五分位の所得分配の値からも直接計算できる。</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\text{Gini係数}
+&amp;=0.8-0.4 \times ( 4 Q_1+3 Q_2+2 Q_3+Q_4 ) \label{gini_eq3}
+\end{align}\]</span></p>
+<blockquote>
+<p>問題：次は1966年時点のアメリカの所得分布です。(<span class="math inline">\(\ref{gini_eq3}\)</span>)式を使ってジニ係数の値を求めて下さい。<br></p>
+</blockquote>
+<!-- %\begin{table}[htp] -->
+<!-- {\footnotesize -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{c|r||rr} -->
+<!--  & 所得分配 & \multicolumn{2}{c}{累積比率} \\ -->
+<!-- 所得階級 & 1966年 & 世帯数 & 所得 \\ -->
+<!-- \hline -->
+<!-- 第1階級 & 0.056 & 0.200 & 0.056 \\ -->
+<!-- 第2階級 & 0.124 & 0.400 & 0.180 \\ -->
+<!-- 第3階級 & 0.177 & 0.600 & 0.357 \\ -->
+<!-- 第4階級 & 0.238 & 0.800 & 0.595 \\ -->
+<!-- 第5階級 & 0.405 & 1.000 & 1.000 \\ -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- %\end{table}% -->
+<!-- } -->
+<blockquote>
+<p>解答：ジニ係数は</p>
+<p><span class="math display">\[\begin{align*}
+\text{Gini係数}
+&amp;=0.8-0.4 \times ( 4 Q_1+3 Q_2+2 Q_3+Q_4 ) \\
+&amp;=0.8-0.4 \times ( 4 \times 0.056+3 \times 0.124+2 \times 0.177+0.238 ) \\
+&amp;=0.8-0.4 \times ( 0.224+0.372+0.354+0.238 ) \\
+&amp;=0.8-0.4 \times 1.188 =0.8-0.4752=0.3248
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>参考文献：
+Barro, R.J. (1999), Inequality, Growth and Investment, NBER Working Paper 7038.</p>
+</blockquote>
+<blockquote>
+<p>応用例：偏差<span class="math inline">\(\{ X_i-\bar{X} \}\)</span>の合計<br></p>
+</blockquote>
+<p>大きさ<span class="math inline">\(n\)</span>の標本から計算した標本平均を
+<span class="math display">\[\begin{align*}
+\bar{X}=\frac{1}{n} \sum_{i=1}^n X_i
+\end{align*}\]</span>
+で表します。ここで標本平均はただ1つの値しかとらないので定数です。例えば<span class="math inline">\(c=-\bar{X}\)</span>として式(<span class="math inline">\(\ref{(2.15)}\)</span>)のルールを適用すれば，偏差<span class="math inline">\(\{ X_i-\bar{X} \}\)</span>の合計は以下のようになります。
+<span class="math display">\[\begin{align*}
+\sum_{i=1}^n (X_i-\bar{X})
+&amp;=(X_1-\bar{X})+(X_2-\bar{X})+\cdots+(X_n-\bar{X}) \\
+&amp;=\underbrace{(X_1+X_2+\cdots+X_n)}_{\sum_{i=1}^n X_i}
++\underbrace{\{ (-\bar{X})+(-\bar{X})+\cdots+(-\bar{X}) \}}_{\text{$n$個の$-\bar{X}$の合計}}
+\end{align*}\]</span>
+ここで
+<span class="math display">\[\begin{align*}
+\bar{X}=\frac{1}{n}\sum_{i=1}^n X_i
+\qquad \text{を書き換えれば} \qquad
+\sum_{i=1}^n X_i=n \bar{X}
+\end{align*}\]</span>
+となることに注目して下さい。したがって
+<span class="math display">\[\begin{align*}
+\sum_{i=1}^n (X_i-\bar{X})
+&amp;=\underbrace{(X_1+X_2+\cdots+X_n)}_{\sum_{i=1}^n X_i}
++\underbrace{\{ (-\bar{X})+(-\bar{X})+\cdots+(-\bar{X}) \}}_{\text{$n$個の$-\bar{X}$の合計}} \\
+&amp;=\sum_{i=1}^n X_i-n \bar{X} \\
+&amp;=0
+\end{align*}\]</span>
+となります。つまり「偏差の合計はゼロ」になります。</p>
+
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="%E3%83%AD%E3%83%BC%E3%83%AC%E3%83%B3%E3%83%84%E6%9B%B2%E7%B7%9A.html"><span class="header-section-number">4</span> ローレンツ曲線</a></div>
-<div class="next"><a href="hello-bookdown.html"><span class="header-section-number">7</span> Hello bookdown</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%E3%82%B8%E3%83%8B%E4%BF%82%E6%95%B0%E3%81%AE%E5%88%A5%E3%81%AE%E5%BF%9C%E7%94%A8%E4%BE%8B"><span class="header-section-number">5</span> ジニ係数の別の応用例</a></li>
-<li>
-<a class="nav-link" href="#a-section"><span class="header-section-number">5.1</span> A section</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#an-unnumbered-section">An unnumbered section</a></li></ul>
-</li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/04-lec04.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/04-lec04.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Page not found | 初級統計学</title>
+  <title>Chapter 11 相関係数 | 初級統計学</title>
 
     <meta name="author" content="TI" />
   
@@ -12,7 +12,7 @@
 The HTML output format for this example is bookdown::bs4_book,
 set in the _output.yml file.</p>" />
    <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Page not found | 初級統計学" />
+  <meta property="og:title" content="Chapter 11 相関係数 | 初級統計学" />
   <meta property="og:type" content="book" />
   
   
@@ -21,7 +21,7 @@ The HTML output format for this example is bookdown::bs4_book,
 set in the _output.yml file.</p>" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | 初級統計学" />
+  <meta name="twitter:title" content="Chapter 11 相関係数 | 初級統計学" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::bs4_book,
@@ -105,11 +105,120 @@ set in the _output.yml file.</p>" />
   </header>
 
   <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="相関係数" class="section level1" number="11">
+<h1><span class="header-section-number">Chapter 11</span> 相関係数</h1>
+<div id="変数間の関係" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> 2変数間の関係</h2>
+<blockquote>
+<p>例：K駅周辺の住宅データ</p>
+<p>同じ地域であっても<code>物件の良し悪し''によって家賃が異なると考えられます。</code>物件の良し悪し’‘を計る指標はいろいろ考えられますが，ここではまず``物件の広さ’’に着目します。以下の数値は床面積,<span class="math inline">\(m^2\)</span>のデータです。</p>
+</blockquote>
+<!-- \begin{center} -->
+<!-- \begin{tabular}{rrrrrrrrrr} -->
+<!-- 15.12 & 15.12 & 15.12 & 11.97 & 11.97 & 15.50 & 14.09 \\ -->
+<!-- 15.12 & 14.03 & 15.00 & 14.26 & 15.86 & 17.00 & 14.03 \\ -->
+<!-- 14.33 & 25.73 & 23.19 & 17.28 & 17.28 & 18.23 & 18.23 \\ -->
+<!-- 16.80 & 16.80 & 18.46 & 18.23 & 19.44 & 19.44 & 22.80 \\ -->
+<!-- 21.20 & 21.20 & 21.09 & 21.09 & 17.28 & 17.28 & 21.90 \\ -->
+<!-- 16.73 & 34.58 & 34.58 & 22.28 & 23.49 & 22.28 & 24.42 -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<p>注）家賃の安い順に並べてあるので，床面積の数値の並びは必ずしも昇順にはならない</p>
+</div>
+<div id="変数のグラフ" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> 2変数のグラフ</h2>
+<blockquote>
+<p>定義：散布図(Scatter Plot)}</p>
+<ul>
+<li><span class="math inline">\(n\)</span>個の個体について観測したデータのペア</li>
+</ul>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+\{ (x_1,y_1), (x_2,y_2), \cdots, (x_n,y_n) \}
+\end{align*}\]</span>
+を縦軸(<span class="math inline">\(y\)</span>軸)と横軸(<span class="math inline">\(x\)</span>軸)の値に対応させて，<span class="math inline">\(xy\)</span>平面上にデータを点でプロットしたもの</p>
+<ul>
+<li><p>2変量間の関係を視覚的に捉える際に利用</p></li>
+<li><p>例）変数<span class="math inline">\(x\)</span>をspace(床面積)，<span class="math inline">\(y\)</span>をrent(家賃)とすれば，42件の物件は42個の点で表現できる</p></li>
+</ul>
+<!-- \includegraphics[width=0.65 \textwidth]{fig_kichi42scat.pdf} -->
+</div>
+<div id="変数の統計量" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> 2変数の統計量</h2>
+<blockquote>
+<p>定義：共分散(covariance)}</p>
+<ul>
+<li>変数<span class="math inline">\(x\)</span>と<span class="math inline">\(y\)</span>の共分散</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\text{Cov}(x,y)
+%=\mathop{s_{xy}}_{\substack{\uparrow \\ x\text{と}y \\ \text{の共分散}}}
+=\frac{1}{n}\sum_{i=1}^n
+(\mathop{x_i-\bar{x}}_{\substack{\uparrow \\ x\text{の偏差}}})
+(\mathop{y_i-\bar{y}}_{\substack{\uparrow \\ y\text{の偏差}}})
+\end{align*}\]</span></p>
+<ul>
+<li>単位はない</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>1変量<span class="math inline">\(x\)</span>の分散はの指標
+<span class="math display">\[\begin{align*}
+\text{Var}(x)
+%s_x^2
+=\frac{1}{n}\sum_{i=1}^n (x_i-\bar{x})(x_i-\bar{x})
+\end{align*}\]</span></p></li>
+<li><p>2変量<span class="math inline">\(x,y\)</span>の場合，ヨコ軸方向の偏差<span class="math inline">\(x_i-\bar{x}\)</span>とタテ軸方向の偏差<span class="math inline">\(y_i-\bar{y}\)</span>が定義できるのでが表現できる
+%\begin{align*}
+%s_{xy}=_{i=1}^n (x_i-{x})(y_i-{y})
+%\end{align*}</p></li>
+</ul>
+<blockquote>
+<p>例：K駅周辺のワンルームマンション}</p>
+</blockquote>
+<ul>
+<li>変数<span class="math inline">\(y\)</span>を家賃，変数<span class="math inline">\(x\)</span>を床面積とすると，共分散は5.0203</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+&amp;\text{Cov}(x,y) \\
+%s_{xy}
+&amp;\quad=\frac{1}{42}\sum_{i=1}^{42} (x_i-\bar{x})(y_i-\bar{y}) \\
+&amp;\quad=5.0203
+\end{align*}\]</span></p>
+<!-- \includegraphics[width=0.8 \textwidth]{scat42_rent_space_02.pdf} \\ -->
+<ul>
+<li>【参考】グラフの二軸に箱ひげ図を追加することで，各変数の分布の情報も記述できます</li>
+</ul>
+<!-- \includegraphics[width=0.8 \textwidth]{scat42_rent_space_02.pdf} \\ -->
+<blockquote>
+<p>定義：相関係数(correlation coefficient)}</p>
+<ul>
+<li>共分散の値を，それぞれの変量の標準偏差で基準化した指標がで，次式で定義される</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+\text{Corr}(x,y)
+%=r_{xy}
+&amp;=\frac{\text{Cov}(x,y)}{\text{sd}(x) \times \text{sd}(y)} \\
+&amp;=\frac{\frac{1}{n}\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}
+{\sqrt{\frac{1}{n}\sum_{i=1}^n (x_i-\bar{x})^2}
+\sqrt{\frac{1}{n}\sum_{i=1}^n (y_i-\bar{y})^2}} \\
+&amp;=\frac{s_{xy}}{s_{x}s_{y}}
+\end{align*}\]</span></p>
+</blockquote>
+<ul>
+<li>相関係数の特徴</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>値の下限は<span class="math inline">\(-1\)</span>，上限は<span class="math inline">\(1\)</span><del><span class="math inline">\(\Rightarrow\)</span></del></li>
+<li>2変量間のを測る指標</li>
+<li>データの単位に影響を受けない指標</li>
+</ol>
+<blockquote>
+<p>相関係数の値と散布図の形状}
+<!-- \includegraphics[width=0.9 \textwidth]{fig_corr_scat.png} \\ --></p>
+</blockquote>
+
+</div>
 </div>
   </main>
 
