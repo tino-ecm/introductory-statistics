@@ -6,6 +6,9 @@ render-book
 preview-book
 part-第１部
 統計と人間生活
+演習
+問題１
+問題２
 統計とは
 データの尺度など
 データの尺度
