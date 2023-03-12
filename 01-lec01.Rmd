@@ -99,6 +99,19 @@ https://obamawhitehouse.archives.gov/blog/2013/06/11/what-great-gatsby-curve
 
 ![image of histogram](images/lec01/fig_kichi_1room_example.png){width=50%}
 
+### 演習
+
+SSDSE（教育用標準データセット）
+https://www.nstac.go.jp/use/literacy/ssdse/
+
+e-Statから地域別データをダウンロードする手順
+https://www.nstac.go.jp/sys/files/static/SSDSE/data/2019/eStat-2019.pdf
+
+*   SSDSE（教育用標準データセット）は、e-Stat（政府統計の総合窓口）に収録されている都道府県・市区町村のすがた（社会・人口統計体系）からデータをダウンロードして作成しています。
+この資料は、SSDSEと同じ形式の地域別データを、e-Statから直接ダウンロードする手順についての解説です。SSDSEに別のデータ項目を付加する場合などの参考としてください。
+
+統計データ分析コンペティション
+https://www.nstac.go.jp/statcompe/index.html
 
 
 ## 統計とは
