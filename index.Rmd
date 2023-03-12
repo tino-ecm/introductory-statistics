@@ -17,13 +17,18 @@ csl: chicago-fullnote-bibliography.csl
 
 # 編集用 {-}
 
+R Markdown Cookbook, by Yihui Xie, Christophe Dervieux, Emily Riederer
 https://bookdown.org/yihui/rmarkdown-cookbook/
 
-
-
+Happy Git and GitHub for the useR, by Jennifer Bryan
+https://happygitwithr.com/index.html
 
 Qiita マークダウン記法 一覧表・チートシート
 https://qiita.com/kamorits/items/6f342da395ad57468ae3
+
+表の挿入
+https://lbusett.github.io/insert_table/
+
 
 This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
 
