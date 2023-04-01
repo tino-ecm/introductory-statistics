@@ -1,7 +1,7 @@
 --- 
 title: "初級統計学"
 author: "TI"
-date: "2023-03-12"
+date: "2023-04-01"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
